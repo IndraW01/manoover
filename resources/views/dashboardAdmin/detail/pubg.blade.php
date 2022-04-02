@@ -137,6 +137,25 @@
 
 
 
+
+  <!-- Modal Tolak -->
+  <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="alertHapus">
+            <img src="{{ asset('dist/admin/iconHapus.svg') }}" alt="">
+            <p>Apakah kamu yakin ingin menolak ini ?</p>
+          </div>
+        </div>
+        <div class="footer-modal">
+          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batlkan</span>
+          <span class="button status2 completed">Tolak</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
@@ -148,6 +167,7 @@
           <img src="gambar_dashboard/bukti.jpg" alt="">
         </div>
         <div class="footer-modal">
+          <span class="button status2 completed" data-bs-toggle="modal" data-bs-target="#dropModal">Tolak</span>
           <span class="button status completed">Konfirmasi</span>
         </div>
       </div>

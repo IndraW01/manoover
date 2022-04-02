@@ -12,59 +12,15 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">Mobile Legends</a>
+        <a href="#">Futsal</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a class="active" href="#">Pendaftar</a>
+        <a class="active" href="#">Status</a>
       </li>
     </ul>
   </div>
 </div>
-
-
-<div class="tittle_Competition">Mobile Legends</div>
-<ul class="box-info">
-  <li>
-    <a class="flex" href="/dashboard/futsal">
-      <i class="bx bxs-group"></i>
-      <span class="text">
-        <h3>1020</h3>
-        <p>Pendaftar</p>
-      </span>
-    </a>
-  </li>
-
- <li>
-  <a class="flex" href="/dashboard/ml/belum_verifikasi">
-   <i class="bx bxs-group"></i>
-   <span class="text">
-     <h3>2834</h3>
-     <p> Belum Verifikasi</p>
-   </span>
-  </a>
- </li>
-
- <li>
-  <a class="flex" href="/dashboard/ml/sudah_verifikasi">
-    <i class="bx  bxs-calendar-check"></i>
-    <span class="text">
-      <h3>$2543</h3>
-      <p>Telah Verifikasi</p>
-    </span>
-  </a>
- </li>
-
- <li>
-  <a class="flex" href="/dashboard/ml/tolak">
-    <i class="bx bxs-error"></i>
-    <span class="text">
-      <h3>$2543</h3>
-      <p>Di Tolak</p>
-    </span>
-  </a>
- </li>
-</ul>
 
 
 
@@ -94,7 +50,7 @@
          <td>Hula Hula</td>
          <td>01-10-2021</td>
          <td>Belum Verifikasi</td>
-        <td class="action">
+         <td class="action">
           <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
@@ -107,7 +63,7 @@
          <td>Iya iyaaa wkwk ccccccccccccc</td>
          <td>01-10-2021</td>
          <td>Sudah Verifikasi</td>
-                  <td class="action">
+         <td class="action">
           <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
@@ -120,7 +76,7 @@
          <td>Ihai kakakddddddddd</td>
          <td>01-10-2021</td>
          <td>Ditolak</td>
-                  <td class="action">
+         <td class="action">
           <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
@@ -131,29 +87,26 @@
  </div>
 </div>
 
-
 <!-- Modal Hapus -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <div class="alertHapus">
-        <img src="{{ asset('dist/admin/iconHapus.svg') }}" alt="">
-          <p>Apakah kamu yakin ingin menghapus ini ?</p>
-        </div>
-      </div>
-      <div class="footer-modal">
-        <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batalkan</span>
-        <span class="button status2 completed">Ya, Hapus</span>
-      </div>
-    </div>
-  </div>
+ <div class="modal-dialog ">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+      <div class="alertHapus">
+       <img src="{{ asset('dist/admin/iconHapus.svg') }}" alt="">
+         <p>Apakah kamu yakin ingin menghapus ini ?</p>
+       </div>
+     </div>
+     <div class="footer-modal">
+       <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batalkan</span>
+       <span class="button status2 completed">Ya, Hapus</span>
+     </div>
+   </div>
  </div>
-
-
+</div>
 
 
 </main>

@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+
+
+
+
+
+
+
+// riview ----------------------
+
 Route::get('/', function () {
     return view('layouts.dashboardAdmin');
 });
@@ -47,3 +59,46 @@ Route::get('/dashboard/valorant/detail', function () {
 Route::get('/dashboard/ml/detail', function () {
     return view('dashboardAdmin.detail.ml');
 });
+
+// filter status -----------------
+
+Route::get('/dashboard/futsal/belum_verifikasi', function () {
+    return view('dashboardAdmin.filter.futsal');
+});
+Route::get('/dashboard/futsal/sudah_verifikasi', function () {
+    return view('dashboardAdmin.filter.futsal');
+});
+Route::get('/dashboard/futsal/tolak', function () {
+    return view('dashboardAdmin.filter.futsal');
+});
+
+Route::get('/dashboard/pubg/belum_verifikasi', function () {
+    return view('dashboardAdmin.filter.pubg');
+});
+Route::get('/dashboard/pubg/sudah_verifikasi', function () {
+    return view('dashboardAdmin.filter.pubg');
+});
+Route::get('/dashboard/pubg/tolak', function () {
+    return view('dashboardAdmin.filter.pubg');
+});
+
+Route::get('/dashboard/valorant/belum_verifikasi', function () {
+    return view('dashboardAdmin.filter.valorant');
+});
+Route::get('/dashboard/valorant/sudah_verifikasi', function () {
+    return view('dashboardAdmin.filter.valorant');
+});
+Route::get('/dashboard/valorant/tolak', function () {
+    return view('dashboardAdmin.filter.valorant');
+});
+
+Route::get('/dashboard/ml/belum_verifikasi', function () {
+    return view('dashboardAdmin.filter.ml');
+});
+Route::get('/dashboard/ml/sudah_verifikasi', function () {
+    return view('dashboardAdmin.filter.ml');
+});
+Route::get('/dashboard/ml/tolak', function () {
+    return view('dashboardAdmin.filter.ml');
+});
+

@@ -370,7 +370,7 @@ body {
     margin-left: -30px;
 }
 #content main .box-info li {
-    padding: 24px;
+    padding: 10px;
     background: var(--light);
     border-radius: 20px;
     display: flex;
@@ -526,6 +526,16 @@ body {
     background: var(--blue);
     margin: 10px;
 }
+.button.status2 {
+    font-size: 13px;
+    padding: 7px 16px;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    background: rgb(238, 27, 27);
+    margin: 10px;
+}
 
 #content main .table-data .order table tr td .status2 {
     font-size: 10px;
@@ -586,6 +596,26 @@ body {
 }
 /* MAIN */
 /* CONTENT */
+
+.alertHapus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.alertHapus img {
+    max-width: 330px;
+    width: 100%;
+    padding: 30px 20px;
+}
+.alertHapus p {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 0;
+    max-width: 240px;
+    width: 100%;
+    text-align: center;
+}
 
 @media screen and (max-width: 768px) {
     #sidebar {
@@ -657,4 +687,11 @@ body {
 
 .container_nama {
     display: flex;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+.flex i {
+    margin-right: 10px;
 }
