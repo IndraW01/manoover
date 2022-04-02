@@ -11,6 +11,14 @@ allSideMenu.forEach((item) => {
     });
 });
 
+// TOGGLE notifikasi
+const notif = document.getElementById("notif");
+const info = document.getElementById("info");
+
+notif.addEventListener("click", function () {
+    info.classList.toggle("hide");
+});
+
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector("#content nav .bx.bx-menu");
 const sidebar = document.getElementById("sidebar");

@@ -85,7 +85,7 @@
           <div class="form-input">
           </div>
         </form>
-        <a href="#" class="notification">
+        <a href="#" class="notification" id="notif">
           <i class="bx bxs-bell"></i>
           <span class="num">8</span>
         </a>
@@ -93,6 +93,37 @@
           <img src="img/people.png" />
         </a>
       </nav>
+
+      <div class="info" id="info">
+       <div class="wrap">
+        <img src="{{ asset('default-user.png') }}" alt="" />
+        <div class="content">
+          <p class="nama">Muhamad Azroi</p>
+          <p class="text">Melakukan pendaftaran PUBG</p>
+        </div>
+       </div>
+       <div class="wrap">
+        <img src="{{ asset('default-user.png') }}" alt="" />
+        <div class="content">
+          <p class="nama">Muhamad Azroi</p>
+          <p class="text">Melakukan pendaftaran PUBG</p>
+        </div>
+       </div>
+       <div class="wrap">
+        <img src="{{ asset('default-user.png') }}" alt="" />
+        <div class="content">
+          <p class="nama">Muhamad Azroi</p>
+          <p class="text">Melakukan pendaftaran PUBG</p>
+        </div>
+       </div>
+       <div class="wrap">
+        <img src="{{ asset('default-user.png') }}" alt="" />
+        <div class="content">
+          <p class="nama">Muhamad Azroi</p>
+          <p class="text">Melakukan pendaftaran PUBG</p>
+        </div>
+       </div>
+      </div>
       
       @yield('content')
 
