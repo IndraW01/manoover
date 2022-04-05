@@ -672,6 +672,19 @@ body {
     background: #3c91e6;
 }
 
+@media screen and (max-width: 1007px) {
+    #content main .table-data .head {
+        min-width: 720px;
+    }
+    #content main .table-data .order table {
+        min-width: 720px;
+    }
+
+    #content main .table-data .todo .todo-list {
+        min-width: 720px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -685,9 +698,46 @@ body {
     #content nav .nav-link {
         display: none;
     }
+
+    #content main .table-data .head {
+        min-width: 720px;
+    }
+    #content main .table-data .order table {
+        min-width: 720px;
+    }
+
+    #content main .table-data .todo .todo-list {
+        min-width: 720px;
+    }
 }
 
 @media screen and (max-width: 576px) {
+    .info {
+        right: 20px;
+        top: 65px;
+    }
+
+    #sidebar .tittle {
+        display: none;
+    }
+    #sidebar {
+        width: 0px;
+    }
+    #sidebar.hide {
+        width: 60px;
+    }
+    #sidebar .side-menu li {
+        margin-left: -25px;
+    }
+
+    #sidebar .side-menu li a.logout {
+        margin-left: -30px;
+        font-size: 20px;
+    }
+    #content {
+        width: calc(100% - 0px);
+        left: 0px;
+    }
     #content nav form .form-input input {
         display: none;
     }
@@ -722,13 +772,14 @@ body {
     }
 
     #content main .table-data .head {
-        min-width: 420px;
+        min-width: 720px;
     }
     #content main .table-data .order table {
-        min-width: 420px;
+        min-width: 720px;
     }
+
     #content main .table-data .todo .todo-list {
-        min-width: 420px;
+        min-width: 720px;
     }
 }
 
