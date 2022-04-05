@@ -686,13 +686,26 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+    .info {
+        right: 20px;
+        top: 65px;
+    }
+
+    #sidebar .tittle {
+        display: none;
+    }
     #sidebar {
-        width: 200px;
+        width: 160px;
+    }
+
+    #sidebar .side-menu li a.logout {
+        margin-left: -30px;
+        font-size: 20px;
     }
 
     #content {
         width: calc(100% - 60px);
-        left: 200px;
+        left: 160px;
     }
 
     #content nav .nav-link {
