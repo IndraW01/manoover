@@ -54,7 +54,7 @@
           </td>
           <td>:</td>
           <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span data-bs-toggle="modal" data-bs-target="#riviewModal" class="status completed">Lihat</span>
            <span class="status pending">Download</span>
          </td>
         </tr>
@@ -138,7 +138,18 @@
  </div>
 
 
-
+  <!-- Modal identitas -->
+  <div class="modal fade" id="riviewModal" tabindex="-1" aria-labelledby="riviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+        <div class="footer-modal">
+          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Tutup</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal Tolak -->
   <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">

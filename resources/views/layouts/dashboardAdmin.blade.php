@@ -23,7 +23,7 @@
         </div>
       </a>
       <ul class="side-menu top">
-        <li class="active">
+        <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}">
           <a href="/dashboard">
             <i class="bx bxs-dashboard"></i>
             <span class="text">Home</span>
@@ -33,25 +33,25 @@
       
       <ul class="side-menu top">
        <div class="tittle">Competition</div>
-        <li>
+        <li class="{{ (request()->is('dashboard/pubg')) ? 'active' : '' }}">
           <a href="/dashboard/pubg">
             <i class="bx bxs-game"></i>
             <span class="text">PUBG</span>
           </a>
         </li>
-        <li>
+        <li class="{{ (request()->is('dashboard/ml')) ? 'active' : '' }}" >
           <a href="/dashboard/ml">
             <i class="bx bxs-game"></i>
             <span class="text">ML</span>
           </a>
         </li>
-        <li>
+        <li class="{{ (request()->is('dashboard/valorant')) ? 'active' : '' }}">
           <a href="/dashboard/valorant">
             <i class="bx bxs-game"></i>
             <span class="text">Valorant</span>
           </a>
         </li>
-        <li>
+        <li class="{{ (request()->is('dashboard/futsal')) ? 'active' : '' }}">
           <a href="/dashboard/futsal">
             <i class="bx bxs-game"></i>
             <span class="text">Futsal</span>

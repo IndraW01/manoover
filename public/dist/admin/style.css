@@ -164,6 +164,13 @@ body {
     width: calc(48px - (4px * 2));
     transition: width 0.3s ease;
 }
+#sidebar.hide .tittle {
+    margin-left: 30px;
+    transition: width 0.3s ease;
+}
+#sidebar.hide .logout {
+    margin-left: -30px;
+}
 #sidebar .side-menu li a.logout {
     color: var(--red);
 }

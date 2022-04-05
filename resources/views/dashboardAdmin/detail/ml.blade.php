@@ -74,7 +74,7 @@
                  <td class="no">1</td>
                  <td> Muhamad Azroi </td>
                  <td>
-                  <span class="status2 pending2">Lihat Identitas</span>
+                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
                   <span class="status2 pending">Download</span>
                  </td>
                </tr>
@@ -82,7 +82,7 @@
                  <td class="no">1</td>
                  <td> Muhamad Azroi </td>
                  <td>
-                  <span class="status2 pending2">Lihat Identitas</span>
+                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
                   <span class="status2 pending">Download</span>
                  </td>
                </tr>
@@ -90,7 +90,7 @@
                  <td class="no">1</td>
                  <td> Muhamad Azroi </td>
                  <td>
-                  <span class="status2 pending2">Lihat Identitas</span>
+                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
                   <span class="status2 pending">Download</span>
                  </td>
                </tr>
@@ -98,7 +98,7 @@
                  <td class="no">1</td>
                  <td> Muhamad Azroi </td>
                  <td>
-                  <span class="status2 pending2">Lihat Identitas</span>
+                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
                   <span class="status2 pending">Download</span>
                  </td>
                </tr>
@@ -113,7 +113,7 @@
                  <td class="no">1</td>
                  <td> Muhamad Azroi </td>
                  <td>
-                  <span class="status2 pending2">Lihat Identitas</span>
+                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
                   <span class="status2 pending">Download</span>
                  </td>
                </tr>
@@ -135,7 +135,18 @@
  </div>
 
 
-
+  <!-- Modal identitas -->
+  <div class="modal fade" id="riviewModal" tabindex="-1" aria-labelledby="riviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+        <div class="footer-modal">
+          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Tutup</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Modal Tolak -->

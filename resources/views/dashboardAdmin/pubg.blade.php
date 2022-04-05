@@ -93,7 +93,7 @@
          <td>01-10-2021</td>
          <td>Belum Verifikasi</td>
                   <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -106,7 +106,7 @@
          <td>01-10-2021</td>
          <td>Sudah Verifikasi</td>
                   <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -119,7 +119,7 @@
          <td>01-10-2021</td>
          <td>Ditolak</td>
                   <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
