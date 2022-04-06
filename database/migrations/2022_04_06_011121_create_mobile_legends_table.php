@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('anggota5');
             $table->string('cadangan1')->nullable();
             $table->string('kartu_identitas');
-            $table->string('bukti_pembayaran');
+            $table->string('bukti_pembayaran')->nullable();
             $table->string('status')->default('Belum Verifikasi');
             $table->timestamps();
             $table->softDeletes();

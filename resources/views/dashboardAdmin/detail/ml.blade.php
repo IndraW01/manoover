@@ -120,8 +120,13 @@
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-           <span class="status pending"><a href="{{ route('dashboard.ml.download.bukti', ['mobile_legend' => $mobileLegend]) }}" class="text-white">Download</a></span>
+            @if (!$mobileLegend->bukti_pembayaran)
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
+            @else
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="{{ route('dashboard.ml.download.bukti', ['mobile_legend' => $mobileLegend]) }}" class="text-white">Download</a></span>
+            @endif
          </td>
        </tr>
     </table>
