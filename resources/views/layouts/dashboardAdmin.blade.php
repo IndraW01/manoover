@@ -30,7 +30,7 @@
           </a>
         </li>
       </ul>
-      
+
       <ul class="side-menu top">
        <div class="tittle">Competition</div>
         <li class="{{ (request()->is('dashboard/pubg')) ? 'active' : '' }}">
@@ -40,7 +40,7 @@
           </a>
         </li>
         <li class="{{ (request()->is('dashboard/ml')) ? 'active' : '' }}" >
-          <a href="/dashboard/ml">
+          <a href="{{ route('dashboard.ml.index') }}">
             <i class="bx bxs-game"></i>
             <span class="text">ML</span>
           </a>
@@ -66,7 +66,7 @@
          </a>
        </li>
       <ul class="side-menu">
-       
+
         <li>
           <a href="#" class="logout">
             <i class="bx bxs-log-out-circle"></i>
@@ -76,7 +76,7 @@
       </ul>
     </section>
 
- 
+
 
     <section id="content">
       <nav>
@@ -124,7 +124,7 @@
         </div>
        </div>
       </div>
-      
+
       @yield('content')
 
     </section>

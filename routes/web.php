@@ -1,19 +1,16 @@
 <?php
 
+use App\Http\Controllers\MobileLegendController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+// Route FIX
 
+Route::prefix('/dashboard')->name('dashboard.')->group(function() {
+    Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
+    Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
+    Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
+});
 
 
 
@@ -41,9 +38,7 @@ Route::get('/dashboard/pubg', function () {
 Route::get('/dashboard/valorant', function () {
     return view('dashboardAdmin.valorant');
 });
-Route::get('/dashboard/ml', function () {
-    return view('dashboardAdmin.ml');
-});
+
 
 // detail diatas -----------------
 
@@ -56,9 +51,7 @@ Route::get('/dashboard/pubg/detail', function () {
 Route::get('/dashboard/valorant/detail', function () {
     return view('dashboardAdmin.detail.valorant');
 });
-Route::get('/dashboard/ml/detail', function () {
-    return view('dashboardAdmin.detail.ml');
-});
+
 
 // filter status -----------------
 
@@ -92,13 +85,13 @@ Route::get('/dashboard/valorant/tolak', function () {
     return view('dashboardAdmin.filter.valorant');
 });
 
-Route::get('/dashboard/ml/belum_verifikasi', function () {
-    return view('dashboardAdmin.filter.ml');
-});
-Route::get('/dashboard/ml/sudah_verifikasi', function () {
-    return view('dashboardAdmin.filter.ml');
-});
-Route::get('/dashboard/ml/tolak', function () {
-    return view('dashboardAdmin.filter.ml');
-});
+// Route::get('/dashboard/ml/belum_verifikasi', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
+// Route::get('/dashboard/ml/sudah_verifikasi', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
+// Route::get('/dashboard/ml/tolak', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
 

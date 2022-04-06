@@ -2,20 +2,19 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class MobileLegendSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        return $this->call([
-            MobileLegendSeeder::class,
-        ]);
+        return User::factory()->count(10)->hasMobileLegend()->create();
     }
 }
