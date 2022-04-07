@@ -136,8 +136,8 @@
         <td>:</td>
         <td>
             @if (($mobileLegend->status == 'sudah') || ($mobileLegend->status == 'tolak'))
-                <a href="" class="btn btn-success btn-sm disabled">Verifikasi</a>
-                <a href="" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
+                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
             @else
                 <a href="{{ route('dashboard.ml.verifikasi.berhasil', ['mobile_legend' => $mobileLegend]) }}" class="btn btn-success btn-sm">Verifikasi</a>
                 <a href="{{ route('dashboard.ml.verifikasi.tolak', ['mobile_legend' => $mobileLegend]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>

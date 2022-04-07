@@ -6,6 +6,7 @@ use App\Models\MobileLegend;
 use App\Http\Requests\StoreMobileLegendRequest;
 use App\Http\Requests\UpdateMobileLegendRequest;
 use App\Traits\MobileLegendTrait;
+use Illuminate\Support\Facades\DB;
 
 class MobileLegendController extends Controller
 {
