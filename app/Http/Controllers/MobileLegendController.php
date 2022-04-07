@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\MobileLegend;
 use App\Http\Requests\StoreMobileLegendRequest;
 use App\Http\Requests\UpdateMobileLegendRequest;
+use App\Traits\MobileLegendTrait;
 
 class MobileLegendController extends Controller
 {
+    use MobileLegendTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -88,13 +91,5 @@ class MobileLegendController extends Controller
         //
     }
 
-    public function downloadIdentitas(MobileLegend $mobileLegend)
-    {
-        return response()->download(public_path("berkas\\" . $mobileLegend->kartu_identitas));
-    }
 
-    public function downloadBukti(MobileLegend $mobileLegend)
-    {
-        return response()->download(public_path("img\\" . $mobileLegend->bukti_pembayaran));
-    }
 }

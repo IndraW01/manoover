@@ -134,5 +134,7 @@
     <script src="{{ asset('dist/admin/script.js') }}"></script>
 
     @yield('extra-footer')
+
+    @include('sweetalert::alert')
   </body>
 </html>

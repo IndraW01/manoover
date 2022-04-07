@@ -7,8 +7,16 @@ use Illuminate\Support\Facades\Route;
 // Route FIX
 
 Route::prefix('/dashboard')->name('dashboard.')->group(function() {
+
+    // Download File
     Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
     Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
+
+    // Verikasi Email
+    Route::get('/mobile-legend/verifikasi-berhasil/{mobile_legend}', [MobileLegendController::class, 'verifikasiBerhasil'])->name('ml.verifikasi.berhasil');
+    Route::get('/mobile-legend/verifikasi-tolak/{mobile_legend}', [MobileLegendController::class, 'verifikasiTolak'])->name('ml.verifikasi.tolak');
+
+    // Crud Mobile Legend
     Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
 });
 
