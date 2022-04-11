@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Dashboard'])
 
 @section('content')
 

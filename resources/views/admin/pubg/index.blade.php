@@ -1,8 +1,9 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Pubg Mobile'])
 
 @section('content')
 
 <main>
+
  <div class="head-title">
   <div class="left">
     <h1>Dashboard</h1>
@@ -12,7 +13,7 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">Mobile Legends</a>
+        <a href="#">PUBG</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
@@ -22,51 +23,48 @@
   </div>
 </div>
 
-
-<div class="tittle_Competition">Mobile Legends</div>
+<div class="tittle_Competition">PUBG</div>
 <ul class="box-info">
   <li>
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>{{ $mobileLegends->count() }}</h3>
+        <h3>1020</h3>
         <p>Pendaftar</p>
       </span>
     </a>
   </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/belum_verifikasi">
+  <a class="flex" href="/dashboard/futsal/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>{{ $mobileLegends->where('status', 'belum')->count() }}</h3>
+     <h3>2834</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/sudah_verifikasi">
+  <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>{{ $mobileLegends->where('status', 'sudah')->count() }}</h3>
+      <h3>$2543</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/tolak">
+  <a class="flex" href="/dashboard/futsal/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>{{ $mobileLegends->where('status', 'tolak')->count() }}</h3>
+      <h3>$2543</h3>
       <p>Di Tolak</p>
     </span>
   </a>
  </li>
 </ul>
-
-
 
 <div class="table-data">
  <div class="order">
@@ -86,27 +84,51 @@
        </tr>
      </thead>
      <tbody>
-        @foreach ($mobileLegends as $mobileLegend)
-            <tr>
-                <td>
-                    <img src="{{ asset('img/profile.png') }}" />
-                    <p>{{ $mobileLegend->nama_ketua_tim }}</p>
-                </td>
-                <td>{{ $mobileLegend->nama_tim }}</td>
-                <td>{{ $mobileLegend->created_at->isoFormat('DD-MM-YYYY') }}</td>
-                <td>{{ $mobileLegend->status == 'tolak' ? 'Ditolak' : ($mobileLegend->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
-                <td class="action">
-                    <a href="{{ route('dashboard.ml.show', ['mobile_legend' => $mobileLegend]) }}"><span class="status completed">Detail</span></a>
-                    @if (($mobileLegend->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $mobileLegend->status == 'belum')
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-                    @endif
-                </td>
-            </tr>
-        @endforeach
+       <tr>
+         <td>
+           <img src="img/people.png" />
+           <p>John Doe</p>
+         </td>
+         <td>Hula Hula</td>
+         <td>01-10-2021</td>
+         <td>Belum Verifikasi</td>
+                  <td class="action">
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+          </td>
+       </tr>
+       <tr>
+         <td>
+           <img src="img/people.png" />
+           <p>John Doe</p>
+         </td>
+         <td>Iya iyaaa wkwk ccccccccccccc</td>
+         <td>01-10-2021</td>
+         <td>Sudah Verifikasi</td>
+                  <td class="action">
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+          </td>
+       </tr>
+       <tr>
+         <td>
+           <img src="img/people.png" />
+           <p>John Doe</p>
+         </td>
+         <td>Ihai kakakddddddddd</td>
+         <td>01-10-2021</td>
+         <td>Ditolak</td>
+                  <td class="action">
+          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+          </td>
+       </tr>
+
      </tbody>
    </table>
  </div>
 </div>
+
 
 
 <!-- Modal Hapus -->
@@ -126,7 +148,6 @@
     </div>
   </div>
  </div>
-
 
 
 

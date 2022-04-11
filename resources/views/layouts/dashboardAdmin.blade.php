@@ -12,19 +12,21 @@
 
     @yield('extra-header')
 
+    <title>{{ $title ?? config('app.name') }}</title>
+
   </head>
   <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-      <a href="/dashboard" class="brand">
+      <a href="{{ route('admin.dashboard') }}" class="brand">
         <div class="logo">
          <img src="{{ asset('logo.png') }}" alt="" />
          <div class="text">MANOOVER</div>
         </div>
       </a>
       <ul class="side-menu top">
-        <li class="{{ (request()->is('dashboard')) ? 'active' : '' }}">
-          <a href="/dashboard">
+        <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+          <a href="{{ route('admin.dashboard') }}">
             <i class="bx bxs-dashboard"></i>
             <span class="text">Home</span>
           </a>
@@ -33,26 +35,26 @@
 
       <ul class="side-menu top">
        <div class="tittle">Competition</div>
-        <li class="{{ (request()->is('dashboard/pubg')) ? 'active' : '' }}">
-          <a href="/dashboard/pubg">
+        <li class="{{ request()->routeIs('dashboard.pubg.*') ? 'active' : '' }}">
+          <a href="{{ route('dashboard.pubg.index') }}">
             <i class="bx bxs-game"></i>
             <span class="text">PUBG</span>
           </a>
         </li>
-        <li class="{{ (request()->is('dashboard/ml')) ? 'active' : '' }}" >
+        <li class="{{ request()->routeIs('dashboard.ml.*') ? 'active' : '' }}" >
           <a href="{{ route('dashboard.ml.index') }}">
             <i class="bx bxs-game"></i>
             <span class="text">ML</span>
           </a>
         </li>
-        <li class="{{ (request()->is('dashboard/valorant')) ? 'active' : '' }}">
-          <a href="/dashboard/valorant">
+        <li class="{{ request()->routeIs('dashboard.valorant.*') ? 'active' : '' }}">
+          <a href="{{ route('dashboard.valorant.index') }}">
             <i class="bx bxs-game"></i>
             <span class="text">Valorant</span>
           </a>
         </li>
-        <li class="{{ (request()->is('dashboard/futsal')) ? 'active' : '' }}">
-          <a href="/dashboard/futsal">
+        <li class="{{ request()->routeIs('dashboard.futsal.*') ? 'active' : '' }}">
+          <a href="{{ route('dashboard.futsal.index') }}">
             <i class="bx bxs-game"></i>
             <span class="text">Futsal</span>
           </a>

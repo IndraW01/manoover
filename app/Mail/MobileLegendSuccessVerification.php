@@ -31,6 +31,6 @@ class MobileLegendSuccessVerification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pendaftaran Manoover')->view('email.mobileLegend.success');
+        return $this->subject('Pendaftaran Manoover')->view('admin.email.mobileLegend.success');
     }
 }

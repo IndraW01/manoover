@@ -1,9 +1,8 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Futsal'])
 
 @section('content')
 
 <main>
-
  <div class="head-title">
   <div class="left">
     <h1>Dashboard</h1>
@@ -13,7 +12,7 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">PUBG</a>
+        <a href="#">Futsal</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
@@ -23,7 +22,8 @@
   </div>
 </div>
 
-<div class="tittle_Competition">PUBG</div>
+
+<div class="tittle_Competition">Futsal</div>
 <ul class="box-info">
   <li>
     <a class="flex" href="/dashboard/futsal">
@@ -92,8 +92,8 @@
          <td>Hula Hula</td>
          <td>01-10-2021</td>
          <td>Belum Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+         <td class="action">
+          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -105,8 +105,8 @@
          <td>Iya iyaaa wkwk ccccccccccccc</td>
          <td>01-10-2021</td>
          <td>Sudah Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+         <td class="action">
+          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -118,17 +118,15 @@
          <td>Ihai kakakddddddddd</td>
          <td>01-10-2021</td>
          <td>Ditolak</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
+         <td class="action">
+          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
-       
      </tbody>
    </table>
  </div>
 </div>
-
 
 
 <!-- Modal Hapus -->
@@ -148,6 +146,7 @@
     </div>
   </div>
  </div>
+
 
 
 

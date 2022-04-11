@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Valorant'])
 
 @section('content')
 
@@ -12,7 +12,7 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">Futsal</a>
+        <a href="#">Valorant</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="tittle_Competition">Futsal</div>
+<div class="tittle_Competition">Valorant</div>
 <ul class="box-info">
   <li>
     <a class="flex" href="/dashboard/futsal">
@@ -36,7 +36,7 @@
   </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/belum_verifikasi">
+  <a class="flex" href="/dashboard/valorant/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
      <h3>2834</h3>
@@ -46,7 +46,7 @@
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
+  <a class="flex" href="/dashboard/valorant/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
       <h3>$2543</h3>
@@ -56,7 +56,7 @@
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/tolak">
+  <a class="flex" href="/dashboard/valorant/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
       <h3>$2543</h3>
@@ -65,6 +65,7 @@
   </a>
  </li>
 </ul>
+
 
 <div class="table-data">
  <div class="order">
@@ -92,8 +93,8 @@
          <td>Hula Hula</td>
          <td>01-10-2021</td>
          <td>Belum Verifikasi</td>
-         <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+                  <td class="action">
+          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -105,8 +106,8 @@
          <td>Iya iyaaa wkwk ccccccccccccc</td>
          <td>01-10-2021</td>
          <td>Sudah Verifikasi</td>
-         <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+                  <td class="action">
+          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>
@@ -118,8 +119,8 @@
          <td>Ihai kakakddddddddd</td>
          <td>01-10-2021</td>
          <td>Ditolak</td>
-         <td class="action">
-          <a href="/dashboard/futsal/detail"><span class="status completed">Detail</span></a>
+                  <td class="action">
+          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
           <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
           </td>
        </tr>

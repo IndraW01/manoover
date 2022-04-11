@@ -31,6 +31,6 @@ class MobileLegendRejectVerification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pendaftaran Manoover')->view('email.mobileLegend.reject');
+        return $this->subject('Pendaftaran Manoover')->view('admin.email.mobileLegend.reject');
     }
 }

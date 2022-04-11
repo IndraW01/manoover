@@ -19,7 +19,7 @@ class MobileLegendController extends Controller
      */
     public function index()
     {
-        return view('dashboardAdmin.ml', [
+        return view('admin.mobileLegend.index', [
             'mobileLegends' => MobileLegend::latest()->with('user')->get()
         ]);
     }
@@ -53,7 +53,7 @@ class MobileLegendController extends Controller
      */
     public function show(MobileLegend $mobileLegend)
     {
-        return view('dashboardAdmin.detail.ml', [
+        return view('admin.mobileLegend.show', [
             'mobileLegend' => $mobileLegend
         ]);
     }
