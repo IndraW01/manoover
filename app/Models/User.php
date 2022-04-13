@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -45,5 +46,15 @@ class User extends Authenticatable
     public function mobileLegend()
     {
         return $this->hasOne(MobileLegend::class);
+    }
+
+    public function valorant()
+    {
+        return $this->hasOne(Valorant::class);
+    }
+
+    public function pubg()
+    {
+        return $this->hasOne(PubgMobile::class, 'user_id', 'id');
     }
 }

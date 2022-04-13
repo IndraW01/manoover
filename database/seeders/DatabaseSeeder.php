@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\ValorantSeeder;
+use Database\Seeders\PubgMobileSeeder;
+use Database\Seeders\MobileLegendSeeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         return $this->call([
             MobileLegendSeeder::class,
+            ValorantSeeder::class,
+            PubgMobileSeeder::class,
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MobileLegendController;
+use App\Http\Controllers\ValorantController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,10 +22,11 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
 
     // Crud Mobile Legend
     Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
+    // Crud Valorant
+    Route::resource('/valorant', ValorantController::class)->names('valorant');
 
 
     // index riview ----------------------
-
     Route::get('/futsal', function () {
         return view('admin.futsal.index');
     })->name('futsal.index');
@@ -32,10 +34,6 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     Route::get('/pubg', function () {
         return view('admin.pubg.index');
     })->name('pubg.index');
-
-    Route::get('/valorant', function () {
-        return view('admin.valorant.index');
-    })->name('valorant.index');
 });
 
 
