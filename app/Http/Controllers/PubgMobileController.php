@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\PubgMobile;
 use App\Http\Requests\StorePubgMobileRequest;
 use App\Http\Requests\UpdatePubgMobileRequest;
+use App\Traits\PubgTrait;
 
 class PubgMobileController extends Controller
 {
+    use PubgTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,9 @@ class PubgMobileController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pubg.index', [
+            'pubgMobiles' => PubgMobile::latest()->with('user')->get()
+        ]);
     }
 
     /**
@@ -42,21 +47,23 @@ class PubgMobileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PubgMobile  $pubgMobile
+     * @param  \App\Models\PubgMobile  $pubg
      * @return \Illuminate\Http\Response
      */
-    public function show(PubgMobile $pubgMobile)
+    public function show(PubgMobile $pubg)
     {
-        //
+        return view('admin.pubg.show', [
+            'pubgMobile' => $pubg
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PubgMobile  $pubgMobile
+     * @param  \App\Models\PubgMobile  $pubg
      * @return \Illuminate\Http\Response
      */
-    public function edit(PubgMobile $pubgMobile)
+    public function edit(PubgMobile $pubg)
     {
         //
     }
@@ -65,10 +72,10 @@ class PubgMobileController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatePubgMobileRequest  $request
-     * @param  \App\Models\PubgMobile  $pubgMobile
+     * @param  \App\Models\PubgMobile  $pubg
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePubgMobileRequest $request, PubgMobile $pubgMobile)
+    public function update(UpdatePubgMobileRequest $request, PubgMobile $pubg)
     {
         //
     }
@@ -76,10 +83,10 @@ class PubgMobileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PubgMobile  $pubgMobile
+     * @param  \App\Models\PubgMobile  $pubg
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PubgMobile $pubgMobile)
+    public function destroy(PubgMobile $pubg)
     {
         //
     }

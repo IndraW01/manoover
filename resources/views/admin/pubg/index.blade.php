@@ -3,7 +3,6 @@
 @section('content')
 
 <main>
-
  <div class="head-title">
   <div class="left">
     <h1>Dashboard</h1>
@@ -13,7 +12,7 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">PUBG</a>
+        <a href="#">Pubg Mobile</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
@@ -23,48 +22,51 @@
   </div>
 </div>
 
-<div class="tittle_Competition">PUBG</div>
+
+<div class="tittle_Competition">Pubg Mobile</div>
 <ul class="box-info">
   <li>
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $pubgMobiles->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
   </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/belum_verifikasi">
+  <a class="flex" href="/dashboard/ml/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $pubgMobiles->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
+  <a class="flex" href="/dashboard/ml/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $pubgMobiles->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/futsal/tolak">
+  <a class="flex" href="/dashboard/ml/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $pubgMobiles->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
  </li>
 </ul>
+
+
 
 <div class="table-data">
  <div class="order">
@@ -84,51 +86,27 @@
        </tr>
      </thead>
      <tbody>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Hula Hula</td>
-         <td>01-10-2021</td>
-         <td>Belum Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Iya iyaaa wkwk ccccccccccccc</td>
-         <td>01-10-2021</td>
-         <td>Sudah Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Ihai kakakddddddddd</td>
-         <td>01-10-2021</td>
-         <td>Ditolak</td>
-                  <td class="action">
-          <a href="/dashboard/pubg/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
-
+        @foreach ($pubgMobiles as $pubgMobile)
+            <tr>
+                <td>
+                    <img src="{{ asset('img/profile.png') }}" />
+                    <p>{{ $pubgMobile->nama_ketua_tim }}</p>
+                </td>
+                <td>{{ $pubgMobile->nama_tim }}</td>
+                <td>{{ $pubgMobile->created_at->isoFormat('DD-MM-YYYY') }}</td>
+                <td>{{ $pubgMobile->status == 'tolak' ? 'Ditolak' : ($pubgMobile->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
+                <td class="action">
+                    <a href="{{ route('dashboard.pubg.show', ['pubg' => $pubgMobile]) }}"><span class="status completed">Detail</span></a>
+                    @if (($pubgMobile->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $pubgMobile->status == 'belum')
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
      </tbody>
    </table>
  </div>
 </div>
-
 
 
 <!-- Modal Hapus -->
@@ -148,9 +126,7 @@
     </div>
   </div>
  </div>
-
-
-
 </main>
+
 @endsection
 

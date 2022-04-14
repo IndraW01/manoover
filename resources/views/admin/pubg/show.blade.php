@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Pubg Mobile | Detail'])
 
 @section('content')
 
@@ -12,7 +12,7 @@
        </li>
        <li><i class="bx bx-chevron-right"></i></li>
        <li>
-         <a href="#">PUBG</a>
+         <a href="#">Pubg Moile</a>
        </li>
        <li><i class="bx bx-chevron-right"></i></li>
        <li>
@@ -39,28 +39,28 @@
             Nama Tim
           </td>
           <td>:</td>
-          <td class="answer">Srilala </td>
+          <td class="answer">{{ $pubgMobile->nama_tim }} </td>
         </tr>
         <tr>
           <td>
             Nama Ketua Tim
           </td>
           <td>:</td>
-          <td class="answer">Eki Gantng </td>
+          <td class="answer">{{ $pubgMobile->nama_ketua_tim }} </td>
         </tr>
         <tr>
           <td>
             Email
           </td>
           <td>:</td>
-          <td class="answer">kjjkK@hhh.com</td>
+          <td class="answer">{{ $pubgMobile->user->email }}</td>
         </tr>
         <tr>
           <td>
             No HP
           </td>
           <td>:</td>
-          <td class="answer">089876567</td>
+          <td class="answer">{{ $pubgMobile->no_hp }}</td>
         </tr>
         <tr>
           <td>
@@ -72,35 +72,19 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td> {{ $pubgMobile->anggota1 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">2</td>
+                 <td> {{ $pubgMobile->anggota2 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">3</td>
+                 <td> {{ $pubgMobile->anggota3 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">4</td>
+                 <td> {{ $pubgMobile->anggota4 }} </td>
                </tr>
              </table>
 
@@ -111,29 +95,55 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td> {{ $pubgMobile->cadangan1 }} </td>
                </tr>
              </table>
           </td>
         </tr>
         <tr>
          <td>
+           All Kartu Identitas
+         </td>
+         <td>:</td>
+         <td>
+           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span class="status pending"><a href="{{ route('dashboard.pubg.download.identitas', ['pubg' => $pubgMobile]) }}" class="text-white">Download</a></span>
+         </td>
+       </tr>
+        <tr>
+         <td>
            Bukti Pembayaran
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-           <span class="status pending">Download</span>
+            @if (!$pubgMobile->bukti_pembayaran)
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
+            @else
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="{{ route('dashboard.pubg.download.bukti', ['pubg' => $pubgMobile]) }}" class="text-white">Download</a></span>
+            @endif
          </td>
        </tr>
+       <tr>
+        <td>
+          Verifikasi
+        </td>
+        <td>:</td>
+        <td>
+            @if (($pubgMobile->status == 'sudah') || ($pubgMobile->status == 'tolak'))
+                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
+                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+            @else
+                <a href="{{ route('dashboard.pubg.verifikasi.berhasil', ['pubg' => $pubgMobile]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                <a href="{{ route('dashboard.pubg.verifikasi.tolak', ['pubg' => $pubgMobile]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
+            @endif
+
+        </td>
+      </tr>
     </table>
   </div>
  </div>
-
 
 
   <!-- Modal identitas -->
@@ -148,6 +158,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Modal Tolak -->
   <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">

@@ -29,42 +29,43 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $valorants->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
   </li>
 
  <li>
-  <a class="flex" href="/dashboard/valorant/belum_verifikasi">
+  <a class="flex" href="/dashboard/ml/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $valorants->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/valorant/sudah_verifikasi">
+  <a class="flex" href="/dashboard/ml/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $valorants->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/valorant/tolak">
+  <a class="flex" href="/dashboard/ml/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $valorants->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
  </li>
 </ul>
+
 
 
 <div class="table-data">
@@ -85,45 +86,23 @@
        </tr>
      </thead>
      <tbody>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Hula Hula</td>
-         <td>01-10-2021</td>
-         <td>Belum Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Iya iyaaa wkwk ccccccccccccc</td>
-         <td>01-10-2021</td>
-         <td>Sudah Verifikasi</td>
-                  <td class="action">
-          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
-       <tr>
-         <td>
-           <img src="img/people.png" />
-           <p>John Doe</p>
-         </td>
-         <td>Ihai kakakddddddddd</td>
-         <td>01-10-2021</td>
-         <td>Ditolak</td>
-                  <td class="action">
-          <a href="/dashboard/valorant/detail"><span class="status completed">Detail</span></a>
-          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
-          </td>
-       </tr>
+        @foreach ($valorants as $valorant)
+            <tr>
+                <td>
+                    <img src="{{ asset('img/profile.png') }}" />
+                    <p>{{ $valorant->nama_ketua_tim }}</p>
+                </td>
+                <td>{{ $valorant->nama_tim }}</td>
+                <td>{{ $valorant->created_at->isoFormat('DD-MM-YYYY') }}</td>
+                <td>{{ $valorant->status == 'tolak' ? 'Ditolak' : ($valorant->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
+                <td class="action">
+                    <a href="{{ route('dashboard.valorant.show', ['valorant' => $valorant]) }}"><span class="status completed">Detail</span></a>
+                    @if (($valorant->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $valorant->status == 'belum')
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
      </tbody>
    </table>
  </div>
@@ -147,10 +126,7 @@
     </div>
   </div>
  </div>
-
-
-
-
 </main>
+
 @endsection
 

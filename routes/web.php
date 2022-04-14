@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MobileLegendController;
+use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\ValorantController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,25 +16,30 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     // Download File
     Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
     Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
+    Route::get('/valorant/download-identitas/{valorant}', [ValorantController::class, 'downloadIdentitas'])->name('valorant.download.identitas');
+    Route::get('/valorant/download-bukti/{valorant}', [ValorantController::class, 'downloadBukti'])->name('valorant.download.bukti');
+    Route::get('/pubg/download-identitas/{pubg}', [PubgMobileController::class, 'downloadIdentitas'])->name('pubg.download.identitas');
+    Route::get('/pubg/download-bukti/{pubg}', [PubgMobileController::class, 'downloadBukti'])->name('pubg.download.bukti');
 
     // Verikasi Email
     Route::get('/mobile-legend/verifikasi-berhasil/{mobile_legend}', [MobileLegendController::class, 'verifikasiBerhasil'])->name('ml.verifikasi.berhasil');
     Route::get('/mobile-legend/verifikasi-tolak/{mobile_legend}', [MobileLegendController::class, 'verifikasiTolak'])->name('ml.verifikasi.tolak');
+    Route::get('/valorant/verifikasi-berhasil/{valorant}', [ValorantController::class, 'verifikasiBerhasil'])->name('valorant.verifikasi.berhasil');
+    Route::get('/valorant/verifikasi-tolak/{valorant}', [ValorantController::class, 'verifikasiTolak'])->name('valorant.verifikasi.tolak');
+    Route::get('/pubg/verifikasi-berhasil/{pubg}', [PubgMobileController::class, 'verifikasiBerhasil'])->name('pubg.verifikasi.berhasil');
+    Route::get('/pubg/verifikasi-tolak/{pubg}', [PubgMobileController::class, 'verifikasiTolak'])->name('pubg.verifikasi.tolak');
 
     // Crud Mobile Legend
     Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
     // Crud Valorant
     Route::resource('/valorant', ValorantController::class)->names('valorant');
-
+    // Crud Pubg
+    Route::resource('/pubg', PubgMobileController::class)->names('pubg');
 
     // index riview ----------------------
     Route::get('/futsal', function () {
         return view('admin.futsal.index');
     })->name('futsal.index');
-
-    Route::get('/pubg', function () {
-        return view('admin.pubg.index');
-    })->name('pubg.index');
 });
 
 

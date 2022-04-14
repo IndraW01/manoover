@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Enums\MobileLegendStatus;
+use App\Traits\ModelTraits\SendMailTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MobileLegend extends Model
 {
-    use HasFactory;
+    use HasFactory, SendMailTrait;
 
     protected $fillable = [
         'user_id',
@@ -25,10 +25,6 @@ class MobileLegend extends Model
         'bukti_pembayaran',
         'status',
     ];
-
-    // protected $casts = [
-    //     'status' => MobileLegendStatus::class
-    // ];
 
     public function user()
     {

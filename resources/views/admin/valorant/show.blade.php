@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Valorant | Detail'])
 
 @section('content')
 
@@ -27,7 +27,6 @@
  </div>
 
 
- 
  <div class="table-data">
   <div class="order">
     <div class="head">
@@ -40,28 +39,28 @@
             Nama Tim
           </td>
           <td>:</td>
-          <td class="answer">Srilala </td>
+          <td class="answer">{{ $valorant->nama_tim }} </td>
         </tr>
         <tr>
           <td>
             Nama Ketua Tim
           </td>
           <td>:</td>
-          <td class="answer">Eki Gantng </td>
+          <td class="answer">{{ $valorant->nama_ketua_tim }} </td>
         </tr>
         <tr>
           <td>
             Email
           </td>
           <td>:</td>
-          <td class="answer">kjjkK@hhh.com</td>
+          <td class="answer">{{ $valorant->user->email }}</td>
         </tr>
         <tr>
           <td>
             No HP
           </td>
           <td>:</td>
-          <td class="answer">089876567</td>
+          <td class="answer">{{ $valorant->no_hp }}</td>
         </tr>
         <tr>
           <td>
@@ -73,35 +72,23 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td> {{ $valorant->anggota1 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">2</td>
+                 <td> {{ $valorant->anggota2 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">3</td>
+                 <td> {{ $valorant->anggota3 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td class="no">4</td>
+                 <td> {{ $valorant->anggota4 }} </td>
+               </tr>
+               <tr>
+                 <td class="no">5</td>
+                 <td> {{ $valorant->anggota5 }} </td>
                </tr>
              </table>
 
@@ -112,28 +99,56 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
-                 <td>
-                  <span class="status2 pending2" data-bs-toggle="modal" data-bs-target="#riviewModal">Lihat Identitas</span>
-                  <span class="status2 pending">Download</span>
-                 </td>
+                 <td> {{ $valorant->cadangan1 }} </td>
                </tr>
              </table>
           </td>
         </tr>
         <tr>
          <td>
+           All Kartu Identitas
+         </td>
+         <td>:</td>
+         <td>
+           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span class="status pending"><a href="{{ route('dashboard.valorant.download.identitas', ['valorant' => $valorant]) }}" class="text-white">Download</a></span>
+         </td>
+       </tr>
+        <tr>
+         <td>
            Bukti Pembayaran
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-           <span class="status pending">Download</span>
+            @if (!$valorant->bukti_pembayaran)
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
+            @else
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="{{ route('dashboard.valorant.download.bukti', ['valorant' => $valorant]) }}" class="text-white">Download</a></span>
+            @endif
          </td>
        </tr>
+       <tr>
+        <td>
+          Verifikasi
+        </td>
+        <td>:</td>
+        <td>
+            @if (($valorant->status == 'sudah') || ($valorant->status == 'tolak'))
+                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
+                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+            @else
+                <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                <a href="{{ route('dashboard.valorant.verifikasi.tolak', ['valorant' => $valorant]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
+            @endif
+
+        </td>
+      </tr>
     </table>
   </div>
  </div>
+
 
   <!-- Modal identitas -->
   <div class="modal fade" id="riviewModal" tabindex="-1" aria-labelledby="riviewModalLabel" aria-hidden="true">

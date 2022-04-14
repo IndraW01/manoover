@@ -4,11 +4,13 @@ namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ModelTraits\SendMailTarit;
+use App\Traits\ModelTraits\SendMailTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Valorant extends Model
 {
-    use HasFactory;
+    use HasFactory, SendMailTrait;
 
     protected $fillable = [
         'user_id',
@@ -30,4 +32,5 @@ class Valorant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

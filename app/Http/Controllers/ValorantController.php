@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Valorant;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreValorantRequest;
 use App\Http\Requests\UpdateValorantRequest;
+use App\Traits\ValorantTrait;
 
 class ValorantController extends Controller
 {
+    use ValorantTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +52,9 @@ class ValorantController extends Controller
      */
     public function show(Valorant $valorant)
     {
-        //
+        return view('admin.valorant.show', [
+            'valorant' => $valorant
+        ]);
     }
 
     /**

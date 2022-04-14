@@ -3,10 +3,7 @@
 namespace App\Traits;
 
 use App\Mail\MobileLegendRejectVerification;
-use Exception;
 use App\Models\MobileLegend;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\MobileLegendSuccessVerification;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -36,56 +33,12 @@ trait MobileLegendTrait {
 
     public function verifikasiBerhasil(MobileLegend $mobileLegend)
     {
-        try {
-
-            DB::beginTransaction();
-
-            $mobileLegend->update([
-                'status' => 'sudah',
-            ]);
-
-            Mail::to($mobileLegend->user->email)->send(new MobileLegendSuccessVerification($mobileLegend));
-
-            DB::commit();
-
-            Alert::success('Berhasil', 'Peserta Berhasil di Verikasi');
-
-            return redirect()->back();
-
-        }catch(Exception) {
-            DB::rollBack();
-
-            Alert::error('Gagal', 'Verifikasi Peserta Gagal');
-
-            return redirect()->back();
-        }
+        return $mobileLegend->sendSuccessMail(new MobileLegendSuccessVerification($mobileLegend));
     }
 
     public function verifikasiTolak(MobileLegend $mobileLegend)
     {
-        try {
-
-            DB::beginTransaction();
-
-            $mobileLegend->update([
-                'status' => 'tolak',
-            ]);
-
-            Mail::to($mobileLegend->user->email)->send(new MobileLegendRejectVerification($mobileLegend));
-
-            DB::commit();
-
-            Alert::success('Berhasil', 'Verifikasi di Tolak');
-
-            return redirect()->back();
-
-        }catch(Exception) {
-            DB::rollBack();
-
-            Alert::error('Gagal', 'Verifikasi Gagal di Tolak');
-
-            return redirect()->back();
-        }
+        return $mobileLegend->sendRejectMail(new MobileLegendRejectVerification($mobileLegend));
     }
 
 }
