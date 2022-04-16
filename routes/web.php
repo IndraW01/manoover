@@ -49,7 +49,18 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
 });
 
 
-
+Route::get('/beranda', function () {
+    return view('layouts.landingPage');
+});
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/registrasi', function () {
+    return view('auth.registrasi');
+});
+Route::get('/success-registrasi', function () {
+    return view('auth.success');
+});
 
 
 
