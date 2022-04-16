@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+section .image-layer {
+    position: relative;
+    width: 55%;
+    height: 100%;
+}
+
+section .image-layer .gambar-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section .content-layer {
+    width: 45%;
+    height: 100vh;
+    overflow-y: scroll;
+    background: linear-gradient(
+        180deg,
+        #2283ff 0%,
+        #0060c6 45.83%,
+        #0256ab 100%
+    );
+    padding: 30px 75px;
+}
+
+.content-layer .form-content {
+    width: 100%;
+}
+
+.content-layer .form-content h2 {
+    font-weight: 700;
+    font-size: 31px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+}
+.content-layer .form-content p {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+}
+
+.form-content .input-form .tittle {
+    font-weight: 400;
+    font-size: 16px;
+    padding: 15px 0;
+    color: white;
+}
+
+.form-content .input-form {
+    margin-bottom: 20px;
+}
+
+.form-content .input-form input {
+    width: 100%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+}
+
+.form-content .input-form input::-webkit-input-placeholder {
+    color: white;
+}
+
+/*support mozilla*/
+.form-content .input-form input:-moz-input-placeholder {
+    color: white;
+}
+
+.register {
+    margin-top: 60px;
+    width: 100%;
+    border: 1px solid #f9943b;
+    background: #f9943b;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+.google {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid white;
+    background: white;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #044c98;
+    font-weight: 600;
+}
+.google img {
+    width: 24px;
+    height: 24px;
+}
+
+section .content-layer .wrap {
+    margin-top: 40px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    border-top: 1px solid white;
+}
+section .content-layer .wrap p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    margin-top: 20px;
+}
+section .content-layer .wrap p a {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #f9943b;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    section .image-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    section {
+        justify-content: center;
+        align-items: center;
+    }
+
+    section .content-layer {
+        width: 95%;
+        height: 95%;
+        display: flex;
+        padding: 0;
+        justify-content: center;
+        position: absolute;
+        background: linear-gradient(
+            180deg,
+            #2283ff 0%,
+            #0060c6 45.83%,
+            #0256ab 100%
+        );
+    }
+
+    section .content-layer::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    section .content-layer::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    section .content-layer::-webkit-scrollbar-thumb {
+        background-color: #f9943b;
+    }
+
+    .content-layer .form-content h2 {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 750px) {
+    .content-layer .form-content {
+        width: 95%;
+    }
+}
+
+.containerSuccess {
+    background-image: url("../auth/background.svg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
