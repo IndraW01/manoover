@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FutsalController;
 use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\ValorantController;
@@ -23,6 +24,9 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     // 3. Pubg Mobile
     Route::get('/pubg/download-identitas/{pubg}', [PubgMobileController::class, 'downloadIdentitas'])->name('pubg.download.identitas');
     Route::get('/pubg/download-bukti/{pubg}', [PubgMobileController::class, 'downloadBukti'])->name('pubg.download.bukti');
+    // 4. Futsal
+    Route::get('/futsal/download-identitas/{futsal}', [FutsalController::class, 'downloadIdentitas'])->name('futsal.download.identitas');
+    Route::get('/futsal/download-bukti/{futsal}', [FutsalController::class, 'downloadBukti'])->name('futsal.download.bukti');
 
     // Verikasi Email
     // 1. Mobile Legend
@@ -34,6 +38,9 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     // 3. Pubg Mobile
     Route::get('/pubg/verifikasi-berhasil/{pubg}', [PubgMobileController::class, 'verifikasiBerhasil'])->name('pubg.verifikasi.berhasil');
     Route::get('/pubg/verifikasi-tolak/{pubg}', [PubgMobileController::class, 'verifikasiTolak'])->name('pubg.verifikasi.tolak');
+    // 4. Futsal
+    Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
+    Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
 
     // Crud Mobile Legend
     Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
@@ -41,11 +48,8 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     Route::resource('/valorant', ValorantController::class)->names('valorant');
     // Crud Pubg
     Route::resource('/pubg', PubgMobileController::class)->names('pubg');
-
-    // index riview ----------------------
-    Route::get('/futsal', function () {
-        return view('admin.futsal.index');
-    })->name('futsal.index');
+    // Crud Futsal
+    Route::resource('/futsal', FutsalController::class)->names('futsal');
 });
 
 
@@ -61,21 +65,6 @@ Route::get('/registrasi', function () {
 Route::get('/success-registrasi', function () {
     return view('auth.success');
 });
-
-
-
-// show diatas -----------------
-
-Route::get('/dashboard/futsal/detail', function () {
-    return view('admin.futsal.show');
-});
-Route::get('/dashboard/pubg/detail', function () {
-    return view('admin.pubg.show');
-});
-Route::get('/dashboard/valorant/detail', function () {
-    return view('admin.valorant.show');
-});
-
 
 // filter status -----------------
 

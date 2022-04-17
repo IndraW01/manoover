@@ -9,7 +9,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $pubg->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -19,7 +19,7 @@
   <a class="flex" href="/dashboard/futsal/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $pubg->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -29,7 +29,7 @@
   <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $pubg->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -39,7 +39,7 @@
   <a class="flex" href="/dashboard/futsal/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $pubg->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
@@ -52,7 +52,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $ml->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -62,7 +62,7 @@
   <a class="flex" href="/dashboard/ml/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $ml->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -72,7 +72,7 @@
   <a class="flex" href="/dashboard/ml/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $ml->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -82,7 +82,7 @@
   <a class="flex" href="/dashboard/ml/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $ml->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
@@ -95,7 +95,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $valorant->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -105,7 +105,7 @@
   <a class="flex" href="/dashboard/valorant/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $valorant->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -115,7 +115,7 @@
   <a class="flex" href="/dashboard/valorant/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $valorant->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -125,7 +125,7 @@
   <a class="flex" href="/dashboard/valorant/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $valorant->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
@@ -139,7 +139,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>1020</h3>
+        <h3>{{ $futsal->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -149,7 +149,7 @@
   <a class="flex" href="/dashboard/futsal/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>2834</h3>
+     <h3>{{ $futsal->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -159,7 +159,7 @@
   <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $futsal->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -169,7 +169,7 @@
   <a class="flex" href="/dashboard/futsal/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>$2543</h3>
+      <h3>{{ $futsal->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(PubgMobile::class, 'user_id', 'id');
     }
+
+    public function futsal()
+    {
+        return $this->hasOne(Futsal::class);
+    }
 }

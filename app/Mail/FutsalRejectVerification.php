@@ -2,26 +2,26 @@
 
 namespace App\Mail;
 
-use App\Models\MobileLegend;
+use App\Models\Futsal;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MobileLegendSuccessVerification extends Mailable
+class FutsalRejectVerification extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public MobileLegend $mobileLegend;
+    public Futsal $futsal;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(MobileLegend $mobileLegend)
+    public function __construct(Futsal $futsal)
     {
-        $this->mobileLegend = $mobileLegend;
+        $this->futsal = $futsal;
     }
 
     /**
@@ -31,6 +31,6 @@ class MobileLegendSuccessVerification extends Mailable
      */
     public function build()
     {
-        return $this->subject('Pendaftaran Manoover')->view('admin.email.mobileLegend.success');
+        return $this->subject('Pendaftaran Manoover')->view('admin.email.futsal.reject');
     }
 }

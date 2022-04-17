@@ -99,7 +99,7 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> {{ $valorant->cadangan1 }} </td>
+                 <td> {{ $valorant->cadangan1 ?? '-' }} </td>
                </tr>
              </table>
           </td>
@@ -123,6 +123,9 @@
             @if (!$valorant->bukti_pembayaran)
                 <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
                 <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
+                <span>
+                    <small>Bukti Pembayaran belum di upload</small>
+                 </span>
             @else
                 <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
                 <span class="status pending"><a href="{{ route('dashboard.valorant.download.bukti', ['valorant' => $valorant]) }}" class="text-white">Download</a></span>
@@ -139,7 +142,11 @@
                 <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
                 <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
             @else
-                <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                @if (!$valorant->bukti_pembayaran)
+                    <a href="#" class="btn btn-success btn-sm v-rounded disabled">Verifikasi</a>
+                @else
+                    <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                @endif
                 <a href="{{ route('dashboard.valorant.verifikasi.tolak', ['valorant' => $valorant]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
             @endif
 

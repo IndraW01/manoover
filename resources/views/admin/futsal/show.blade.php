@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin')
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Futsal | Detail'])
 
 @section('content')
 
@@ -36,34 +36,31 @@
     <table>
         <tr>
           <td>
-            Nama Jurusan
-          </td>
-          <td>:</td>
-          <td class="answer">Sistem Informasi</td>
-        </tr>
-        <tr>
-          <td>
             Nama Tim
           </td>
           <td>:</td>
-          <td class="answer">Srilala </td>
+          <td class="answer">{{ $futsal->nama_tim }} </td>
         </tr>
         <tr>
           <td>
-            Kartu Tanda Mahasiswa
+            Nama Ketua Tim
           </td>
           <td>:</td>
+          <td class="answer">{{ $futsal->nama_ketua_tim }} </td>
+        </tr>
+        <tr>
           <td>
-           <span data-bs-toggle="modal" data-bs-target="#riviewModal" class="status completed">Lihat</span>
-           <span class="status pending">Download</span>
-         </td>
+            Email
+          </td>
+          <td>:</td>
+          <td class="answer">{{ $futsal->user->email }}</td>
         </tr>
         <tr>
           <td>
             No HP
           </td>
           <td>:</td>
-          <td class="answer">089876567</td>
+          <td class="answer">{{ $futsal->no_hp }}</td>
         </tr>
         <tr>
           <td>
@@ -75,23 +72,23 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->anggota1 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td class="no">2</td>
+                 <td> {{ $futsal->anggota2 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td class="no">3</td>
+                 <td> {{ $futsal->anggota3 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td class="no">4</td>
+                 <td> {{ $futsal->anggota4 }} </td>
                </tr>
                <tr>
-                 <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td class="no">5</td>
+                 <td> {{ $futsal->anggota5 }} </td>
                </tr>
              </table>
 
@@ -102,37 +99,75 @@
              <table class="child">
                <tr>
                  <td class="no">1</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->cadangan1 ?? '-' }} </td>
                </tr>
                <tr>
                  <td class="no">2</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->cadangan2 ?? '-' }} </td>
                </tr>
                <tr>
                  <td class="no">3</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->cadangan3 ?? '-' }} </td>
                </tr>
                <tr>
                  <td class="no">4</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->cadangan4 ?? '-' }} </td>
                </tr>
                <tr>
                  <td class="no">5</td>
-                 <td> Muhamad Azroi </td>
+                 <td> {{ $futsal->cadangan5 ?? '-' }} </td>
                </tr>
              </table>
           </td>
         </tr>
         <tr>
          <td>
+           All Kartu Identitas
+         </td>
+         <td>:</td>
+         <td>
+           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span class="status pending"><a href="{{ route('dashboard.futsal.download.identitas', ['futsal' => $futsal]) }}" class="text-white">Download</a></span>
+         </td>
+       </tr>
+        <tr>
+         <td>
            Bukti Pembayaran
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-           <span class="status pending">Download</span>
+            @if (!$futsal->bukti_pembayaran)
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
+                <span>
+                    <small>Bukti Pembayaran belum di upload</small>
+                 </span>
+            @else
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span class="status pending"><a href="{{ route('dashboard.futsal.download.bukti', ['futsal' => $futsal]) }}" class="text-white">Download</a></span>
+            @endif
          </td>
        </tr>
+       <tr>
+        <td>
+          Verifikasi
+        </td>
+        <td>:</td>
+        <td>
+            @if (($futsal->status == 'sudah') || ($futsal->status == 'tolak'))
+                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
+                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+            @else
+                @if (!$futsal->bukti_pembayaran)
+                    <a href="#" class="btn btn-success btn-sm v-rounded disabled">Verifikasi</a>
+                @else
+                    <a href="{{ route('dashboard.futsal.verifikasi.berhasil', ['futsal' => $futsal]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                @endif
+                <a href="{{ route('dashboard.futsal.verifikasi.tolak', ['futsal' => $futsal]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
+            @endif
+
+        </td>
+      </tr>
     </table>
   </div>
  </div>
@@ -151,6 +186,7 @@
     </div>
   </div>
 
+
   <!-- Modal Tolak -->
   <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
@@ -162,8 +198,8 @@
           </div>
         </div>
         <div class="footer-modal">
-          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batalkan</span>
-          <span class="button status2 completed">Ya, Tolak</span>
+          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batlkan</span>
+          <span class="button status2 completed">Tolak</span>
         </div>
       </div>
     </div>
