@@ -34,7 +34,7 @@
       </ul>
 
       <ul class="side-menu top">
-       <div class="tittle">Competition</div>
+       <div class="tittle">Management Competition</div>
         <li class="{{ request()->routeIs('dashboard.pubg.*') ? 'active' : '' }}">
           <a href="{{ route('dashboard.pubg.index') }}">
             <i class="bx bxs-game"></i>
@@ -59,12 +59,12 @@
             <span class="text">Futsal</span>
           </a>
         </li>
-        <div class="tittle">Events</div>
+        <div class="tittle">Management Events</div>
 
         <li>
          <a href="#">
            <i class="bx bxs-shopping-bag-alt"></i>
-           <span class="text">Closing</span>
+           <span class="text">Closing Ceremnoy</span>
          </a>
        </li>
       <ul class="side-menu">
