@@ -1,0 +1,99 @@
+// Route FIX
+Route::redirect('/', '/dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+
+Route::prefix('/dashboard')->name('dashboard.')->group(function() {
+
+    // Download File
+    // 1. Mobile Legend
+    Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
+    Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
+    // 2. Valorant
+    Route::get('/valorant/download-identitas/{valorant}', [ValorantController::class, 'downloadIdentitas'])->name('valorant.download.identitas');
+    Route::get('/valorant/download-bukti/{valorant}', [ValorantController::class, 'downloadBukti'])->name('valorant.download.bukti');
+    // 3. Pubg Mobile
+    Route::get('/pubg/download-identitas/{pubg}', [PubgMobileController::class, 'downloadIdentitas'])->name('pubg.download.identitas');
+    Route::get('/pubg/download-bukti/{pubg}', [PubgMobileController::class, 'downloadBukti'])->name('pubg.download.bukti');
+    // 4. Futsal
+    Route::get('/futsal/download-identitas/{futsal}', [FutsalController::class, 'downloadIdentitas'])->name('futsal.download.identitas');
+    Route::get('/futsal/download-bukti/{futsal}', [FutsalController::class, 'downloadBukti'])->name('futsal.download.bukti');
+
+    // Verikasi Email
+    // 1. Mobile Legend
+    Route::get('/mobile-legend/verifikasi-berhasil/{mobile_legend}', [MobileLegendController::class, 'verifikasiBerhasil'])->name('ml.verifikasi.berhasil');
+    Route::get('/mobile-legend/verifikasi-tolak/{mobile_legend}', [MobileLegendController::class, 'verifikasiTolak'])->name('ml.verifikasi.tolak');
+    // 2. Valorant
+    Route::get('/valorant/verifikasi-berhasil/{valorant}', [ValorantController::class, 'verifikasiBerhasil'])->name('valorant.verifikasi.berhasil');
+    Route::get('/valorant/verifikasi-tolak/{valorant}', [ValorantController::class, 'verifikasiTolak'])->name('valorant.verifikasi.tolak');
+    // 3. Pubg Mobile
+    Route::get('/pubg/verifikasi-berhasil/{pubg}', [PubgMobileController::class, 'verifikasiBerhasil'])->name('pubg.verifikasi.berhasil');
+    Route::get('/pubg/verifikasi-tolak/{pubg}', [PubgMobileController::class, 'verifikasiTolak'])->name('pubg.verifikasi.tolak');
+    // 4. Futsal
+    Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
+    Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
+
+    // Crud Mobile Legend
+    Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
+    // Crud Valorant
+    Route::resource('/valorant', ValorantController::class)->names('valorant');
+    // Crud Pubg
+    Route::resource('/pubg', PubgMobileController::class)->names('pubg');
+    // Crud Futsal
+    Route::resource('/futsal', FutsalController::class)->names('futsal');
+});
+
+
+Route::get('/beranda', function () {
+    return view('layouts.landingPage');
+});
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/registrasi', function () {
+    return view('auth.registrasi');
+});
+Route::get('/success-registrasi', function () {
+    return view('auth.success');
+});
+
+// filter status -----------------
+
+// Route::get('/dashboard/futsal/belum_verifikasi', function () {
+//     return view('dashboardAdmin.filter.futsal');
+// });
+// Route::get('/dashboard/futsal/sudah_verifikasi', function () {
+//     return view('dashboardAdmin.filter.futsal');
+// });
+// Route::get('/dashboard/futsal/tolak', function () {
+//     return view('dashboardAdmin.filter.futsal');
+// });
+
+// Route::get('/dashboard/pubg/belum_verifikasi', function () {
+//     return view('dashboardAdmin.filter.pubg');
+// });
+// Route::get('/dashboard/pubg/sudah_verifikasi', function () {
+//     return view('dashboardAdmin.filter.pubg');
+// });
+// Route::get('/dashboard/pubg/tolak', function () {
+//     return view('dashboardAdmin.filter.pubg');
+// });
+
+// Route::get('/dashboard/valorant/belum_verifikasi', function () {
+//     return view('dashboardAdmin.filter.valorant');
+// });
+// Route::get('/dashboard/valorant/sudah_verifikasi', function () {
+//     return view('dashboardAdmin.filter.valorant');
+// });
+// Route::get('/dashboard/valorant/tolak', function () {
+//     return view('dashboardAdmin.filter.valorant');
+// });
+
+// Route::get('/dashboard/ml/belum_verifikasi', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
+// Route::get('/dashboard/ml/sudah_verifikasi', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
+// Route::get('/dashboard/ml/tolak', function () {
+//     return view('dashboardAdmin.filter.ml');
+// });
