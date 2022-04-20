@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="{{ asset('dist/landingPage/style.css') }}" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title>Manoover</title>
   </head>
   <body>
     <div class="wrap">
@@ -59,8 +59,28 @@
                   >
                 </li>
               </ul>
-              <a href="/login" class="login">Login</a>
-              <a href="/registrasi" class="register">Register</a>
+                @auth
+                    <div class="d-flex user-logged nav-item dropdown no-arrow">
+                        <a href="#" class="text-white text-decoration-none" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Halo, {{ auth()->user()->name }}
+                            <img src="{{ auth()->user()->avatar }}" class="user-photo rounded-circle" alt="" width="35px">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
+                                <li>
+                                    <a href="#" class="dropdown-item">My Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
+                                    <form action="{{ route('user.logout') }}" method="POST" id="logout-form" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </a>
+                    </div>
+                @else
+                    <a href="{{ route('user.login') }}" class="login">Login</a>
+                    <a href="/registrasi" class="register">Register</a>
+                @endauth
             </div>
           </div>
         </nav>
@@ -100,7 +120,7 @@
           <img class="ikan" src="{{ asset('dist/landingPage/image/ikan1.svg') }}" alt="">
         </div>
       </section>
-      
+
 
       <section class="tree" id="tree">
         <h2>About Us</h2>
@@ -132,7 +152,7 @@
               maintaining marine ecosystems.Manoover also held a real action in
               the form of charity that aims to invite the community in
               maintaining the ecosystem by donating mangrove seeds. Donations
-              can be given through the following link 
+              can be given through the following link
               https://LindungiHutan.com/ 1000PohonManooverMSA or by buying 1
               manoover closing ceremony ticket equal to donating 1 mangrove
               seedling
@@ -172,7 +192,7 @@
 
 
 
-      
+
       <section class="five" id="five">
         <h2>Timeline</h2>
         <div class="wrap-line">
@@ -223,8 +243,8 @@
         </div>
       </section>
 
- 
-            
+
+
       <section class="six" id="six">
        <div class="wrap">
         <p>Sponsored by :</p>
@@ -294,10 +314,10 @@
         </div>
         <br><br><br>
       </section>
-    </div> 
+    </div>
 
 
-    
+
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -309,11 +329,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-     
+
 AOS.init();
 
     </script>
-  
+
   </body>
-  
+
 </html>
