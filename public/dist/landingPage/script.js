@@ -36,13 +36,3 @@ navMenu2.addEventListener("mouseout", () => {
     content21.classList.add("d-none");
     content31.classList.add("d-none");
 });
-
-$(document).ready(function () {
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 680) {
-            $(".light").removeClass("d-none");
-        } else {
-            $(".light").addClass("d-none");
-        }
-    });
-});

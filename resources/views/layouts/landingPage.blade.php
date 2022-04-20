@@ -89,7 +89,7 @@
           <img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt="" />
           <p>Welcome to</p>
           <h2>The 3rd Manoover</h2>
-          <a href="#" class="explore">Explore Manoover</a>
+          <a href="#two" class="explore">Explore Manoover</a>
         </div>
         <img src="{{ asset('dist/landingPage/image/OmbakAtas.svg') }}" class="OmbakAtas" alt="">
       </section>
@@ -172,9 +172,9 @@
           <div class="wrapEvent" data-aos="fade-up">
             <img src="{{ asset('dist/landingPage/image/ivent2.svg') }}" alt="" />
             <div id="demo" class="content-wrapEvent">
-              <p class="contentEvent1  d-none">Competition</p>
+              <p class="contentEvent1  d-none">Management Competition</p>
               <p class="contentEvent2 d-none">It is one of a series of Manoover that facilitates students' interests and talents in the field of sports and arts that uphold sportsmanship and creativity. The Management Competition was held for a total of 4 days starting from the E-Sport competition (PUBG, Valorant, Mobile Legend) on June 3rd-June 5th, 2022, Futsal on June 4th, 2022, and Band Audition on July 23th, 2022</p>
-              <a href="#" class="contentEvent3 d-none"><button>Register Now</button></a>
+              <a href="/competition" class="contentEvent3 d-none"><button>Register Now</button></a>
             </div>
           </div>
          </div>
@@ -182,12 +182,13 @@
           <div class="wrapEvent" data-aos="fade-up">
             <img src="{{ asset('dist/landingPage/image/ivent1.svg') }}" alt="" />
             <div id="demo2" class="content-wrapEvent2">
-              <p class="contentEvent11  d-none">Event</p>
+              <p class="contentEvent11  d-none">Management Closing Ceremony</p>
               <p class="contentEvent21 d-none">Is the highlight of all Manoover series with performances from Band Featuring, Guest Star, Special Performance, Band Performance and others. Management Closing Ceremony was held on July 30th, 2022. </p>
               <a href="#" class="contentEvent31 d-none"><button>Register Now</button></a>
             </div>
           </div>
          </div>
+        </div>
       </section>
 
 
@@ -287,28 +288,28 @@
         </div>
         <div class="col-md-4 kolom">
          <div class="tittle">Menu</div>
-         <a href="#">Home</a>
-         <a href="#">About Us</a>
-         <a href="#">Events</a>
-         <a href="#">Timeline</a>
-         <a href="#">Sponsor </a>
+         <a href="#one">Home</a>
+         <a href="#tree">About Us</a>
+         <a href="#four">Events</a>
+         <a href="#five">Timeline</a>
+         <a href="#six">Sponsor </a>
         </div>
-        <div class="col-md-4 kolom">
+        <div class="col-md-4 kolom ">
          <div class="tittle">Contact Us</div>
          <li>
-          <img src="instagram.svg" alt="">
+          <img src="{{ asset('dist/landingPage/image/instagram.svg') }}" alt="">
           <p>@manoover.undip</p>
          </li>
          <li>
-          <img src="Google.svg" alt="">
+          <img src="{{ asset('dist/landingPage/image/Google.svg') }}" alt="">
           <p>manooverundip@gmail.com</p>
          </li>
          <li>
-          <img src="WhatsApp.svg" alt="">
+          <img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" alt="">
           <p>081297317866 : Ken Arsyi N.R.K.</p>
          </li>
          <li>
-          <img src="WhatsApp.svg" alt="">
+          <img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" alt="">
           <p>08112728570   : Amanda Aprilya Liza</p>
          </li>
         </div>
@@ -326,12 +327,22 @@
     ></script>
     <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="{{ asset('dist/landingPage/script.js') }}"></script>
+    <script src="{{ asset('dist/landingPage/script3.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
 
-AOS.init();
+      AOS.init();
 
+      $(document).ready(function () {
+          $(window).scroll(function () {
+              if ($(this).scrollTop() > 680) {
+                  $(".light").removeClass("d-none");
+              } else {
+                  $(".light").addClass("d-none");
+              }
+          });
+      });
     </script>
 
   </body>

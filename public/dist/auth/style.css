@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "poppins", sans-serif;
+}
+
 section {
     position: relative;
     width: 100%;
@@ -38,17 +42,32 @@ section .content-layer {
         #0060c6 45.83%,
         #0256ab 100%
     );
-    padding: 30px 75px;
+    padding: 50px 75px;
 }
 
 .content-layer .form-content {
     width: 100%;
 }
 
+.content-layer .form-content .back {
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    text-decoration: none;
+}
+.content-layer .form-content .back img {
+    padding-right: 10px;
+    margin-top: -17px;
+}
+.content-layer .form-content .back p {
+    font-weight: 600;
+    font-size: 16px;
+}
 .content-layer .form-content h2 {
     font-weight: 700;
     font-size: 31px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
     color: white;
 }
@@ -62,7 +81,7 @@ section .content-layer {
 .form-content .input-form .tittle {
     font-weight: 400;
     font-size: 16px;
-    padding: 15px 0;
+    padding: 10px 0;
     color: white;
 }
 
@@ -91,7 +110,7 @@ section .content-layer {
 }
 
 .register {
-    margin-top: 60px;
+    margin-top: 40px;
     width: 100%;
     border: 1px solid #f9943b;
     background: #f9943b;
@@ -117,10 +136,11 @@ section .content-layer {
 .google img {
     width: 24px;
     height: 24px;
+    margin-right: 10px;
 }
 
 section .content-layer .wrap {
-    margin-top: 40px;
+    margin-top: 60px;
     position: relative;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -132,7 +152,7 @@ section .content-layer .wrap p {
     font-weight: 400;
     font-size: 16px;
     color: white;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 section .content-layer .wrap p a {
     text-align: center;
@@ -192,12 +212,4 @@ section .content-layer .wrap p a {
     .content-layer .form-content {
         width: 95%;
     }
-}
-
-.containerSuccess {
-    background-image: url("../auth/background.svg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100%;
 }

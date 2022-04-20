@@ -5,6 +5,10 @@
 
 <div class="content-layer">
  <div class="form-content">
+    <a href="/" class="back">
+        <img src="{{asset('dist/auth/arrow.svg')}}" alt="">
+        <p>Kembali ke Homepage</p>
+    </a>
      <h2>Login</h2>
      <p>Sebelum mendaftar Competition atau membeli tiket, silahkan login terlebih dulu ya</p>
      <form method="POST" action="#">
@@ -20,8 +24,8 @@
          <button class="register">Login</button>
      </form>
 
-     <a href="{{ route('user.login.google') }}" class="google"><img src="{{ asset('ic_google.svg') }}" alt="">Google</a>
-
+     
+     <a href="{{ route('user.login.google') }}" ><button class="google"><img  src="{{ asset('ic_google.svg') }}" alt="">Google</button></a>
      <div class="wrap">
        <p>Belum punya akun <a href="{{ route('user.register') }}">Daftar</a></p>
      </div>

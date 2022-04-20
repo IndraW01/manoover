@@ -64,6 +64,43 @@ Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::get('/sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('/auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 
+Route::get('/verifikasi-email', function () {
+    return view('auth.verifikasiEmail');
+});
+
+
+
+Route::get('/registrasi-berhasil', function () {
+    return view('auth.success.emailSuccess');
+});
+Route::get('/pendafatar-pubg-berhasil', function () {
+    return view('auth.success.PUBGSuccess');
+});
+Route::get('/pendafatar-ml-berhasil', function () {
+    return view('auth.success.mlSuccess');
+});
+Route::get('/pendafatar-valorant-berhasil', function () {
+    return view('auth.success.valorantSuccess');
+});
+Route::get('/pendafatar-putsal-berhasil', function () {
+    return view('auth.success.putsalSuccess');
+});
+Route::get('/competition', function () {
+    return view('layouts.competition');
+});
+Route::get('/detail-pubg', function () {
+    return view('user.pubg.detail');
+});
+Route::get('/pendaftaran-pubg', function () {
+    return view('user.pubg.form');
+});
+
+
+
+
+
+
+
 
 // Route::get('/success-registrasi', function () {
 //     return view('auth.success');

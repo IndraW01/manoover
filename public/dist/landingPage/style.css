@@ -19,10 +19,10 @@ body {
 }
 
 nav .nav-item .nav-link {
-    padding-right: 25px;
+    padding-right: 40px !important;
     font-size: 16px;
     font-weight: 600;
-    font-family: "Inter", sans-serif;
+    font-family: "poppins", sans-serif;
     color: white !important;
     margin-bottom: 7px;
 }
@@ -100,6 +100,20 @@ section.one .content .explore {
     font-weight: 600;
     font-family: "Inter", sans-serif;
     padding: 15px 65px;
+    text-decoration: none;
+    color: white !important ;
+    border-radius: 40px;
+    background: #044c98;
+    text-align: center;
+    margin: 20px 0;
+}
+section.one .content .exploreCompetition {
+    max-width: 310px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    padding: 15px 10px;
     text-decoration: none;
     color: white !important ;
     border-radius: 40px;
@@ -291,6 +305,14 @@ section.four {
     position: relative;
 }
 
+section.four .OmbakBawah {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
 section.four h2 {
     font-size: 40px;
     font-weight: 700;
@@ -308,29 +330,37 @@ section.four .row .col-md-6 {
 section.four .row .col-md-6 img {
     max-width: 560px;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+}
+
+.space {
+    padding-bottom: 70px;
 }
 
 .wrapEvent {
     position: relative;
 }
+.wrapEvent .content-wrapEvent4,
+.wrapEvent .content-wrapEvent3,
 .wrapEvent .content-wrapEvent2,
 .wrapEvent .content-wrapEvent {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     border-radius: 45px;
-    /* padding: 20px; */
+    /* padding: 10px; */
 }
+.wrapEvent .content-wrapEvent4.show,
+.wrapEvent .content-wrapEvent3.show,
 .wrapEvent .content-wrapEvent2.show,
 .wrapEvent .content-wrapEvent.show {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     background: linear-gradient(
         rgba(50, 50, 50, 0) 0%,
         rgba(50, 50, 50, 0.61) 29.69%,
@@ -358,8 +388,8 @@ section.four .row .col-md-6 img {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
-    bottom: 5px;
-    width: 80%;
+    bottom: 0;
+    width: 90%;
     background: #f9943b;
     padding: 12px 0;
     color: white;
@@ -370,6 +400,35 @@ section.four .row .col-md-6 img {
 .wrapEvent .content-wrapEvent2.show .contentEvent31 button:hover,
 .wrapEvent .content-wrapEvent.show .contentEvent3 button:hover {
     background: #cf7b31;
+    border: 1px solid #cf7b31;
+}
+
+.wrapEvent .content-wrapEvent4 .tittleCompetition,
+.wrapEvent .content-wrapEvent3 .tittleCompetition,
+.wrapEvent .content-wrapEvent2 .tittleCompetition,
+.wrapEvent .content-wrapEvent .tittleCompetition {
+    position: absolute;
+    left: 25px;
+    bottom: 70px;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+}
+.wrapEvent .content-wrapEvent4 .btnCompetition,
+.wrapEvent .content-wrapEvent3 .btnCompetition,
+.wrapEvent .content-wrapEvent2 .btnCompetition,
+.wrapEvent .content-wrapEvent .btnCompetition {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    width: 90%;
+    background: #f9943b;
+    padding: 12px 0;
+    color: white;
+    border-radius: 45px;
+    outline: none;
+    border: 1px solid #f9943b;
 }
 
 section.five {
@@ -573,6 +632,9 @@ section.footer {
 section.footer img {
     max-width: 560px;
     width: 100%;
+    display: flex;
+    align-self: baseline;
+    margin-top: 3px;
 }
 
 .wrapAnimasi {
