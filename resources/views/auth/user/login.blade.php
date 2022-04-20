@@ -16,16 +16,16 @@
              <div class="tittle">Password</div>
              <input type="password" name="email" value="" placeholder="Masukkan password anda..." required autocomplete="email" autofocus>
          </div>
-        
+
          <button class="register">Login</button>
      </form>
 
-     <button class="google"><img src="Google.svg" alt=""> Daftar dengan google</button>
+     <a href="{{ route('user.login.google') }}" class="google"><img src="{{ asset('ic_google.svg') }}" alt="">Google</a>
 
      <div class="wrap">
-       <p>Belum punya akun <a href="/registrasi">Daftar</a></p>
+       <p>Belum punya akun <a href="{{ route('user.register') }}">Daftar</a></p>
      </div>
 
- </div>  
+ </div>
 
 @endsection

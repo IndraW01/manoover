@@ -1,19 +1,22 @@
 <?php
 
+use App\Http\Controllers\Auth\User\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FutsalController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\ValorantController;
 use Illuminate\Support\Facades\Route;
 
 
+// Landing Page
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // Route FIX
-Route::redirect('/', '/dashboard');
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-Route::prefix('/dashboard')->name('dashboard.')->group(function() {
-
+Route::prefix('/dashboard-admin')->name('dashboard.')->group(function() {
     // Download File
     // 1. Mobile Legend
     Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
@@ -52,19 +55,19 @@ Route::prefix('/dashboard')->name('dashboard.')->group(function() {
     Route::resource('/futsal', FutsalController::class)->names('futsal');
 });
 
+// Route Auth
+//Login With Google (Socialite Route) Routes
+Route::get('/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/registrasi', [UserController::class, 'register'])->name('user.register');
+Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::get('/beranda', function () {
-    return view('layouts.landingPage');
-});
-Route::get('/login', function () {
-    return view('auth.login');
-});
-Route::get('/registrasi', function () {
-    return view('auth.registrasi');
-});
-Route::get('/success-registrasi', function () {
-    return view('auth.success');
-});
+Route::get('/sign-in-google', [UserController::class, 'google'])->name('user.login.google');
+Route::get('/auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
+
+
+// Route::get('/success-registrasi', function () {
+//     return view('auth.success');
+// });
 
 // filter status -----------------
 
