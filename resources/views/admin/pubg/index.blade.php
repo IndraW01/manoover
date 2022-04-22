@@ -97,7 +97,7 @@
                 <td>{{ $pubgMobile->status == 'tolak' ? 'Ditolak' : ($pubgMobile->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
                 <td class="action">
                     <a href="{{ route('dashboard.pubg.show', ['pubg' => $pubgMobile]) }}"><span class="status completed">Detail</span></a>
-                    @if (($pubgMobile->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $pubgMobile->status == 'belum')
+                    @if ((Carbon\Carbon::now() > $pubgMobile->created_at->addDay()) && ($pubgMobile->status == 'belum'))
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
                     @endif
                 </td>

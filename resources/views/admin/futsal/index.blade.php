@@ -97,7 +97,7 @@
                 <td>{{ $futsal->status == 'tolak' ? 'Ditolak' : ($futsal->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
                 <td class="action">
                     <a href="{{ route('dashboard.futsal.show', ['futsal' => $futsal]) }}"><span class="status completed">Detail</span></a>
-                    @if (($futsal->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $futsal->status == 'belum')
+                    @if ((Carbon\Carbon::now() > $futsal->created_at->addDay()) && ($futsal->status == 'belum'))
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
                     @endif
                 </td>

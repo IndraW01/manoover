@@ -97,7 +97,7 @@
                 <td>{{ $mobileLegend->status == 'tolak' ? 'Ditolak' : ($mobileLegend->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
                 <td class="action">
                     <a href="{{ route('dashboard.ml.show', ['mobile_legend' => $mobileLegend]) }}"><span class="status completed">Detail</span></a>
-                    @if (($mobileLegend->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $mobileLegend->status == 'belum')
+                    @if ((Carbon\Carbon::now() > $mobileLegend->created_at->addDay()) && ($mobileLegend->status == 'belum'))
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
                     @endif
                 </td>

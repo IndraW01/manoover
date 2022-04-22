@@ -63,14 +63,14 @@
                     <div class="d-flex user-logged nav-item dropdown no-arrow">
                         <a href="#" class="text-white text-decoration-none" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Halo, {{ auth()->user()->name }}
-                            <img src="{{ auth()->user()->avatar }}" class="user-photo rounded-circle" alt="" width="35px">
+                            <img src="{{ auth()->user()->avatar ?? '/img/profile.png'}}" class="user-photo rounded-circle" alt="" width="35px">
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
                                     <a href="#" class="dropdown-item">My Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
-                                    <form action="{{ route('user.logout') }}" method="POST" id="logout-form" style="display: none;">
+                                    <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: none;">
                                         @csrf
                                     </form>
                                 </li>
@@ -78,8 +78,8 @@
                         </a>
                     </div>
                 @else
-                    <a href="{{ route('user.login') }}" class="login">Login</a>
-                    <a href="/registrasi" class="register">Register</a>
+                    <a href="{{ route('login') }}" class="login">Login</a>
+                    <a href="{{ route('register') }}" class="register">Register</a>
                 @endauth
             </div>
           </div>

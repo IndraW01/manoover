@@ -1,17 +1,22 @@
 <?php
 
-use App\Http\Controllers\Auth\User\UserController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FutsalController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MobileLegendController;
-use App\Http\Controllers\PubgMobileController;
-use App\Http\Controllers\ValorantController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FutsalController;
+use App\Http\Controllers\ValorantController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PubgMobileController;
+use App\Http\Controllers\MobileLegendController;
+use App\Http\Controllers\Auth\User\UserController;
 
 
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/tes', function() {
+    return 'Tes';
+})->middleware('verified');
 
 // Route FIX
 Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
@@ -57,16 +62,19 @@ Route::prefix('/dashboard-admin')->name('dashboard.')->group(function() {
 
 // Route Auth
 //Login With Google (Socialite Route) Routes
-Route::get('/login', [UserController::class, 'login'])->name('user.login');
-Route::get('/registrasi', [UserController::class, 'register'])->name('user.register');
-Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::get('/sign-in-google', [UserController::class, 'google'])->name('user.login.google');
-Route::get('/auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
+Route::middleware(['guest'])->group(function() {
 
-Route::get('/verifikasi-email', function () {
-    return view('auth.verifikasiEmail');
+    Route::get('/sign-in-google', [UserController::class, 'google'])->name('user.login.google');
+    Route::get('/auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
+
 });
+
+Route::get('/verifikasi-email', [UserController::class, 'verifikasiEmail'])->name('user.verikasi');
+
+
+// Login Email
+Auth::routes(['verify' => true]);
 
 
 
@@ -147,4 +155,7 @@ Route::get('/pendaftaran-pubg', function () {
 // Route::get('/dashboard/ml/tolak', function () {
 //     return view('dashboardAdmin.filter.ml');
 // });
+
+
+
 
