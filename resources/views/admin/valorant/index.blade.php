@@ -97,7 +97,7 @@
                 <td>{{ $valorant->status == 'tolak' ? 'Ditolak' : ($valorant->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
                 <td class="action">
                     <a href="{{ route('dashboard.valorant.show', ['valorant' => $valorant]) }}"><span class="status completed">Detail</span></a>
-                    @if (($valorant->created_at->isoFormat('DD-MM-YYYY') != Carbon\Carbon::now()->isoFormat('DD-MM-YYYY')) && $valorant->status == 'belum')
+                    @if ((Carbon\Carbon::now() > $valorant->created_at->addDay()) && ($valorant->status == 'belum'))
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
                     @endif
                 </td>

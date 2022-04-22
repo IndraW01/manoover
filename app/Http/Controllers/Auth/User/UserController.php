@@ -10,16 +10,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
-    public function login()
-    {
-        return view('auth.user.login');
-    }
-
-    public function register()
-    {
-        return view('auth.user.registrasi');
-    }
-
     public function google()
     {
         return Socialite::driver('google')->redirect();
@@ -43,14 +33,8 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
-    public function logout(Request $request)
+    public function verifikasiEmail()
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect()->route('home');
+        return view('auth.verifikasiEmail');
     }
 }
