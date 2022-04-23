@@ -72,7 +72,7 @@ Route::get('/verifikasi-email', [UserController::class, 'verifikasiEmail'])->nam
 Auth::routes(['verify' => true]);
 
 // Route Competition
-Route::get('/competition', [CompetitionController::class, 'index'])->middleware(['verified']);
+Route::get('/competition', [CompetitionController::class, 'index'])->middleware(['auth', 'verified']);
 
 
 Route::get('/registrasi-berhasil', function () {
