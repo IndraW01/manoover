@@ -4,9 +4,9 @@
 @section('content')
 <div class="wrapForm">
  <div class="top">
-  <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
+  <img src="{{ asset('dist/user/image/bennvalorant.svg') }}" alt="" />
  </div>
- <h3>PUBG Mobile Competition</h3>
+ <h3>Valorant Competition</h3>
 
  <h4>Data Tim</h4>
 
@@ -123,6 +123,18 @@
    />
  </div>
  <div class="input-form">
+  <div class="tittle">Nama Anggota 5</div>
+  <input
+    type="text"
+    name="nameAnggota5"
+    value=""
+    placeholder="Masukkan nama anda..."
+    required
+    autocomplete="email"
+    autofocus
+  />
+</div>
+ <div class="input-form">
    <div class="tittle">Nama Anggota Cadangan</div>
    <input
      type="text"
@@ -147,6 +159,6 @@
  </div>
  
  </form>
- <a href="/competition/pubg/pembayaran"><button type="submit">Register Now</button></a>
+ <a href="/competition/valorant/pembayaran"><button type="submit">Register Now</button></a>
 </div>
 @endsection

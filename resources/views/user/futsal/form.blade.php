@@ -4,9 +4,9 @@
 @section('content')
 <div class="wrapForm">
  <div class="top">
-  <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
+  <img src="{{ asset('dist/user/image/bennfutsal.svg') }}" alt="" />
  </div>
- <h3>PUBG Mobile Competition</h3>
+ <h3>Futsal Competition</h3>
 
  <h4>Data Tim</h4>
 
@@ -123,10 +123,70 @@
    />
  </div>
  <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan</div>
+   <div class="tittle">Nama Anggota 5</div>
+   <input
+     type="text"
+     name="nameAnggota5"
+     value=""
+     placeholder="Masukkan nama anda..."
+     required
+     autocomplete="email"
+     autofocus
+   />
+ </div>
+ <div class="input-form">
+   <div class="tittle">Nama Anggota Cadangan 1</div>
    <input
      type="text"
      name="nameAnggotaCadangan"
+     value=""
+     placeholder="Masukkan nama anda..."
+     required
+     autocomplete="email"
+     autofocus
+   />
+ </div>
+ <div class="input-form">
+   <div class="tittle">Nama Anggota Cadangan 2</div>
+   <input
+     type="text"
+     name="nameAnggotaCadangan2"
+     value=""
+     placeholder="Masukkan nama anda..."
+     required
+     autocomplete="email"
+     autofocus
+   />
+ </div>
+ <div class="input-form">
+   <div class="tittle">Nama Anggota Cadangan 3</div>
+   <input
+     type="text"
+     name="nameAnggotaCadangan3"
+     value=""
+     placeholder="Masukkan nama anda..."
+     required
+     autocomplete="email"
+     autofocus
+   />
+ </div>
+ <div class="input-form">
+   <div class="tittle">Nama Anggota Cadangan 4</div>
+   <input
+     type="text"
+     name="nameAnggotaCadangan4"
+     value=""
+     placeholder="Masukkan nama anda..."
+     required
+     autocomplete="email"
+     autofocus
+   />
+ </div>
+ <div class="input-form">
+   <div class="tittle">Nama Anggota Cadangan 5</div>
+   <input
+     type="text"
+     name="nameAnggotaCadangan5"
      value=""
      placeholder="Masukkan nama anda..."
      required
@@ -147,6 +207,6 @@
  </div>
  
  </form>
- <a href="/competition/pubg/pembayaran"><button type="submit">Register Now</button></a>
+ <a href="/competition/futsal/pembayaran"><button type="submit">Register Now</button></a>
 </div>
 @endsection

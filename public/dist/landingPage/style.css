@@ -285,7 +285,7 @@ section.tree .row .col-md-6 {
     justify-content: center;
 }
 section.tree .row .col-md-6 img {
-    max-width: 530px;
+    max-width: 560px;
     width: 100%;
     padding: 20px;
 }
@@ -296,6 +296,7 @@ section.tree .row .col-md-6 p {
     text-align: justify;
     width: 100%;
     padding: 10px;
+    text-indent: 45px;
 }
 
 section.four {

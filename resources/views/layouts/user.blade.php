@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,20 +14,21 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('dist/user/style.css') }}" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <title>Manoover</title>
+    <title>{{ $title ?? config('app.name') }}</title>
   </head>
   <body>
-
+   
     @yield('content')
-    
+
+    <div class="wrapAnimasi">
+     <img src="{{ asset('dist/user/image/ikan.svg') }}" alt="" />
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
     <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="{{ asset('dist/user/script.js') }}"></script>
   </body>
-
 </html>

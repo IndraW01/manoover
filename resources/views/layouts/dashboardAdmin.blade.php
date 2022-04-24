@@ -91,8 +91,19 @@
           <i class="bx bxs-bell"></i>
           <span class="num">8</span>
         </a>
-        <a href="#" class="profile">
-          <img src="{{ asset('img/profile.png') }}" />
+        <a href="#" class="profile" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="{{ asset('img/profile.png') }}"  />
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
+            <li>
+                <a href="/" class="dropdown-item">Beranda</a>
+            </li>
+            <li>
+                <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
+                <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
         </a>
       </nav>
 

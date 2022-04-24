@@ -3,10 +3,10 @@
 
 @section('content')
 <div class="wrapForm">
- <div class="top">
-  <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
- </div>
- <h3>PUBG Mobile Competition</h3>
+  <div class="top">
+    <img src="{{ asset('dist/user/image/bennfutsal.svg') }}" alt="" />
+   </div>
+   <h3>Futsal Competition</h3>
 
  <h4>Pembayaran</h4>
  <p>
@@ -60,6 +60,6 @@
    />
  </div>
 
- <a href="/pendafatar-pubg-berhasil"><button>Register Now</button></a>
+ <a href="/pendafatar-futsal-berhasil"><button>Register Now</button></a>
 </div>
 @endsection

@@ -2,47 +2,35 @@
 
 
 @section('content')
-  <div class="wrap">
-       
-   {{-- <div class="wrapAnimasi">
-    <img class="ikan" src="{{ asset('dist/landingPage/image/ikan1.svg') }}" alt="">
-   </div> --}}
-
-   <img src="{{asset('dist/user/pubg.svg')}}" alt="">
+<div class="wrap">
+  <div class="top">
+    <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
   </div>
-
-  <div class="price">
+  <div class="middle">
     <div class="left">
       <p>Biaya Pendaftaran</p>
-      <h2>Rp 50.000/tim</h2>
+      <h3>Rp 75.000/tim</h3>
     </div>
     <div class="right">
-      <a href="#"><button>Register Now</button></a>
+      <a href="/competition/pubg/form"><button>Register Now</button></a>
     </div>
   </div>
+  <div class="bottom">
+   <p>
+    <b>Detail Turnamen</b> <br />
+    Waktu Pelaksanaan Tanggal:3 juni (Mulai pukul 15.00 WIB - 18.50 WIB) <br>
+    Perlobaan akan dilaksanakan melalui Custom Room dan live streaming youtube
+    
+   </p>
 
-
-  <div class="wrap2">
-    <div class="content">
-      <p>
-        Match Day : 2 - 3 Mei 2022
-        <br>Pendaftaran ditutup tanggal 28 April 2022
-        <br>TM tanggal 29 April 2022
-        <br>Biaya pendaftaran IDR 35.000,- / Slot
-        <br> Venue : Online
-        <br> Khusus Mahasiswa dan SMA/SMK/Sederajat
-        <br> Squad Mode
-        <br> Match Mode : Standard 13R - Tournament Mode
-        <br> Single Elimination BO1 | Grand Final BO3
-        <br> Live Streaming YouTube Channel "Kamadhis Dharma Jaya UAJY"
-
-        <br> Hadiah
-        <br> Juara 1 : Rp. 600.000,- + E-Certificate + Team Profile di Website Info Tourney
-        <br> Juara 2 : Rp. 350.000,- + E-Certificate + Team Profile di Website Info Tourney
-        <br> Juara 3 : Rp. 250.000,- + E-Certificate + Team Profile di Website Info Tourney
-        <br> *Hadiah FIX tidak berubah
-        <br> **Semua peserta mendapatkan E-Certificate Partisipasi
-
-      </p>
+   <p>
+    <b>Hadiah</b> <br />
+    Hadiah Juara 1 : Rp 800.000 <br>
+    Hadiah Juara 2 : Rp 550.000 <br>
+    Hadiah Juara 3 : Rp 350.000 <br>
+    
+   </p>
+ </div>
   </div>
+</div>
 @endsection

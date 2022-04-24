@@ -61,12 +61,13 @@
               </ul>
                 @auth
                     <div class="d-flex user-logged nav-item dropdown no-arrow">
-                        <a href="#" class="text-white text-decoration-none" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <b>
+                          <a href="#" class="text-white text-decoration-none bold" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Halo, {{ auth()->user()->name }}
                             <img src="{{ auth()->user()->avatar ?? '/img/profile.png'}}" class="user-photo rounded-circle" alt="" width="35px">
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
-                                    <a href="#" class="dropdown-item">My Dashboard</a>
+                                    <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
@@ -76,6 +77,7 @@
                                 </li>
                             </ul>
                         </a>
+                        </b>
                     </div>
                 @else
                     <a href="{{ route('login') }}" class="login">Login</a>
@@ -129,34 +131,42 @@
             <img src="{{ asset('dist/landingPage/image/about.svg') }}" alt="" />
           </div>
           <div class="col-md-6">
-            <p>
-              The 3rd Manoover is a work program of the Project Division
-              Management Student Association Faculty of Economics and Business,
-              Diponegoro University (MSA FEB UNDIP) where there are two series
-              of events, namely the Manoover Competition which facilitates
-              student’s interests and talents in sports and arts that uphold
-              sportsmanship and creativity, and the Manoover Closing Ceremony
-              which is the culmination of the Manoover series with performances
-              from the Featuring Band, Guest Star,Special Performance, and Band
-              Performance. The purpose of this event is to celebrate the Big Day
-              of Management with the entire Management family, FEB, and UNDIP.
-              In addition, another purpose of this event is to create a strong
-              brotherhood rope between the management citizens of FEB Diponegoro
-              University and become a forum for the Association of Management
-              Departments of FEB Undip to introduce themselves as role models in
-              various positive aspects in the public eye. Through this event,
-              Management students will be ushered in aspects of knowledge and
-              harmony through efforts to introduce and preserve marine
-              ecosystems that proudly carry the theme HOTS: Harmony Of The Sea
-              to invite and increase public awareness about the importance of
-              maintaining marine ecosystems.Manoover also held a real action in
-              the form of charity that aims to invite the community in
-              maintaining the ecosystem by donating mangrove seeds. Donations
-              can be given through the following link
-              https://LindungiHutan.com/ 1000PohonManooverMSA or by buying 1
-              manoover closing ceremony ticket equal to donating 1 mangrove
-              seedling
-            </p>
+            <div class="text">
+              <p>
+                The 3rd Manoover is a work program of the Project Division
+                Management Student Association Faculty of Economics and Business,
+                Diponegoro University (MSA FEB UNDIP) where there are two series
+                of events, namely the Manoover Competition which facilitates
+                student’s interests and talents in sports and arts that uphold
+                sportsmanship and creativity, and the Manoover Closing Ceremony
+                which is the culmination of the Manoover series with performances
+                from the Featuring Band, Guest Star,Special Performance, and Band
+                Performance. 
+              </p>
+              <p>
+                The purpose of this event is to celebrate the Big Day
+                of Management with the entire Management family, FEB, and UNDIP.
+                In addition, another purpose of this event is to create a strong
+                brotherhood rope between the management citizens of FEB Diponegoro
+                University and become a forum for the Association of Management
+                Departments of FEB Undip to introduce themselves as role models in
+                various positive aspects in the public eye. Through this event,
+                Management students will be ushered in aspects of knowledge and
+                harmony through efforts to introduce and preserve marine
+                ecosystems that proudly carry the theme HOTS: Harmony Of The Sea
+                to invite and increase public awareness about the importance of
+                maintaining marine ecosystems.
+              </p>
+              <p>
+                Manoover also held a real action in
+                the form of charity that aims to invite the community in
+                maintaining the ecosystem by donating mangrove seeds. Donations
+                can be given through the following link
+                https://LindungiHutan.com/ 1000PohonManooverMSA or by buying 1
+                manoover closing ceremony ticket equal to donating 1 mangrove
+                seedling
+              </p>
+            </div>
           </div>
         </div>
       </section>

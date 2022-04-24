@@ -90,11 +90,46 @@ Route::get('/pendafatar-valorant-berhasil', function () {
 Route::get('/pendafatar-putsal-berhasil', function () {
     return view('auth.success.putsalSuccess');
 });
-Route::get('/detail-pubg', function () {
+
+
+Route::get('/competition/pubg', function () {
     return view('user.pubg.detail');
 });
-Route::get('/pendaftaran-pubg', function () {
+Route::get('/competition/pubg/form', function () {
     return view('user.pubg.form');
+});
+Route::get('/competition/pubg/pembayaran', function () {
+    return view('user.pubg.pembayaran');
+});
+
+Route::get('/competition/ml', function () {
+    return view('user.ml.detail');
+});
+Route::get('/competition/ml/form', function () {
+    return view('user.ml.form');
+});
+Route::get('/competition/ml/pembayaran', function () {
+    return view('user.ml.pembayaran');
+});
+
+Route::get('/competition/valorant', function () {
+    return view('user.valorant.detail');
+});
+Route::get('/competition/valorant/form', function () {
+    return view('user.valorant.form');
+});
+Route::get('/competition/valorant/pembayaran', function () {
+    return view('user.valorant.pembayaran');
+});
+
+Route::get('/competition/futsal', function () {
+    return view('user.futsal.detail');
+});
+Route::get('/competition/futsal/form', function () {
+    return view('user.futsal.form');
+});
+Route::get('/competition/futsal/pembayaran', function () {
+    return view('user.futsal.pembayaran');
 });
 
 

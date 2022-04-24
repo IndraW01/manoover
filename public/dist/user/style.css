@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: "poppins", sans-serif;
+    font-family: "Poppins", sans-serif;
     background: linear-gradient(
         180deg,
         #2283ff 0%,
@@ -17,18 +17,68 @@ body {
 }
 
 .wrap {
+    padding: 50px 0;
+}
+
+.wrap .top {
+    padding: 0 180px;
     width: 100%;
     display: flex;
-    padding: 50px 10%;
     justify-content: center;
 }
-.wrap2 {
+.wrap .top img {
     width: 100%;
-    padding: 50px 13%;
 }
-.wrapAnimasi {
+.wrap .middle {
+    width: 100%;
+    margin: 10px 0;
     position: relative;
+    background: #044c98;
+    padding: 30px 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.wrap .middle p {
+    font-weight: 400;
+    font-size: 13px;
+}
+.wrap .middle h3 {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.wrap .middle button {
+    max-width: 270px;
+    width: 100%;
+    background: #f9943b;
+    border-radius: 45px;
+    margin: 10px 0;
+    outline: none;
+    border: 1px solid #f9943b;
+    padding: 10px 80px;
+    color: white;
+    font-weight: 600;
+}
+
+.wrap .bottom {
+    width: 100%;
+    padding: 0 180px;
+    color: white;
+}
+.wrap p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.wrapAnimasi {
+    position: absolute;
     overflow: hidden;
+    top: 160px;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }
 .wrapAnimasi .ikan {
     position: relative;
@@ -37,48 +87,133 @@ body {
 
 @keyframes animate2 {
     from {
-        left: -20%;
+        left: -30%;
     }
     to {
         left: 100%;
     }
 }
 
-.wrap img {
-    width: 100%;
-    max-width: 1000px;
-    padding: 20px;
-}
-.price {
-    width: 100%;
-    background: #044c98;
-    display: flex;
-    padding: 20px 13%;
-    justify-content: space-between;
-    align-items: center;
-}
-.price p {
-    font-weight: 400;
-    font-size: 13px;
-    color: white;
-}
-.price h2 {
-    font-weight: 700;
-    font-size: 25px;
-    color: white;
-}
-.price button {
-    background: #f9943b;
-    width: 271px;
-    height: 50px;
-    color: white;
-    border-radius: 45px;
-    outline: none;
-    border: 1px solid #f9943b;
+/* ============================= */
+
+.wrapForm {
+    padding: 50px 180px;
 }
 
-.wrap2 p {
+.wrapForm .top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.wrapForm .top img {
+    width: 100%;
+}
+.wrapForm h3 {
+    font-weight: 700;
+    font-size: 39px;
+    color: white;
+    padding: 30px 0;
+}
+.wrapForm h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.wrapForm .input-form .tittle {
     font-weight: 400;
+    font-size: 16px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.wrapForm .input-form {
+    margin-bottom: 20px;
+}
+
+.wrapForm .input-form input {
+    width: 100%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+}
+input::-webkit-input-placeholder {
+    color: white;
+}
+input::-webkit-file-upload-button {
+    color: grey;
+    background: white;
+    outline: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    border: 1px solid white;
+}
+.wrapForm button {
+    max-width: 270px;
+    width: 100%;
+    background: #f9943b;
+    border-radius: 45px;
+    margin: 10px 0;
+    outline: none;
+    border: 1px solid #f9943b;
+    padding: 10px 80px;
+    color: white;
+    font-weight: 600;
+}
+.wrapForm p {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+}
+
+/* ====================== */
+
+.bank .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bank .item h6 {
+    padding-top: 5px;
+    margin-left: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.time {
+    background: #fce9c1;
+    padding: 10px 22px;
+    border-radius: 24px;
+    color: #b57c09;
+    max-width: 230px;
+}
+
+.wrapForm .input-form-pembayaran .tittle {
+    font-weight: 400;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.wrapForm .input-form-pembayaran {
+    margin-bottom: 20px;
+}
+
+.wrapForm .input-form-pembayaran input {
+    width: 50%;
+    border: 1px solid white;
+    background: transparent;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 25px;
     font-size: 16px;
     color: white;
 }

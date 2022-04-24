@@ -4,9 +4,9 @@
 @section('content')
 <div class="wrapForm">
  <div class="top">
-  <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
+  <img src="{{ asset('dist/user/image/bennml.svg') }}" alt="" />
  </div>
- <h3>PUBG Mobile Competition</h3>
+ <h3>Mobile Legends : Bang Bang Competition</h3>
 
  <h4>Pembayaran</h4>
  <p>
@@ -60,6 +60,6 @@
    />
  </div>
 
- <a href="/pendafatar-pubg-berhasil"><button>Register Now</button></a>
+ <a href="/pendafatar-ml-berhasil"><button>Register Now</button></a>
 </div>
 @endsection
