@@ -16,6 +16,12 @@ use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\DashboardUserController;
 
+
+// Tes Email
+Route::get('/tes', function() {
+    return view('admin.email.futsal.success');
+});
+
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
