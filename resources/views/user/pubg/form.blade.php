@@ -1,6 +1,5 @@
 @extends('layouts.user', ['title' => 'Detail PUBG'])
 
-
 @section('content')
 <div class="wrapForm">
  <div class="top">
@@ -10,7 +9,7 @@
 
  <h4>Data Tim</h4>
 
- <form action="#">
+ <form action="{{ route('competition.pubg.store') }}" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="row">
    <div class="col-md-6">
@@ -18,12 +17,9 @@
        <div class="tittle">Nama Tim</div>
        <input
          type="text"
-         name="name"
-         value=""
+         name="nama_tim"
+         value="{{ old('nama_tim') }}"
          placeholder="Masukkan Nama Tim anda..."
-         required
-         autocomplete="email"
-         autofocus
        />
      </div>
    </div>
@@ -33,11 +29,8 @@
        <input
          type="email"
          name="email"
-         value=""
+         value="{{ old('email') }}"
          placeholder="Masukkan Email anda..."
-         required
-         autocomplete="email"
-         autofocus
        />
      </div>
    </div>
@@ -48,12 +41,9 @@
        <div class="tittle">Nama Ketua Tim</div>
        <input
          type="text"
-         name="nameKetua"
-         value=""
+         name="nama_ketua_tim"
+         value="{{ old('nama_ketua_tim') }}"
          placeholder="Masukkan Nama Ketua Tim anda..."
-         required
-         autocomplete="email"
-         autofocus
        />
      </div>
    </div>
@@ -62,12 +52,9 @@
        <div class="tittle">No HP</div>
        <input
          type="text"
-         name="email"
-         value=""
+         name="no_hp"
+         value="{{ old('no_hp') }}"
          placeholder="Masukkan no hp anda..."
-         required
-         autocomplete="email"
-         autofocus
        />
      </div>
    </div>
@@ -78,75 +65,57 @@
    <div class="tittle">Nama Anggota 1</div>
    <input
      type="text"
-     name="nameAnggota1"
-     value=""
+     name="anggota1"
+     value="{{ old('anggota1') }}"
      placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
    />
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 2</div>
    <input
      type="text"
-     name="nameAnggota2"
-     value=""
+     name="anggota2"
+     value="{{ old('anggota2') }}"
      placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
    />
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 3</div>
    <input
      type="text"
-     name="nameAnggota3"
-     value=""
+     name="anggota3"
+     value="{{ old('anggota3') }}"
      placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
    />
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 4</div>
    <input
      type="text"
-     name="nameAnggota4"
-     value=""
+     name="anggota4"
+     value="{{ old('anggota4') }}"
      placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
    />
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota Cadangan</div>
    <input
      type="text"
-     name="nameAnggotaCadangan"
-     value=""
+     name="cadangan1"
+     value="{{ old('cadangan1') }}"
      placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
    />
  </div>
  <div class="input-form">
    <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
    <input
      type="file"
-     name="file"
-     value=""
-     required
-     autocomplete="email"
-     autofocus
+     name="kartu_identitas"
+     value="{{ old('kartu_identitas') }}"
    />
  </div>
- 
+
+ <button type="submit">Register Now</button>
  </form>
- <a href="/competition/pubg/pembayaran"><button type="submit">Register Now</button></a>
 </div>
 @endsection
