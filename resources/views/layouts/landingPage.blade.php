@@ -67,7 +67,11 @@
                             <img src="{{ auth()->user()->avatar ?? '/img/profile.png'}}" class="user-photo rounded-circle" alt="" width="35px">
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
+                                  @if( auth()->user()->is_admin == 1)
                                     <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a>
+                                  @else
+                                    <a href="/dashboard-user" class="dropdown-item">My Dashboard</a>
+                                  @endif
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
