@@ -213,7 +213,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="gambar_dashboard/bukti.jpg" alt="">
+          <img src="{{ asset("img/$futsal->bukti_pembayaran") }}" alt="">
         </div>
         <div class="footer-modal">
           <span class="button status2 completed" data-bs-toggle="modal" data-bs-target="#dropModal">Tolak</span>

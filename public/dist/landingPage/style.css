@@ -322,45 +322,68 @@ section.four h2 {
     text-align: center;
     padding: 150px 0 20px 0;
 }
+section.four .row {
+    display: flex;
+    justify-content: center;
+}
 
 section.four .row .col-md-6 {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 600px;
 }
-section.four .row .col-md-6 img {
-    max-width: 560px;
+section.four .row .col-md-12 {
+    display: flex;
     width: 100%;
-    padding: 10px;
+    justify-content: center;
+}
+
+section.four .row .col-md-6 img {
+    width: 100%;
+    padding: 10px 0;
+}
+
+section.four .row .col-md-12 .imglarge {
+    width: 100%;
+    padding: 10px 0;
+}
+section.four .row .col-md-12 .imgsmall {
+    display: none;
+    max-width: 560px;
+    width: 110%;
+    padding: 10px 0;
 }
 
 .space {
-    padding-bottom: 70px;
+    padding-bottom: 150px;
 }
 
 .wrapEvent {
     position: relative;
 }
+.wrapEvent .content-wrapEvent5,
 .wrapEvent .content-wrapEvent4,
 .wrapEvent .content-wrapEvent3,
 .wrapEvent .content-wrapEvent2,
 .wrapEvent .content-wrapEvent {
     position: absolute;
     top: 10px;
-    left: 10px;
-    right: 10px;
+    left: 0;
+    right: 0;
     bottom: 10px;
     border-radius: 45px;
     /* padding: 10px; */
 }
+.wrapEvent .content-wrapEvent5.show,
 .wrapEvent .content-wrapEvent4.show,
 .wrapEvent .content-wrapEvent3.show,
 .wrapEvent .content-wrapEvent2.show,
 .wrapEvent .content-wrapEvent.show {
     position: absolute;
     top: 10px;
-    left: 10px;
-    right: 10px;
+    left: 0;
+    right: 0;
     bottom: 10px;
     background: linear-gradient(
         rgba(50, 50, 50, 0) 0%,
@@ -404,6 +427,7 @@ section.four .row .col-md-6 img {
     border: 1px solid #cf7b31;
 }
 
+.wrapEvent .content-wrapEvent5 .tittleCompetition,
 .wrapEvent .content-wrapEvent4 .tittleCompetition,
 .wrapEvent .content-wrapEvent3 .tittleCompetition,
 .wrapEvent .content-wrapEvent2 .tittleCompetition,
@@ -424,6 +448,20 @@ section.four .row .col-md-6 img {
     transform: translate(-50%, -50%);
     bottom: 0;
     width: 90%;
+    background: #f9943b;
+    padding: 12px 0;
+    color: white;
+    border-radius: 45px;
+    outline: none;
+    border: 1px solid #f9943b;
+}
+
+.wrapEvent .content-wrapEvent5 .btnCompetition {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    width: 95%;
     background: #f9943b;
     padding: 12px 0;
     color: white;
@@ -937,6 +975,14 @@ section.footer .row li p {
     }
 }
 
+@media screen and (max-width: 767px) {
+    section.four .row .col-md-12 .imgsmall {
+        display: block;
+    }
+    section.four .row .col-md-12 .imglarge {
+        display: none;
+    }
+}
 @media screen and (max-width: 700px) {
     section.footer {
         height: auto;
@@ -1147,5 +1193,21 @@ section.footer .row li p {
         position: absolute;
         z-index: 0;
         left: 12px;
+    }
+    section.four h2 {
+        font-size: 40px;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        text-align: center;
+        padding: 50px 0 20px 0;
+    }
+    section.five h2 {
+        font-size: 40px;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+        color: white;
+        text-align: center;
+        padding: 50px 0 20px 0;
     }
 }
