@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\Auth\User\UserController;
+use App\Http\Controllers\Competition\PubgMobileCompetitionController;
 use App\Http\Controllers\CompetitionController;
 
 // Landing Page
@@ -91,16 +92,17 @@ Route::get('/pendafatar-putsal-berhasil', function () {
     return view('auth.success.putsalSuccess');
 });
 
+Route::prefix('/competition')->name('competition.')->group(function() {
 
-Route::get('/competition/pubg', function () {
-    return view('user.pubg.detail');
+    Route::get('/pubg', [PubgMobileCompetitionController::class, 'detail'])->name('pubg.detail');
+    Route::get('/pubg/form', [PubgMobileCompetitionController::class, 'create'])->name('pubg.create');
+    Route::post('/pubg/form', [PubgMobileCompetitionController::class, 'store'])->name('pubg.store');
+    Route::get('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaran'])->name('pubg.pembayaran');
+    Route::patch('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaranProses'])->name('pubg.pembayaranProeses');
+
 });
-Route::get('/competition/pubg/form', function () {
-    return view('user.pubg.form');
-});
-Route::get('/competition/pubg/pembayaran', function () {
-    return view('user.pubg.pembayaran');
-});
+
+
 
 Route::get('/competition/ml', function () {
     return view('user.ml.detail');

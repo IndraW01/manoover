@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StorePubgMobileRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StorePubgMobileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,16 @@ class StorePubgMobileRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama_tim' => 'required',
+            'email' => 'required|email',
+            'nama_ketua_tim' => 'required|string',
+            'no_hp' => 'required',
+            'anggota1' => 'required|string',
+            'anggota2' => 'required|string',
+            'anggota3' => 'required|string',
+            'anggota4' => 'required|string',
+            'cadangan1' => 'string|nullable',
+            'kartu_identitas' => 'required|file|max:2000|mimes:pdf'
         ];
     }
 }
