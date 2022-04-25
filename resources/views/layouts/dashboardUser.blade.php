@@ -42,8 +42,7 @@
           </div>
         </div>
         <div class="right">
-          <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
-          <a  href="#"><button class="buyNow">Bayar Sekarang</button></a>
+          <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
         </div>
       </div>
       <div class="list-dashboardUser">
