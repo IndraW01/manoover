@@ -143,7 +143,7 @@
                 sportsmanship and creativity, and the Manoover Closing Ceremony
                 which is the culmination of the Manoover series with performances
                 from the Featuring Band, Guest Star,Special Performance, and Band
-                Performance. 
+                Performance.
               </p>
               <p>
                 The purpose of this event is to celebrate the Big Day
