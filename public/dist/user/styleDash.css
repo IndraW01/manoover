@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(
+        180deg,
+        #2283ff 0%,
+        #0060c6 45.83%,
+        #0256ab 100%
+    );
+}
+
+.wrapForm {
+    padding: 50px 180px;
+    min-height: 100vh;
+}
+
+.tittleUser {
+    font-weight: 700;
+    font-size: 39px;
+    color: white;
+}
+.list-dashboardUser {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 1px solid white;
+}
+.list-dashboardUser .left {
+    display: flex;
+    align-items: center;
+}
+.list-dashboardUser .left img {
+    max-width: 205px;
+    width: 100%;
+    margin-right: 20px;
+}
+.list-dashboardUser .left .name {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+.list-dashboardUser .left .price {
+    font-weight: 400;
+    padding-top: 10px;
+    font-size: 13px;
+    color: white;
+}
+.list-dashboardUser .left .status.belum {
+    margin-top: 30px;
+    padding: 10px 22px;
+    background: #f0b3b9;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #bc2534;
+}
+.list-dashboardUser .left .status.sudah {
+    margin-top: 30px;
+    padding: 10px 22px;
+    background: #97e1ce;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #227560;
+    max-width: 190px;
+}
+.list-dashboardUser .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+.list-dashboardUser .right .timeNow {
+    font-weight: 400;
+    font-size: 13px;
+    color: white;
+}
+.list-dashboardUser .right .buyNow {
+    max-width: 280px;
+    width: 100%;
+    background: #f9943b;
+    border-radius: 45px;
+    margin-top: 60px;
+    outline: none;
+    border: 1px solid #f9943b;
+    color: white;
+    padding: 10px 70px;
+    font-weight: 600;
+}

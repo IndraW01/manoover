@@ -136,6 +136,11 @@ Route::get('/competition/futsal/pembayaran', function () {
 
 
 
+Route::get('/dashboard-user', function () {
+    return view('layouts.dashboardUser');
+});
+
+
 
 
 

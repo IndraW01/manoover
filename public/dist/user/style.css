@@ -18,6 +18,7 @@ body {
 
 .wrap {
     padding: 50px 0;
+    min-height: 100vh;
 }
 
 .wrap .top {
@@ -98,6 +99,7 @@ body {
 
 .wrapForm {
     padding: 50px 180px;
+    min-height: 100vh;
 }
 
 .wrapForm .top {
