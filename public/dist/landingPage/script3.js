@@ -14,6 +14,10 @@ const competition4 = document.querySelector("#demoCompetition4");
 const demoCompetition7 = document.querySelector(".contentCompetition7");
 const demoCompetition8 = document.querySelector(".contentCompetition8");
 
+const competition5 = document.querySelector("#demoCompetition5");
+const demoCompetition9 = document.querySelector(".contentCompetition9");
+const demoCompetition10 = document.querySelector(".contentCompetition10");
+
 competition1.addEventListener("mouseover", () => {
     competition1.classList.add("show");
     demoCompetition1.classList.remove("d-none");
@@ -53,6 +57,16 @@ competition4.addEventListener("mouseout", () => {
     competition4.classList.remove("show");
     demoCompetition7.classList.add("d-none");
     demoCompetition8.classList.add("d-none");
+});
+competition5.addEventListener("mouseover", () => {
+    competition5.classList.add("show");
+    demoCompetition9.classList.remove("d-none");
+    demoCompetition10.classList.remove("d-none");
+});
+competition5.addEventListener("mouseout", () => {
+    competition5.classList.remove("show");
+    demoCompetition9.classList.add("d-none");
+    demoCompetition10.classList.add("d-none");
 });
 
 // ================

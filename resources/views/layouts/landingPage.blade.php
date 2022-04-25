@@ -61,10 +61,9 @@
               </ul>
                 @auth
                     <div class="d-flex user-logged nav-item dropdown no-arrow">
-                        <b>
                           <a href="#" class="text-white text-decoration-none bold" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Halo, {{ auth()->user()->name }}
-                            <img src="{{ auth()->user()->avatar ?? '/img/profile.png'}}" class="user-photo rounded-circle" alt="" width="35px">
+                            <img src="{{ 'dist/landingPage/image/arrowDown.svg'}}" style="right: 13px; padding-left:7px;">
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
                                   @if( auth()->user()->is_admin == 1)
@@ -81,7 +80,6 @@
                                 </li>
                             </ul>
                         </a>
-                        </b>
                     </div>
                 @else
                     <a href="{{ route('login') }}" class="login">Login</a>

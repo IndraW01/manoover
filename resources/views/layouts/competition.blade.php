@@ -48,7 +48,7 @@
                 <div class="d-flex user-logged nav-item dropdown no-arrow">
                     <a href="#" class="text-white text-decoration-none" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Halo, {{ auth()->user()->name }}
-                        <img src="{{ auth()->user()->avatar ?? '/img/profile.png'}}" class="user-photo rounded-circle" alt="" width="35px">
+                        <img src="{{ 'dist/landingPage/image/arrowDown.svg'}}" style="right: 13px; padding-left:7px;">
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                             <li>
                                 <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a>
@@ -114,6 +114,18 @@
             <div id="demoCompetition4" class="content-wrapEvent4">
               <p class="contentCompetition7 tittleCompetition d-none">Futsal</p>
               <a href="/competition/futsal" class="contentCompetition8 d-none"><button class="btnCompetition">Register Now</button></a>
+            </div>
+          </div>
+         </div>
+         <div class="row">
+          <div class="col-md-12">
+            <div class="wrapEvent" data-aos="fade-up">
+              <img class="imglarge" src="{{ asset('dist/landingPage/image/band.svg') }}" alt="" />
+              <img class="imgsmall" src="{{ asset('dist/landingPage/image/band2.svg') }}" alt="" />
+              <div id="demoCompetition5" class="content-wrapEvent5">
+                <p class="contentCompetition9 tittleCompetition d-none">Band Audition</p>
+                <a href="/competition/band" class="contentCompetition10 d-none"><button class="btnCompetition">Register Now</button></a>
+              </div>
             </div>
           </div>
          </div>
