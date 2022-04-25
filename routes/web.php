@@ -9,54 +9,57 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\Auth\User\UserController;
+use App\Http\Controllers\Competition\FutsalCompetitionController;
+use App\Http\Controllers\Competition\MobileLegendCompetitionController;
 use App\Http\Controllers\Competition\PubgMobileCompetitionController;
+use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\DashboardUserController;
 
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route Admin
-    Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware(['admin']);
+Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware(['admin']);
 
-    Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
-        // Download File
-        // 1. Mobile Legend
-        Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
-        Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
-        // 2. Valorant
-        Route::get('/valorant/download-identitas/{valorant}', [ValorantController::class, 'downloadIdentitas'])->name('valorant.download.identitas');
-        Route::get('/valorant/download-bukti/{valorant}', [ValorantController::class, 'downloadBukti'])->name('valorant.download.bukti');
-        // 3. Pubg Mobile
-        Route::get('/pubg/download-identitas/{pubg}', [PubgMobileController::class, 'downloadIdentitas'])->name('pubg.download.identitas');
-        Route::get('/pubg/download-bukti/{pubg}', [PubgMobileController::class, 'downloadBukti'])->name('pubg.download.bukti');
-        // 4. Futsal
-        Route::get('/futsal/download-identitas/{futsal}', [FutsalController::class, 'downloadIdentitas'])->name('futsal.download.identitas');
-        Route::get('/futsal/download-bukti/{futsal}', [FutsalController::class, 'downloadBukti'])->name('futsal.download.bukti');
+Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
+    // Download File
+    // 1. Mobile Legend
+    Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
+    Route::get('/mobile-legend/download-bukti/{mobile_legend}', [MobileLegendController::class, 'downloadBukti'])->name('ml.download.bukti');
+    // 2. Valorant
+    Route::get('/valorant/download-identitas/{valorant}', [ValorantController::class, 'downloadIdentitas'])->name('valorant.download.identitas');
+    Route::get('/valorant/download-bukti/{valorant}', [ValorantController::class, 'downloadBukti'])->name('valorant.download.bukti');
+    // 3. Pubg Mobile
+    Route::get('/pubg/download-identitas/{pubg}', [PubgMobileController::class, 'downloadIdentitas'])->name('pubg.download.identitas');
+    Route::get('/pubg/download-bukti/{pubg}', [PubgMobileController::class, 'downloadBukti'])->name('pubg.download.bukti');
+    // 4. Futsal
+    Route::get('/futsal/download-identitas/{futsal}', [FutsalController::class, 'downloadIdentitas'])->name('futsal.download.identitas');
+    Route::get('/futsal/download-bukti/{futsal}', [FutsalController::class, 'downloadBukti'])->name('futsal.download.bukti');
 
-        // Verikasi Email
-        // 1. Mobile Legend
-        Route::get('/mobile-legend/verifikasi-berhasil/{mobile_legend}', [MobileLegendController::class, 'verifikasiBerhasil'])->name('ml.verifikasi.berhasil');
-        Route::get('/mobile-legend/verifikasi-tolak/{mobile_legend}', [MobileLegendController::class, 'verifikasiTolak'])->name('ml.verifikasi.tolak');
-        // 2. Valorant
-        Route::get('/valorant/verifikasi-berhasil/{valorant}', [ValorantController::class, 'verifikasiBerhasil'])->name('valorant.verifikasi.berhasil');
-        Route::get('/valorant/verifikasi-tolak/{valorant}', [ValorantController::class, 'verifikasiTolak'])->name('valorant.verifikasi.tolak');
-        // 3. Pubg Mobile
-        Route::get('/pubg/verifikasi-berhasil/{pubg}', [PubgMobileController::class, 'verifikasiBerhasil'])->name('pubg.verifikasi.berhasil');
-        Route::get('/pubg/verifikasi-tolak/{pubg}', [PubgMobileController::class, 'verifikasiTolak'])->name('pubg.verifikasi.tolak');
-        // 4. Futsal
-        Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
-        Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
+    // Verikasi Email
+    // 1. Mobile Legend
+    Route::get('/mobile-legend/verifikasi-berhasil/{mobile_legend}', [MobileLegendController::class, 'verifikasiBerhasil'])->name('ml.verifikasi.berhasil');
+    Route::get('/mobile-legend/verifikasi-tolak/{mobile_legend}', [MobileLegendController::class, 'verifikasiTolak'])->name('ml.verifikasi.tolak');
+    // 2. Valorant
+    Route::get('/valorant/verifikasi-berhasil/{valorant}', [ValorantController::class, 'verifikasiBerhasil'])->name('valorant.verifikasi.berhasil');
+    Route::get('/valorant/verifikasi-tolak/{valorant}', [ValorantController::class, 'verifikasiTolak'])->name('valorant.verifikasi.tolak');
+    // 3. Pubg Mobile
+    Route::get('/pubg/verifikasi-berhasil/{pubg}', [PubgMobileController::class, 'verifikasiBerhasil'])->name('pubg.verifikasi.berhasil');
+    Route::get('/pubg/verifikasi-tolak/{pubg}', [PubgMobileController::class, 'verifikasiTolak'])->name('pubg.verifikasi.tolak');
+    // 4. Futsal
+    Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
+    Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
 
-        // Crud Mobile Legend
-        Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
-        // Crud Valorant
-        Route::resource('/valorant', ValorantController::class)->names('valorant');
-        // Crud Pubg
-        Route::resource('/pubg', PubgMobileController::class)->names('pubg');
-        // Crud Futsal
-        Route::resource('/futsal', FutsalController::class)->names('futsal');
-    });
-// Akhir Route Admin
+    // Crud Mobile Legend
+    Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
+    // Crud Valorant
+    Route::resource('/valorant', ValorantController::class)->names('valorant');
+    // Crud Pubg
+    Route::resource('/pubg', PubgMobileController::class)->names('pubg');
+    // Crud Futsal
+    Route::resource('/futsal', FutsalController::class)->names('futsal');
+});
 
 // Route Auth
 //Login With Google (Socialite Route) Routes
@@ -72,77 +75,47 @@ Route::get('/verifikasi-email', [UserController::class, 'verifikasiEmail'])->nam
 // Login Email
 Auth::routes(['verify' => true]);
 
-// Route Competition
-Route::get('/competition', [CompetitionController::class, 'index'])->middleware(['auth', 'verified']);
-
-
 Route::get('/registrasi-berhasil', function () {
     return view('auth.success.emailSuccess');
 });
-Route::get('/pendafatar-pubg-berhasil', function () {
-    return view('auth.success.PUBGSuccess');
-});
-Route::get('/pendafatar-ml-berhasil', function () {
-    return view('auth.success.mlSuccess');
-});
-Route::get('/pendafatar-valorant-berhasil', function () {
-    return view('auth.success.valorantSuccess');
-});
-Route::get('/pendafatar-putsal-berhasil', function () {
-    return view('auth.success.putsalSuccess');
-});
 
-Route::prefix('/competition')->name('competition.')->group(function() {
+
+Route::get('/dashboard-user', [DashboardUserController::class, 'dashboard'])->name('user.dashborad')->middleware('auth');
+
+// Route Competition
+Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competition.')->group(function() {
+
+    Route::get('/', [CompetitionController::class, 'index'])->name('index');
 
     Route::get('/pubg', [PubgMobileCompetitionController::class, 'detail'])->name('pubg.detail');
     Route::get('/pubg/form', [PubgMobileCompetitionController::class, 'create'])->name('pubg.create');
     Route::post('/pubg/form', [PubgMobileCompetitionController::class, 'store'])->name('pubg.store');
+    Route::get('/pubg/pembayaran/success', [PubgMobileCompetitionController::class, 'success'])->name('pubg.success');
     Route::get('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaran'])->name('pubg.pembayaran');
     Route::patch('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaranProses'])->name('pubg.pembayaranProeses');
 
+    Route::get('/valorant', [ValorantCompetitionController::class, 'detail'])->name('valorant.detail');
+    Route::get('/valorant/form', [ValorantCompetitionController::class, 'create'])->name('valorant.create');
+    Route::post('/valorant/form', [ValorantCompetitionController::class, 'store'])->name('valorant.store');
+    Route::get('/valorant/pembayaran/success', [ValorantCompetitionController::class, 'success'])->name('valorant.success');
+    Route::get('/valorant/pembayaran/{valorant}', [ValorantCompetitionController::class, 'pembayaran'])->name('valorant.pembayaran');
+    Route::patch('/valorant/pembayaran/{valorant}', [ValorantCompetitionController::class, 'pembayaranProses'])->name('valorant.pembayaranProeses');
+
+    Route::get('/ml', [MobileLegendCompetitionController::class, 'detail'])->name('ml.detail');
+    Route::get('/ml/form', [MobileLegendCompetitionController::class, 'create'])->name('ml.create');
+    Route::post('/ml/form', [MobileLegendCompetitionController::class, 'store'])->name('ml.store');
+    Route::get('/ml/pembayaran/success', [MobileLegendCompetitionController::class, 'success'])->name('ml.success');
+    Route::get('/ml/pembayaran/{mobile_legend}', [MobileLegendCompetitionController::class, 'pembayaran'])->name('ml.pembayaran');
+    Route::patch('/ml/pembayaran/{mobile_legend}', [MobileLegendCompetitionController::class, 'pembayaranProses'])->name('ml.pembayaranProeses');
+
+    Route::get('/futsal', [FutsalCompetitionController::class, 'detail'])->name('futsal.detail');
+    Route::get('/futsal/form', [FutsalCompetitionController::class, 'create'])->name('futsal.create');
+    Route::post('/futsal/form', [FutsalCompetitionController::class, 'store'])->name('futsal.store');
+    Route::get('/futsal/pembayaran/success', [FutsalCompetitionController::class, 'success'])->name('futsal.success');
+    Route::get('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaran'])->name('futsal.pembayaran');
+    Route::patch('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaranProses'])->name('futsal.pembayaranProeses');
+
 });
-
-
-
-Route::get('/competition/ml', function () {
-    return view('user.ml.detail');
-});
-Route::get('/competition/ml/form', function () {
-    return view('user.ml.form');
-});
-Route::get('/competition/ml/pembayaran', function () {
-    return view('user.ml.pembayaran');
-});
-
-Route::get('/competition/valorant', function () {
-    return view('user.valorant.detail');
-});
-Route::get('/competition/valorant/form', function () {
-    return view('user.valorant.form');
-});
-Route::get('/competition/valorant/pembayaran', function () {
-    return view('user.valorant.pembayaran');
-});
-
-Route::get('/competition/futsal', function () {
-    return view('user.futsal.detail');
-});
-Route::get('/competition/futsal/form', function () {
-    return view('user.futsal.form');
-});
-Route::get('/competition/futsal/pembayaran', function () {
-    return view('user.futsal.pembayaran');
-});
-
-
-
-Route::get('/dashboard-user', function () {
-    return view('layouts.dashboardUser');
-});
-
-
-
-
 
 
 

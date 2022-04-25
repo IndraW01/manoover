@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Traits\ModelTraits\SendMailTrait;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\ModelTraits\SendMailTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MobileLegend extends Model
@@ -29,5 +30,13 @@ class MobileLegend extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isRegistered()
+    {
+        $registerMobileLegend = $this->whereUserId(Auth::id())->exists();
+        if($registerMobileLegend) {
+            return true;
+        }
     }
 }

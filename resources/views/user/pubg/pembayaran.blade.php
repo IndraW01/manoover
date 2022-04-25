@@ -1,6 +1,5 @@
 @extends('layouts.user', ['title' => 'Detail PUBG'])
 
-
 @section('content')
 <div class="wrapForm">
  <div class="top">
@@ -48,18 +47,17 @@
 
  <div class="time">Waktu Tersisa <b>23:59:59</b></div>
 
- <div class="input-form-pembayaran">
-   <div class="tittle">Upload Bukti Pembayaran</div>
-   <input
-     type="file"
-     name="file"
-     value=""
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
-
- <a href="/pendafatar-pubg-berhasil"><button>Register Now</button></a>
+ <form action="{{ route('competition.pubg.pembayaranProeses', ['pubg' => $pubg]) }}" method="POST" enctype="multipart/form-data">
+     @csrf
+     @method('PATCH')
+    <div class="input-form-pembayaran">
+    <div class="tittle">Upload Bukti Pembayaran</div>
+    <input
+        type="file"
+        name="bukti_pembayaran"
+    />
+    </div>
+    <button>Register Now</button>
+</form>
 </div>
 @endsection

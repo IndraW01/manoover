@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Futsal'])
 
 
 @section('content')
@@ -10,203 +10,158 @@
 
  <h4>Data Tim</h4>
 
- <form action="#">
-  @csrf
-  <div class="row">
-   <div class="col-md-6">
-     <div class="input-form">
-       <div class="tittle">Nama Tim</div>
-       <input
-         type="text"
-         name="name"
-         value=""
-         placeholder="Masukkan Nama Tim anda..."
-         required
-         autocomplete="email"
-         autofocus
-       />
+ <form action="{{ route('competition.futsal.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="row">
+     <div class="col-md-6">
+       <div class="input-form">
+         <div class="tittle">Nama Tim</div>
+         <input
+           type="text"
+           name="nama_tim"
+           value="{{ old('nama_tim') }}"
+           placeholder="Masukkan Nama Tim anda..."
+         />
+       </div>
+     </div>
+     <div class="col-md-6">
+       <div class="input-form">
+         <div class="tittle">Email</div>
+         <input
+           type="email"
+           name="email"
+           value="{{ old('email') }}"
+           placeholder="Masukkan Email anda..."
+         />
+       </div>
      </div>
    </div>
-   <div class="col-md-6">
-     <div class="input-form">
-       <div class="tittle">Email</div>
-       <input
-         type="email"
-         name="email"
-         value=""
-         placeholder="Masukkan Email anda..."
-         required
-         autocomplete="email"
-         autofocus
-       />
+   <div class="row">
+     <div class="col-md-6">
+       <div class="input-form">
+         <div class="tittle">Nama Ketua Tim</div>
+         <input
+           type="text"
+           name="nama_ketua_tim"
+           value="{{ old('nama_ketua_tim') }}"
+           placeholder="Masukkan Nama Ketua Tim anda..."
+         />
+       </div>
+     </div>
+     <div class="col-md-6">
+       <div class="input-form">
+         <div class="tittle">No HP</div>
+         <input
+           type="text"
+           name="no_hp"
+           value="{{ old('no_hp') }}"
+           placeholder="Masukkan no hp anda..."
+         />
+       </div>
      </div>
    </div>
- </div>
- <div class="row">
-   <div class="col-md-6">
-     <div class="input-form">
-       <div class="tittle">Nama Ketua Tim</div>
-       <input
-         type="text"
-         name="nameKetua"
-         value=""
-         placeholder="Masukkan Nama Ketua Tim anda..."
-         required
-         autocomplete="email"
-         autofocus
-       />
-     </div>
-   </div>
-   <div class="col-md-6">
-     <div class="input-form">
-       <div class="tittle">No HP</div>
-       <input
-         type="text"
-         name="email"
-         value=""
-         placeholder="Masukkan no hp anda..."
-         required
-         autocomplete="email"
-         autofocus
-       />
-     </div>
-   </div>
- </div>
 
- <h4>Data Anggota Tim</h4>
- <div class="input-form">
-   <div class="tittle">Nama Anggota 1</div>
-   <input
-     type="text"
-     name="nameAnggota1"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota 2</div>
-   <input
-     type="text"
-     name="nameAnggota2"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota 3</div>
-   <input
-     type="text"
-     name="nameAnggota3"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota 4</div>
-   <input
-     type="text"
-     name="nameAnggota4"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota 5</div>
-   <input
-     type="text"
-     name="nameAnggota5"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan 1</div>
-   <input
-     type="text"
-     name="nameAnggotaCadangan"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan 2</div>
-   <input
-     type="text"
-     name="nameAnggotaCadangan2"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan 3</div>
-   <input
-     type="text"
-     name="nameAnggotaCadangan3"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan 4</div>
-   <input
-     type="text"
-     name="nameAnggotaCadangan4"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Nama Anggota Cadangan 5</div>
-   <input
-     type="text"
-     name="nameAnggotaCadangan5"
-     value=""
-     placeholder="Masukkan nama anda..."
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- <div class="input-form">
-   <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
-   <input
-     type="file"
-     name="file"
-     value=""
-     required
-     autocomplete="email"
-     autofocus
-   />
- </div>
- 
- </form>
- <a href="/competition/futsal/pembayaran"><button type="submit">Register Now</button></a>
+   <h4>Data Anggota Tim</h4>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota 1</div>
+     <input
+       type="text"
+       name="anggota1"
+       value="{{ old('anggota1') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota 2</div>
+     <input
+       type="text"
+       name="anggota2"
+       value="{{ old('anggota2') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota 3</div>
+     <input
+       type="text"
+       name="anggota3"
+       value="{{ old('anggota3') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota 4</div>
+     <input
+       type="text"
+       name="anggota4"
+       value="{{ old('anggota4') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota 5</div>
+     <input
+       type="text"
+       name="anggota5"
+       value="{{ old('anggota5') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota Cadangan 1</div>
+     <input
+       type="text"
+       name="cadangan1"
+       value="{{ old('cadangan1') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota Cadangan 2</div>
+     <input
+       type="text"
+       name="cadangan2"
+       value="{{ old('cadangan2') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota Cadangan 3</div>
+     <input
+       type="text"
+       name="cadangan3"
+       value="{{ old('cadangan3') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota Cadangan 4</div>
+     <input
+       type="text"
+       name="cadangan4"
+       value="{{ old('cadangan4') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Nama Anggota Cadangan 5</div>
+     <input
+       type="text"
+       name="cadangan5"
+       value="{{ old('cadangan5') }}"
+       placeholder="Masukkan nama anda..."
+     />
+   </div>
+   <div class="input-form">
+     <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
+     <input
+       type="file"
+       name="kartu_identitas"
+       value="{{ old('kartu_identitas') }}"
+     />
+   </div>
+
+   <button type="submit">Register Now</button>
+   </form>
 </div>
 @endsection

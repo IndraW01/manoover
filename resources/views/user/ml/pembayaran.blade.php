@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Mobile Legend'])
 
 
 @section('content')
@@ -48,18 +48,17 @@
 
  <div class="time">Waktu Tersisa <b>23:59:59</b></div>
 
- <div class="input-form-pembayaran">
+ <form action="{{ route('competition.ml.pembayaranProeses', ['mobile_legend' => $mobileLegend]) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PATCH')
+   <div class="input-form-pembayaran">
    <div class="tittle">Upload Bukti Pembayaran</div>
    <input
-     type="file"
-     name="file"
-     value=""
-     required
-     autocomplete="email"
-     autofocus
+       type="file"
+       name="bukti_pembayaran"
    />
- </div>
-
- <a href="/pendafatar-ml-berhasil"><button>Register Now</button></a>
+   </div>
+   <button>Register Now</button>
+</form>
 </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\ModelTraits\SendMailTarit;
 use App\Traits\ModelTraits\SendMailTrait;
@@ -31,6 +32,14 @@ class Valorant extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isRegistered()
+    {
+        $registerValorant = $this->whereUserId(Auth::id())->exists();
+        if($registerValorant) {
+            return true;
+        }
     }
 
 }

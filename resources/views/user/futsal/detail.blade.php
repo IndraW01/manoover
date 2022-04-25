@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Futsal'])
 
 
 @section('content')
@@ -21,7 +21,7 @@
     Pelaksanaan tanggal 4 Juni 2022 (mulai pukul 10.00-selesai) <br>
     Sistem Perlombaan Akan Langsung Gugur <br>
     Venue Perlombaan : Venus Futsal" <br>
-    
+
    </p>
 
    <p>
@@ -29,7 +29,7 @@
     Juara 1 : Rp 1.500.000.00 <br>
     Juara 2 : Rp 1.000.000.00 <br>
     Juara 3 : Rp  750.000.00 <br>
-    
+
    </p>
  </div>
   </div>

@@ -10,74 +10,126 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('dist/user/styleDash.css') }}" />
-    <title>Hello, world!</title>
+    <title>Dashboard</title>
   </head>
   <body>
     <div class="wrapForm">
       <h2 class="tittleUser">Pembayaran</h2>
       {{-- looping --}}
-      <div class="list-dashboardUser">
-        <div class="left">
-         <img src="{{ asset('dist/user/image/pubgCompetition.svg') }}" alt="">
-          <div class="info">
-            <div class="name">PUBG Mobile Competition</div>
-            <div class="price">Total Pembayaran : Rp 50.000</div>
-            <div class="status belum">Belum menyelesaikan pembayaran</div>
-          </div>
+      @if ($pubg)
+        <div class="list-dashboardUser">
+            <div class="left">
+                <img src="{{ asset('dist/user/image/pubgCompetition.svg') }}" alt="">
+                <div class="info">
+                    <div class="name">PUBG Mobile Competition</div>
+                    <div class="price">Total Pembayaran : Rp 50.000</div>
+                    @if ($pubg->bukti_pembayaran)
+                        <div class="status sudah">Pembayaran selesai</div>
+                    @else
+                        <div class="status belum">Belum menyelesaikan Pembayaran</div>
+                    @endif
+                </div>
+            </div>
+            <div class="right">
+                @if ($pubg->bukti_pembayaran)
+                    <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
+                @else
+                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <a  href="{{ route('competition.pubg.pembayaran', ['pubg' => $pubg]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                @endif
+            </div>
         </div>
-        <div class="right">
-          <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
-          <a  href="#"><button class="buyNow">Bayar Sekarang</button></a>
-        </div>
-      </div>
+      @endif
       {{-- endlooping --}}
 
-      <div class="list-dashboardUser">
-        <div class="left">
-         <img src="{{ asset('dist/user/image/valorantCompetition.svg') }}" alt="">
-          <div class="info">
-            <div class="name">PUBG Mobile Competition</div>
-            <div class="price">Total Pembayaran : Rp 50.000</div>
-            <div class="status sudah">Pembayaran selesai</div>
-          </div>
+      {{-- looping --}}
+      @if ($valorant)
+        <div class="list-dashboardUser">
+            <div class="left">
+                <img src="{{ asset('dist/user/image/valorantCompetition.svg') }}" alt="">
+                <div class="info">
+                    <div class="name">Valorant Competition</div>
+                    <div class="price">Total Pembayaran : Rp 50.000</div>
+                    @if ($valorant->bukti_pembayaran)
+                        <div class="status sudah">Pembayaran selesai</div>
+                    @else
+                        <div class="status belum">Belum menyelesaikan Pembayaran</div>
+                    @endif
+                </div>
+            </div>
+            <div class="right">
+                @if ($valorant->bukti_pembayaran)
+                    <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
+                @else
+                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <a  href="{{ route('competition.valorant.pembayaran', ['valorant' => $valorant]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                @endif
+            </div>
         </div>
-        <div class="right">
-          <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
+      @endif
+      {{-- endlooping --}}
+
+      {{-- looping --}}
+      @if ($mobileLegend)
+        <div class="list-dashboardUser">
+            <div class="left">
+                <img src="{{ asset('dist/user/image/mlCompetition.svg') }}" alt="">
+                <div class="info">
+                    <div class="name">Mobile Legend Competition</div>
+                    <div class="price">Total Pembayaran : Rp 50.000</div>
+                    @if ($mobileLegend->bukti_pembayaran)
+                        <div class="status sudah">Pembayaran selesai</div>
+                    @else
+                        <div class="status belum">Belum menyelesaikan Pembayaran</div>
+                    @endif
+                </div>
+            </div>
+            <div class="right">
+                @if ($mobileLegend->bukti_pembayaran)
+                    <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
+                @else
+                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <a  href="{{ route('competition.ml.pembayaran', ['mobile_legend' => $mobileLegend]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                @endif
+            </div>
         </div>
-      </div>
-      <div class="list-dashboardUser">
-        <div class="left">
-         <img src="{{ asset('dist/user/image/mlCompetition.svg') }}" alt="">
-          <div class="info">
-            <div class="name">PUBG Mobile Competition</div>
-            <div class="price">Total Pembayaran : Rp 50.000</div>
-            <div class="status belum">Belum menyelesaikan pembayaran</div>
-          </div>
+      @endif
+      {{-- endlooping --}}
+
+      {{-- looping --}}
+      @if ($futsal)
+        <div class="list-dashboardUser">
+            <div class="left">
+                <img src="{{ asset('dist/user/image/futsalCompetition.svg') }}" alt="">
+                <div class="info">
+                    <div class="name">Futsal Competition</div>
+                    <div class="price">Total Pembayaran : Rp 50.000</div>
+                    @if ($futsal->bukti_pembayaran)
+                        <div class="status sudah">Pembayaran selesai</div>
+                    @else
+                        <div class="status belum">Belum menyelesaikan Pembayaran</div>
+                    @endif
+                </div>
+            </div>
+            <div class="right">
+                @if ($futsal->bukti_pembayaran)
+                    <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
+                @else
+                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <a  href="{{ route('competition.futsal.pembayaran', ['futsal' => $futsal]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                @endif
+            </div>
         </div>
-        <div class="right">
-          <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
-          <a  href="#"><button class="buyNow">Bayar Sekarang</button></a>
-        </div>
-      </div>
-      <div class="list-dashboardUser">
-        <div class="left">
-         <img src="{{ asset('dist/user/image/futsalCompetition.svg') }}" alt="">
-          <div class="info">
-            <div class="name">PUBG Mobile Competition</div>
-            <div class="price">Total Pembayaran : Rp 50.000</div>
-            <div class="status belum">Belum menyelesaikan pembayaran</div>
-          </div>
-        </div>
-        <div class="right">
-          <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
-          <a  href="#"><button class="buyNow">Bayar Sekarang</button></a>
-        </div>
-      </div>
+      @endif
+      {{-- endlooping --}}
+
     </div>
 
     <div class="wrapAnimasi">
       <img class="ikan" src="ikan.svg" alt="" />
     </div>
+
+    @include('sweetalert::alert')
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

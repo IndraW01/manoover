@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Traits\ModelTraits\SendMailTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 
 class PubgMobile extends Model
 {
@@ -29,5 +30,13 @@ class PubgMobile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isRegistered()
+    {
+        $registerPubg = $this->whereUserId(Auth::id())->exists();
+        if($registerPubg) {
+            return true;
+        }
     }
 }

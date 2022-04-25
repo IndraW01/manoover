@@ -8,9 +8,9 @@
  <h4>Pembayaran Berhasil!</h4>
  <p class="competition">Pembayaran untuk PUBG Mobile Competition telah berhasil!
   <br><br>
-  Selanjutkan pembayaran kamu akan diverifikasi oleh Admin dan akan diberikan notifikasi melalui email yang terdaftar
+  Selanjutkan pembayaran kamu akan diverifikasi oleh Admin dan akan diberikan notifikasi melalui email pendaftar
  </p>
  <br>
- <a href="/beranda">close Window</a>
+ <a href="{{ route('home') }}">close Window</a>
 </div>
 @endsection
