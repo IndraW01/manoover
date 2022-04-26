@@ -120,7 +120,6 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
     Route::get('/futsal/pembayaran/success', [FutsalCompetitionController::class, 'success'])->name('futsal.success');
     Route::get('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaran'])->name('futsal.pembayaran');
     Route::patch('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaranProses'])->name('futsal.pembayaranProeses');
-
 });
 
 
@@ -133,6 +132,29 @@ Route::get('/band/form', function () {
 });
 Route::get('/band/pembayaran/', function () {
     return view('user.band.pembayaran');
+});
+Route::get('/band/success', function () {
+    return view('auth.success.bandSuccess');
+});
+
+Route::get('/closingCeremony', function () {
+    return view('user.closingCeremony.detail');
+});
+Route::get('/closingCeremony/form', function () {
+    return view('user.closingCeremony.form');
+});
+Route::get('/closingCeremony/pembayaran', function () {
+    return view('user.closingCeremony.pembayaran');
+});
+Route::get('/closingCeremony/success', function () {
+    return view('auth.success.ceremonySuccess');
+});
+
+Route::get('/admin/ceremony', function () {
+    return view('admin.ceremony.index');
+});
+Route::get('/admin/ceremony/detail', function () {
+    return view('admin.ceremony.show');
 });
 
 // filter status -----------------

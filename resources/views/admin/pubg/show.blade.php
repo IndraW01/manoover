@@ -106,7 +106,7 @@
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span data-bs-toggle="modal" data-bs-target="#kartuModal" class="status completed">Lihat</span>
            <span class="status pending"><a href="{{ route('dashboard.pubg.download.identitas', ['pubg' => $pubgMobile]) }}" class="text-white">Download</a></span>
          </td>
        </tr>
@@ -117,13 +117,11 @@
          <td>:</td>
          <td>
             @if (!$pubgMobile->bukti_pembayaran)
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
-                <span>
-                    <small>Bukti Pembayaran belum di upload</small>
-                 </span>
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed" style="pointer-events: none;">Lihat</span>
+                <span class="status pending" style="pointer-events: none;"><a href="#" class="disabled text-white" >Download</a></span>
+               <small class="notifBukti">Bukti Pembayaran belum di upload</small>
             @else
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
                 <span class="status pending"><a href="{{ route('dashboard.pubg.download.bukti', ['pubg' => $pubgMobile]) }}" class="text-white">Download</a></span>
             @endif
          </td>
@@ -135,6 +133,7 @@
         <td>:</td>
         <td>
             @if (($pubgMobile->status == 'sudah') || ($pubgMobile->status == 'tolak'))
+            
                 <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
                 <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
             @else
@@ -193,11 +192,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="gambar_dashboard/bukti.jpg" alt="">
-        </div>
-        <div class="footer-modal">
-          <span class="button status2 completed" data-bs-toggle="modal" data-bs-target="#dropModal">Tolak</span>
-          <span class="button status completed">Konfirmasi</span>
+          <img src="{{asset("img/$pubgMobile->bukti_pembayaran")}}" alt="">
         </div>
       </div>
     </div>

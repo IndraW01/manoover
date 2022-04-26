@@ -821,3 +821,13 @@ body {
 .flex i {
     margin-right: 10px;
 }
+
+.notifBukti {
+    color: red;
+}
+
+@media screen and (max-width: 850px) {
+    .notifBukti {
+        color: red;
+    }
+}

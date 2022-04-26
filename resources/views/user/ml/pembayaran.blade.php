@@ -48,7 +48,7 @@
 
  <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$mobileLegend->created_at->addHours(24)}}"></span></b></div>
 
- <form action="{{ route('competition.ml.pembayaranProeses', ['mobile_legend' => $mobileLegend]) }}" method="POST" enctype="multipart/form-data">
+ <form action="{{ route('competition.ml.pembayaranProeses', ['mobile_legend' => $mobileLegend]) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
     @csrf
     @method('PATCH')
    <div class="input-form-pembayaran">
@@ -56,7 +56,9 @@
    <input
        type="file"
        name="bukti_pembayaran"
+       required
    />
+   <div class="invalid-feedback">Bukti pembayaran tidak boleh kosong !!!</div>
    </div>
    <button>Register Now</button>
 </form>

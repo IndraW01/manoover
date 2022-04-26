@@ -33,22 +33,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
-
-    <script>
-
-      var forms = document.querySelectorAll('.needs-validation')
-      Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-    
-            form.classList.add('was-validated')
-          }, false)
-        })
-      });
-    </script>
   </body>
 </html>

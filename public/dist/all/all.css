@@ -94,6 +94,10 @@ a {
     color: white;
     font-weight: 600;
 }
+a:hover {
+    background: #cf7b31;
+    color: white;
+}
 @media screen and (max-width: 645px) {
     p {
         font-weight: 400;

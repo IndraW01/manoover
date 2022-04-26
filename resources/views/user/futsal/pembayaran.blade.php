@@ -4,7 +4,7 @@
 @section('content')
 <div class="wrapForm">
   <div class="top">
-    <img src="{{ asset('dist/user/image/bennfutsal.svg') }}" alt="" />
+    <img src="{{ asset('dist/user/image/bennceremony.svg') }}" alt="" />
    </div>
    <h3>Futsal Competition</h3>
 
@@ -48,7 +48,7 @@
 
  <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$futsal->created_at->addHours(24)}}"></span></b></div>
 
- <form action="{{ route('competition.futsal.pembayaranProeses', ['futsal' => $futsal]) }}" method="POST" enctype="multipart/form-data">
+ <form action="{{ route('competition.futsal.pembayaranProeses', ['futsal' => $futsal]) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
     @csrf
     @method('PATCH')
    <div class="input-form-pembayaran">
@@ -56,7 +56,9 @@
    <input
        type="file"
        name="bukti_pembayaran"
+       required
    />
+   <div class="invalid-feedback">Bukti pembayaran tidak boleh kosong !!!</div>
    </div>
    <button>Register Now</button>
 </form>

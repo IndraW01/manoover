@@ -3,9 +3,9 @@
 @section('content')
 <div class="wrapForm">
  <div class="top">
-  <img src="{{ asset('dist/user/image/bennPUBG.svg') }}" alt="" />
+  <img src="{{ asset('dist/user/image/bennBand.svg') }}" alt="" />
  </div>
- <h3>PUBG Mobile Competition</h3>
+ <h3>Band Audition</h3>
 
  <h4>Pembayaran</h4>
  <p>
@@ -45,9 +45,9 @@
  </p>
  <p>Segera selesaikan pembayaran dalam waktu <b>1x24 jam</b></p>
 
- <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$pubg->created_at->addHours(24)}}"></span></b></div>
+ <div class="time">Waktu Tersisa <b><span class="countdown" value=""></span></b></div>
 
- <form action="{{ route('competition.pubg.pembayaranProeses', ['pubg' => $pubg]) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+ <form action="#" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
      @csrf
      @method('PATCH')
     <div class="input-form-pembayaran">

@@ -196,7 +196,7 @@
             <div id="demo2" class="content-wrapEvent2">
               <p class="contentEvent11  d-none">Management Closing Ceremony</p>
               <p class="contentEvent21 d-none">Is the highlight of all Manoover series with performances from Band Featuring, Guest Star, Special Performance, Band Performance and others. Management Closing Ceremony was held on July 30th, 2022. </p>
-              <a href="#" class="contentEvent31 d-none"><button>Register Now</button></a>
+              <a href="/closingCeremony" class="contentEvent31 d-none"><button>Register Now</button></a>
             </div>
           </div>
          </div>

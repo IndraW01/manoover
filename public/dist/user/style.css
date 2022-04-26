@@ -260,3 +260,7 @@ input::-webkit-file-upload-button {
         padding: 10px 10px;
     }
 }
+
+.invalid-feedback {
+    color: #e47782 !important;
+}

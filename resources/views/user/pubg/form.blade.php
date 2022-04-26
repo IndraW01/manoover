@@ -9,7 +9,7 @@
 
  <h4>Data Tim</h4>
 
- <form action="{{ route('competition.pubg.store') }}" method="POST" enctype="multipart/form-data">
+ <form action="{{ route('competition.pubg.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
   @csrf
   <div class="row">
    <div class="col-md-6">
@@ -22,6 +22,7 @@
          placeholder="Masukkan Nama Tim anda..."
          required         
        />
+       <div class="invalid-feedback">Nama tim tidak boleh kosong !!!</div>
      </div>
    </div>
    <div class="col-md-6">
@@ -34,6 +35,7 @@
          placeholder="Masukkan Email anda..."
          required
        />
+       <div class="invalid-feedback">Format Email Anda Salah !!!</div>
      </div>
    </div>
  </div>
@@ -48,18 +50,20 @@
          placeholder="Masukkan Nama Ketua Tim anda..."
          required
        />
+       <div class="invalid-feedback">Nama Ketua tim tidak boleh kosong !!!</div>
      </div>
    </div>
    <div class="col-md-6">
      <div class="input-form">
        <div class="tittle">No HP</div>
        <input
-         type="text"
+         type="number"
          name="no_hp"
          value="{{ old('no_hp') }}"
          placeholder="Masukkan no hp anda..."
          required
        />
+       <div class="invalid-feedback">Format no HP harus angka !!!</div>
      </div>
    </div>
  </div>
@@ -74,6 +78,7 @@
      placeholder="Masukkan nama anda..."
      required
    />
+   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 2</div>
@@ -84,6 +89,7 @@
      placeholder="Masukkan nama anda..."
      required
    />
+   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 3</div>
@@ -94,6 +100,7 @@
      placeholder="Masukkan nama anda..."
      required
    />
+   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 4</div>
@@ -104,6 +111,7 @@
      placeholder="Masukkan nama anda..."
      required
    />
+   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota Cadangan</div>
@@ -114,7 +122,7 @@
      placeholder="Masukkan nama anda..."
      required
    />
-   <div class="invalid-feedback">Please provide a valid zip.</div>
+   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
  </div>
  <div class="input-form">
    <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
@@ -124,11 +132,11 @@
      value="{{ old('kartu_identitas') }}"
      required
    />
+   <div class="invalid-feedback">Format anda salah !!!</div>
  </div>
 
  <button type="submit">Register Now</button>
  </form>
 </div>
-
 
 @endsection
