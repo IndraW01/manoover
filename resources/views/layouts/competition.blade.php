@@ -83,46 +83,47 @@
         <img src="{{ asset('dist/landingPage/image/OmbakBawah.svg') }}" class="OmbakBawah" alt="">
         <h2>Competition</h2>
         <div class="row">
-         <div class="col-md-6">
-          <div class="wrapEvent" data-aos="fade-up">
-            <img src="{{ asset('dist/landingPage/image/pubgCompetition.svg') }}" alt="" />
-            <div id="demoCompetition" class="content-wrapEvent">
-              <p class="contentCompetition1 tittleCompetition d-none">PUBG Mobile</p>
-              <a href="/competition/pubg" class="contentCompetition2 d-none"><button class="btnCompetition">Register Now</button></a>
+          <div class="col-md-6">
+            <div class="wrapEvent" data-aos="fade-up">
+              <img src="{{ asset('dist/landingPage/image/pubgCompetition.svg') }}" alt="" />
+              <div id="demoCompetition" class="content-wrapEvent">
+                <p class="contentCompetition1 tittleCompetition d-none">PUBG Mobile</p>
+                <a href="/competition/pubg" class="contentCompetition2 d-none"><button class="btnCompetition">Register Now</button></a>
+              </div>
             </div>
           </div>
-         </div>
-         <div class="col-md-6">
-          <div class="wrapEvent" data-aos="fade-up">
-            <img src="{{ asset('dist/landingPage/image/mlCompetition.svg') }}" alt="" />
-            <div id="demoCompetition2" class="content-wrapEvent2">
-              <p class="contentCompetition3 tittleCompetition d-none">Mobile Legends : Bang Bang</p>
-              <a href="/competition/ml" class="contentCompetition4 d-none"><button class="btnCompetition">Register Now</button></a>
+          <div class="col-md-6">
+            <div class="wrapEvent" data-aos="fade-up">
+              <img src="{{ asset('dist/landingPage/image/mlCompetition.svg') }}" alt="" />
+              <div id="demoCompetition2" class="content-wrapEvent2">
+                <p class="contentCompetition3 tittleCompetition d-none">Mobile Legends : Bang Bang</p>
+                <a href="/competition/ml" class="contentCompetition4 d-none"><button class="btnCompetition">Register Now</button></a>
+              </div>
             </div>
           </div>
-         </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="wrapEvent" data-aos="fade-up">
+              <img src="{{ asset('dist/landingPage/image/valorantCompetition.svg') }}" alt="" />
+              <div id="demoCompetition3" class="content-wrapEvent3">
+                <p class="contentCompetition5 tittleCompetition d-none">Valorant</p>
+                <a href="/competition/valorant" class="contentCompetition6 d-none"><button class="btnCompetition">Register Now</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="wrapEvent" data-aos="fade-up">
+              <img src="{{ asset('dist/landingPage/image/futsalCompetition.svg') }}" alt="" />
+              <div id="demoCompetition4" class="content-wrapEvent4">
+                <p class="contentCompetition7 tittleCompetition d-none">Futsal</p>
+                <a href="/competition/futsal" class="contentCompetition8 d-none"><button class="btnCompetition">Register Now</button></a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
-         <div class="col-md-6">
-          <div class="wrapEvent" data-aos="fade-up">
-            <img src="{{ asset('dist/landingPage/image/valorantCompetition.svg') }}" alt="" />
-            <div id="demoCompetition3" class="content-wrapEvent3">
-              <p class="contentCompetition5 tittleCompetition d-none">Valorant</p>
-              <a href="/competition/valorant" class="contentCompetition6 d-none"><button class="btnCompetition">Register Now</button></a>
-            </div>
-          </div>
-         </div>
-         <div class="col-md-6">
-          <div class="wrapEvent" data-aos="fade-up">
-            <img src="{{ asset('dist/landingPage/image/futsalCompetition.svg') }}" alt="" />
-            <div id="demoCompetition4" class="content-wrapEvent4">
-              <p class="contentCompetition7 tittleCompetition d-none">Futsal</p>
-              <a href="/competition/futsal" class="contentCompetition8 d-none"><button class="btnCompetition">Register Now</button></a>
-            </div>
-          </div>
-         </div>
-
-         <div class="row">
           <div class="col-md-12">
             <div class="wrapEvent" data-aos="fade-up">
               <img class="imglarge" src="{{ asset('dist/landingPage/image/band.svg') }}" alt="" />
@@ -133,8 +134,6 @@
               </div>
             </div>
           </div>
-         </div>
-
         </div>
         <div class="space"></div>
       </section>

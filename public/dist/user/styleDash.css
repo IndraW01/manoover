@@ -94,6 +94,19 @@ body {
     padding: 10px 70px;
     font-weight: 600;
 }
+.list-dashboardUser .right .buyNowCancel {
+    max-width: 280px;
+    width: 100%;
+    background: #9b9a99;
+    border-radius: 45px;
+    margin-top: 60px;
+    outline: none;
+    border: 1px solid #9b9a99;
+    color: white;
+    padding: 10px 70px;
+    font-weight: 600;
+    pointer-events: none;
+}
 
 @media screen and (max-width: 1150px) {
     .wrapForm {

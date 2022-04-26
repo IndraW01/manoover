@@ -20,6 +20,7 @@
          name="nama_tim"
          value="{{ old('nama_tim') }}"
          placeholder="Masukkan Nama Tim anda..."
+         required         
        />
      </div>
    </div>
@@ -31,6 +32,7 @@
          name="email"
          value="{{ old('email') }}"
          placeholder="Masukkan Email anda..."
+         required
        />
      </div>
    </div>
@@ -44,6 +46,7 @@
          name="nama_ketua_tim"
          value="{{ old('nama_ketua_tim') }}"
          placeholder="Masukkan Nama Ketua Tim anda..."
+         required
        />
      </div>
    </div>
@@ -55,6 +58,7 @@
          name="no_hp"
          value="{{ old('no_hp') }}"
          placeholder="Masukkan no hp anda..."
+         required
        />
      </div>
    </div>
@@ -68,6 +72,7 @@
      name="anggota1"
      value="{{ old('anggota1') }}"
      placeholder="Masukkan nama anda..."
+     required
    />
  </div>
  <div class="input-form">
@@ -77,6 +82,7 @@
      name="anggota2"
      value="{{ old('anggota2') }}"
      placeholder="Masukkan nama anda..."
+     required
    />
  </div>
  <div class="input-form">
@@ -86,6 +92,7 @@
      name="anggota3"
      value="{{ old('anggota3') }}"
      placeholder="Masukkan nama anda..."
+     required
    />
  </div>
  <div class="input-form">
@@ -95,6 +102,7 @@
      name="anggota4"
      value="{{ old('anggota4') }}"
      placeholder="Masukkan nama anda..."
+     required
    />
  </div>
  <div class="input-form">
@@ -104,7 +112,9 @@
      name="cadangan1"
      value="{{ old('cadangan1') }}"
      placeholder="Masukkan nama anda..."
+     required
    />
+   <div class="invalid-feedback">Please provide a valid zip.</div>
  </div>
  <div class="input-form">
    <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
@@ -112,10 +122,13 @@
      type="file"
      name="kartu_identitas"
      value="{{ old('kartu_identitas') }}"
+     required
    />
  </div>
 
  <button type="submit">Register Now</button>
  </form>
 </div>
+
+
 @endsection

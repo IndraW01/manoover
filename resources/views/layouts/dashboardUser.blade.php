@@ -34,8 +34,9 @@
                 @if ($pubg->bukti_pembayaran)
                     <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                 @else
-                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$pubg->created_at->addHours(24)}}"></span></div>
                     <a  href="{{ route('competition.pubg.pembayaran', ['pubg' => $pubg]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                    <a  href="{{ route('competition.pubg.pembayaran', ['pubg' => $pubg]) }}"><button class="buyNowCancel">Waktu Habis</button></a>
                 @endif
             </div>
         </div>
@@ -61,7 +62,7 @@
                 @if ($valorant->bukti_pembayaran)
                     <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                 @else
-                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$valorant->created_at->addHours(24)}}"></span></div>
                     <a  href="{{ route('competition.valorant.pembayaran', ['valorant' => $valorant]) }}"><button class="buyNow">Bayar Sekarang</button></a>
                 @endif
             </div>
@@ -88,7 +89,7 @@
                 @if ($mobileLegend->bukti_pembayaran)
                     <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                 @else
-                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$mobileLegend->created_at->addHours(24)}}"></span></div>
                     <a  href="{{ route('competition.ml.pembayaran', ['mobile_legend' => $mobileLegend]) }}"><button class="buyNow">Bayar Sekarang</button></a>
                 @endif
             </div>
@@ -115,7 +116,7 @@
                 @if ($futsal->bukti_pembayaran)
                     <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                 @else
-                    <div class="timeNow">Pembayaran akan hangus dalam 23:59:59</div>
+                    <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$futsal->created_at->addHours(24)}}"></span></div>
                     <a  href="{{ route('competition.futsal.pembayaran', ['futsal' => $futsal]) }}"><button class="buyNow">Bayar Sekarang</button></a>
                 @endif
             </div>
@@ -136,6 +137,8 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
+    <script src="{{asset("js/time/script.js")}}"></script>
   </body>
 </html>

@@ -350,8 +350,8 @@ section.four .row .col-md-12 .imglarge {
 }
 section.four .row .col-md-12 .imgsmall {
     display: none;
-    max-width: 560px;
-    width: 110%;
+    max-width: 558px;
+    width: 100%;
     padding: 10px 0;
 }
 
@@ -1209,5 +1209,18 @@ section.footer .row li p {
         color: white;
         text-align: center;
         padding: 50px 0 20px 0;
+    }
+    .wrapEvent .content-wrapEvent5 .btnCompetition {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        bottom: 0;
+        width: 90%;
+        background: #f9943b;
+        padding: 12px 0;
+        color: white;
+        border-radius: 45px;
+        outline: none;
+        border: 1px solid #f9943b;
     }
 }

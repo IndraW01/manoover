@@ -46,7 +46,7 @@
  </p>
  <p>Segera selesaikan pembayaran dalam waktu <b>1x24 jam</b></p>
 
- <div class="time">Waktu Tersisa <b>23:59:59</b></div>
+ <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$mobileLegend->created_at->addHours(24)}}"></span></b></div>
 
  <form action="{{ route('competition.ml.pembayaranProeses', ['mobile_legend' => $mobileLegend]) }}" method="POST" enctype="multipart/form-data">
     @csrf

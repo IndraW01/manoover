@@ -125,9 +125,15 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
 
 
 
-// Route::get('/success-registrasi', function () {
-//     return view('auth.success');
-// });
+Route::get('/band', function () {
+    return view('user.band.detail');
+});
+Route::get('/band/form', function () {
+    return view('user.band.form');
+});
+Route::get('/band/pembayaran/', function () {
+    return view('user.band.pembayaran');
+});
 
 // filter status -----------------
 
