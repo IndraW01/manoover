@@ -211,46 +211,116 @@
         <div class="wrap-line">
          <div class="wrap">
           <div class="top">
-           <div class="line one"></div>
-           <div class="line two"></div>
-           <div class="line tree"></div>
-           <div class="line four"></div>
-           <div class="line five"></div>
+            <div class="timeLine">
+              <div id="line"></div>
+              <div id="marker"></div>
+              <span onclick="first()">April</span>
+              <span onclick="two()">Mei</span>
+              <span onclick="tree()">Juni</span>
+              <span onclick="four()">Juli</span>
+              <span onclick="five()">Agustus</span>
+            </div>
           </div>
-          <div class="bottom" data-aos="fade-up">
-           <div class="wrap-description">
-            <div class="list-descripton">
-             <div class="start">01 Juni 2022</div>
-             <div class="middle"></div>
-             <div class="end">Close Registration Management Competition</div>
-            </div>
-            <br>
-            <div class="list-descripton">
-             <div class="start">01 Juni 2022</div>
-             <div class="middle"></div>
-             <div class="end">Technical Meeting Management Competition</div>
-            </div>
-            <br>
-            <div class="list-descripton">
-             <div class="start">01 Juni 2022</div>
-             <div class="middle"></div>
-             <div class="end">PUBG Mobile, Day 1 Mobile Legend</div>
-            </div>
-            <br>
-            <div class="list-descripton">
-             <div class="start">01 Juni 2022</div>
-             <div class="middle"></div>
-             <div class="end">Day 1 Management Icon, Day 2 Mobile Legend, Day 1 Valorant, Futsal</div>
-            </div>
-            <br>
-            <div class="list-descripton">
-             <div class="start">01 Juni 2022</div>
-             <div class="middle"></div>
-             <div class="end">
-               Day 2 Management Icon, Day 3 Mobile Legend, Day 2 Valorant, Pengumuman Pemenang E-Sport
+          <br>
+          <div class="timeContent1">
+            <div class="bottom" data-aos="fade-up">
+              <div class="wrap-description">
+                <div class="list-descripton">
+                  <div class="start">10 april 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Open Donation MANOOVER x lindungihutan</div>
+                </div>
               </div>
             </div>
-           </div>
+          </div>
+
+          <div class="timeContent2 d-none">
+            <div class="bottom" data-aos="fade-up">
+              <div class="wrap-description">
+                <div class="list-descripton">
+                  <div class="start">03 Mei 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Open Registration Management Competition</div>
+                </div>
+                <br>
+                <div class="list-descripton">
+                  <div class="start">28 Mei 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Pelatihan Day 1 Management Icon</div>
+                </div>
+                <br>
+                <div class="list-descripton">
+                  <div class="start">29 Mei 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Pelatihan Day 1 Management Icon</div>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="timeContent3 d-none">
+            <div class="bottom" data-aos="fade-up">
+              <div class="wrap-description">
+                <div class="list-descripton">
+                  <div class="start">01 Juni 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Close Registration Management Competition</div>
+                </div>
+                <br>
+                <div class="list-descripton">
+                  <div class="start">02 Juni 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Technical Meeting Management Competition</div>
+                </div>
+                <br>
+                <div class="list-descripton">
+                  <div class="start">03 Juni 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">PUBG Mobile, Day 1 Mobile Legend</div>
+                </div>                
+                <br>
+                <div class="list-descripton">
+                  <div class="start">04 Juni 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Day 1 Management Icon, Day 2 Mobile Legend, Day 1 Valorant, Futsal</div>
+                </div>                
+                <br>
+                <div class="list-descripton">
+                  <div class="start">05 Juni 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Day 2 Management Icon, Day 3 Mobile Legend, Day 2 Valorant, Pengumuman Pemenang E-Sport</div>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <div class="timeContent4 d-none">
+            <div class="bottom" data-aos="fade-up">
+              <div class="wrap-description">
+                <div class="list-descripton">
+                  <div class="start">23 Juli 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Band Audition</div>
+                </div>
+                <br>
+                <div class="list-descripton">
+                  <div class="start">30 Juli 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Management Closing Ceremony</div>
+                </div>
+                <br>               
+              </div>
+            </div>
+          </div>
+          <div class="timeContent5 d-none">
+            <div class="bottom" data-aos="fade-up">
+              <div class="wrap-description">
+                <div class="list-descripton">
+                  <div class="start">06 Agustus 2022</div>
+                  <div class="middle"></div>
+                  <div class="end">Charity</div>
+                </div>
+                <br>               
+              </div>
+            </div>
           </div>
          </div>
         </div>
@@ -340,6 +410,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="{{ asset('dist/landingPage/script.js') }}"></script>
     <script src="{{ asset('dist/landingPage/script3.js') }}"></script>
+    <script src="{{ asset('dist/landingPage/script4.js') }}"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
