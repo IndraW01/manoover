@@ -496,67 +496,52 @@ section.five .wrap-line .wrap {
     max-width: 1020px;
     width: 100%;
 }
-section.five .wrap-line .wrap .top {
-    height: 40px;
+.wrapTimeLine {
     display: flex;
-    align-items: baseline;
-    position: relative;
-}
-
-section.five .wrap-line .line {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 100vh;
+}
+.timeLine {
+    display: flex;
+    position: relative;
+    max-width: 1020px;
+    width: 100%;
+    justify-content: space-between;
+}
+.timeLine span {
+    position: relative;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+.timeLine #line {
+    position: absolute;
+    left: 0;
     height: 5px;
+    width: 100%;
     background: white;
-    border-radius: 10px;
+    bottom: -8px;
+    transition: 0.5s;
+    border-radius: 20px;
 }
-
-/* ====================== line aktinyaaa */
-section.five .wrap-line .line.tree {
+.timeLine #marker {
+    position: absolute;
+    left: 0;
+    height: 5px;
+    width: 20%;
     background: #f9943b;
+    bottom: -8px;
+    transition: 0.5s;
 }
 
-section.five .wrap-line .line.one::before {
-    content: "April";
-    position: absolute;
-    top: -50px;
-    font-size: 25px;
-    font-weight: 400;
-    color: white;
-}
-section.five .wrap-line .line.two::before {
-    content: "Mei";
-    position: absolute;
-    top: -50px;
-    font-size: 25px;
-    font-weight: 400;
-    color: white;
-}
-section.five .wrap-line .line.tree::before {
-    content: "Juni";
-    position: absolute;
-    top: -50px;
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-}
-section.five .wrap-line .line.four::before {
-    content: "Juli";
-    position: absolute;
-    top: -50px;
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-}
-section.five .wrap-line .line.five::before {
-    content: "Agustus";
-    position: absolute;
-    top: -50px;
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-}
 section.five .wrap-line .bottom .wrap-description {
     width: 100%;
+    min-height: 500px;
 }
 section.five .wrap-line .bottom .wrap-description .list-descripton {
     width: 100%;
@@ -570,6 +555,7 @@ section.five .wrap-line .bottom .wrap-description .list-descripton {
 }
 section.five .wrap-line .bottom .wrap-description .start {
     width: 130px;
+    font-weight: 400;
 }
 section.five .wrap-line .bottom .wrap-description .middle {
     min-width: 25px;
