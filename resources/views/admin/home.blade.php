@@ -176,6 +176,92 @@
  </li>
 </ul>
 
+<div class="tittle_Competition">Band</div>
+<ul class="box-info">
+  <li>
+    <a class="flex" href="/dashboard/futsal">
+      <i class="bx bxs-group"></i>
+      <span class="text">
+        <h3>{{ $futsal->count() }}</h3>
+        <p>Pendaftar</p>
+      </span>
+    </a>
+  </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/belum_verifikasi">
+   <i class="bx bxs-group"></i>
+   <span class="text">
+     <h3>{{ $futsal->where('status', 'belum')->count() }}</h3>
+     <p> Belum Verifikasi</p>
+   </span>
+  </a>
+ </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
+    <i class="bx  bxs-calendar-check"></i>
+    <span class="text">
+      <h3>{{ $futsal->where('status', 'sudah')->count() }}</h3>
+      <p>Telah Verifikasi</p>
+    </span>
+  </a>
+ </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/tolak">
+    <i class="bx bxs-error"></i>
+    <span class="text">
+      <h3>{{ $futsal->where('status', 'tolak')->count() }}</h3>
+      <p>Di Tolak</p>
+    </span>
+  </a>
+ </li>
+</ul>
+
+<div class="tittle_Competition">Closing Ceremony</div>
+<ul class="box-info">
+  <li>
+    <a class="flex" href="/dashboard/futsal">
+      <i class="bx bxs-group"></i>
+      <span class="text">
+        <h3>{{ $futsal->count() }}</h3>
+        <p>Pendaftar</p>
+      </span>
+    </a>
+  </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/belum_verifikasi">
+   <i class="bx bxs-group"></i>
+   <span class="text">
+     <h3>{{ $futsal->where('status', 'belum')->count() }}</h3>
+     <p> Belum Verifikasi</p>
+   </span>
+  </a>
+ </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
+    <i class="bx  bxs-calendar-check"></i>
+    <span class="text">
+      <h3>{{ $futsal->where('status', 'sudah')->count() }}</h3>
+      <p>Telah Verifikasi</p>
+    </span>
+  </a>
+ </li>
+
+ <li>
+  <a class="flex" href="/dashboard/futsal/tolak">
+    <i class="bx bxs-error"></i>
+    <span class="text">
+      <h3>{{ $futsal->where('status', 'tolak')->count() }}</h3>
+      <p>Di Tolak</p>
+    </span>
+  </a>
+ </li>
+</ul>
+
 </main>
 @endsection
 

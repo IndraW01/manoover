@@ -58,7 +58,7 @@
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span data-bs-toggle="modal" data-bs-target="#KartuModal" class="status completed">Lihat</span>
            <span class="status pending"><a href="{{ route('dashboard.valorant.download.identitas', ['valorant' ]) }}" class="text-white">Download</a></span>
          </td>
        </tr>
@@ -69,13 +69,9 @@
          <td>:</td>
          <td>
             @if (!$valorant->bukti_pembayaran)
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
-                <span class="status pending"><a href="#" class="disabled text-white">Download</a></span>
-                <span>
-                    <small>Bukti Pembayaran belum di upload</small>
-                 </span>
+            <small class="notifBukti">Bukti Pembayaran belum di upload</small>
             @else
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat dan Konfirmasi</span>
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
                 <span class="status pending"><a href="{{ route('dashboard.valorant.download.bukti', ['valorant' => $valorant]) }}" class="text-white">Download</a></span>
             @endif
          </td>
@@ -87,15 +83,15 @@
         <td>:</td>
         <td>
             @if (($valorant->status == 'sudah') || ($valorant->status == 'tolak'))
-                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
-                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+              <span class="status success transparant disabled">Verifikasi</span>
+              <span class="status destroy transparant disabled">Tolak</span>
             @else
                 @if (!$valorant->bukti_pembayaran)
-                    <a href="#" class="btn btn-success btn-sm v-rounded disabled">Verifikasi</a>
+                <span class="status success transparant success">Verifikasi</span>
                 @else
-                    <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                    <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}" ><span class="status success">Verifikasi</span></a>
                 @endif
-                <a href="{{ route('dashboard.valorant.verifikasi.tolak', ['valorant' => $valorant]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
+                <a href="{{ route('dashboard.valorant.verifikasi.tolak', ['valorant' => $valorant]) }}"><span class="status destroy">Tolak</span></a>
             @endif
 
         </td>
@@ -104,34 +100,16 @@
   </div>
  </div>
 
-
-  <!-- Modal identitas -->
-  <div class="modal fade" id="riviewModal" tabindex="-1" aria-labelledby="riviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="kartuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog xl">
       <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="modal-body">
-        </div>
-        <div class="footer-modal">
-          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Tutup</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-
-  <!-- Modal Tolak -->
-  <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="alertHapus">
-            <img src="{{ asset('dist/admin/iconHapus.svg') }}" alt="">
-            <p>Apakah kamu yakin ingin menolak ini ?</p>
-          </div>
-        </div>
-        <div class="footer-modal">
-          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batlkan</span>
-          <span class="button status2 completed">Tolak</span>
         </div>
       </div>
     </div>
@@ -145,11 +123,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="gambar_dashboard/bukti.jpg" alt="">
-        </div>
-        <div class="footer-modal">
-          <span class="button status2 completed" data-bs-toggle="modal" data-bs-target="#dropModal">Tolak</span>
-          <span class="button status completed">Konfirmasi</span>
+          {{-- <img src="{{asset("img/$futsal->bukti_pembayaran")}}" alt=""> --}}
         </div>
       </div>
     </div>

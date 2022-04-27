@@ -117,8 +117,6 @@
          <td>:</td>
          <td>
             @if (!$pubgMobile->bukti_pembayaran)
-                <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed" style="pointer-events: none;">Lihat</span>
-                <span class="status pending" style="pointer-events: none;"><a href="#" class="disabled text-white" >Download</a></span>
                <small class="notifBukti">Bukti Pembayaran belum di upload</small>
             @else
                 <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
@@ -133,16 +131,15 @@
         <td>:</td>
         <td>
             @if (($pubgMobile->status == 'sudah') || ($pubgMobile->status == 'tolak'))
-            
-                <a href="#" class="btn btn-success btn-sm disabled">Verifikasi</a>
-                <a href="#" class="btn btn-warning btn-sm text-white disabled">Tolak</a>
+            <span class="status success transparant disabled">Verifikasi</span>
+            <span class="status destroy transparant disabled">Tolak</span>
             @else
                 @if (!$pubgMobile->bukti_pembayaran)
-                    <a href="#" class="btn btn-success btn-sm v-rounded disabled">Verifikasi</a>
+                  <span class="status success transparant disabled">Verifikasi</span>
                 @else
-                    <a href="{{ route('dashboard.pubg.verifikasi.berhasil', ['pubg' => $pubgMobile]) }}" class="btn btn-success btn-sm v-rounded">Verifikasi</a>
+                  <a href="{{ route('dashboard.pubg.verifikasi.berhasil', ['pubg' => $pubgMobile]) }}"><span class="status success">Verifikasi</span></a>
                 @endif
-                <a href="{{ route('dashboard.pubg.verifikasi.tolak', ['pubg' => $pubgMobile]) }}" class="btn btn-warning btn-sm text-white">Tolak</a>
+                  <a href="{{ route('dashboard.pubg.verifikasi.tolak', ['pubg' => $pubgMobile]) }}"><span class="status destroy">Tolak</span></a>
             @endif
 
         </td>
@@ -152,33 +149,17 @@
  </div>
 
 
-  <!-- Modal identitas -->
-  <div class="modal fade" id="riviewModal" tabindex="-1" aria-labelledby="riviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-      <div class="modal-content">
-        <div class="modal-body">
-        </div>
-        <div class="footer-modal">
-          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Tutup</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
-  <!-- Modal Tolak -->
-  <div class="modal fade" id="dropModal" tabindex="-1" aria-labelledby="dropModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
+  <!-- Modal -->
+  <div class="modal fade" id="kartuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog xl">
       <div class="modal-content">
-        <div class="modal-body">
-          <div class="alertHapus">
-            <img src="{{ asset('dist/admin/iconHapus.svg') }}" alt="">
-            <p>Apakah kamu yakin ingin menolak ini ?</p>
-          </div>
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="footer-modal">
-          <span class="button status completed" data-bs-dismiss="modal" aria-label="Close">Batlkan</span>
-          <span class="button status2 completed">Tolak</span>
+        <div class="modal-body">
+
         </div>
       </div>
     </div>

@@ -62,7 +62,7 @@
         <div class="tittle">Management Events</div>
 
         <li>
-         <a href="#">
+         <a href="/admin/ceremony">
            <i class="bx bxs-shopping-bag-alt"></i>
            <span class="text">Closing Ceremnoy</span>
          </a>

@@ -559,6 +559,17 @@ body {
 #content main .table-data .order table tr td .status.destroy {
     background: rgb(238, 27, 27);
 }
+#content main .table-data .order table tr td .status.destroy.transparant {
+    background: rgb(247, 179, 179);
+    pointer-events: none;
+}
+#content main .table-data .order table tr td .status.success {
+    background: rgb(21, 194, 44);
+}
+#content main .table-data .order table tr td .status.success.transparant {
+    background: rgb(179, 247, 194);
+    pointer-events: none;
+}
 #content main .table-data .order table tr td .status.process {
     background: var(--yellow);
 }
