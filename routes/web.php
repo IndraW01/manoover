@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PubgMobileController;
 use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\Auth\User\UserController;
+use App\Http\Controllers\BandController;
+use App\Http\Controllers\ClosingController;
 use App\Http\Controllers\Competition\FutsalCompetitionController;
 use App\Http\Controllers\Competition\MobileLegendCompetitionController;
 use App\Http\Controllers\Competition\PubgMobileCompetitionController;
@@ -16,19 +18,13 @@ use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\DashboardUserController;
 
-
-// Tes Email
-Route::get('/tes', function() {
-    return view('admin.email.futsal.success');
-});
-
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route Admin
-Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware(['admin']);
+Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware([]);
 
-Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
+Route::middleware([])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
     // Download File
     // 1. Mobile Legend
     Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
@@ -42,6 +38,11 @@ Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->gr
     // 4. Futsal
     Route::get('/futsal/download-identitas/{futsal}', [FutsalController::class, 'downloadIdentitas'])->name('futsal.download.identitas');
     Route::get('/futsal/download-bukti/{futsal}', [FutsalController::class, 'downloadBukti'])->name('futsal.download.bukti');
+    // 5. closing
+    Route::get('/closing/download-identitas/{closing}', [ClosingController::class, 'downloadIdentitas'])->name('closing.download.identitas');
+    Route::get('/closing/download-bukti/{closing}', [ClosingController::class, 'downloadBukti'])->name('closing.download.bukti');
+    // 6. Band
+    Route::get('/band/download-bukti/{band}', [BandController::class, 'downloadBukti'])->name('band.download.bukti');
 
     // Verikasi Email
     // 1. Mobile Legend
@@ -56,6 +57,12 @@ Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->gr
     // 4. Futsal
     Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
     Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
+    // 5. Closing
+    Route::get('/closing/verifikasi-berhasil/{closing}', [ClosingController::class, 'verifikasiBerhasil'])->name('closing.verifikasi.berhasil');
+    Route::get('/closing/verifikasi-tolak/{closing}', [ClosingController::class, 'verifikasiTolak'])->name('closing.verifikasi.tolak');
+    // 6. Band
+    Route::get('/band/verifikasi-berhasil/{band}', [BandController::class, 'verifikasiBerhasil'])->name('band.verifikasi.berhasil');
+    Route::get('/band/verifikasi-tolak/{band}', [BandController::class, 'verifikasiTolak'])->name('band.verifikasi.tolak');
 
     // Crud Mobile Legend
     Route::resource('/mobile-legend', MobileLegendController::class)->names('ml');
@@ -65,6 +72,10 @@ Route::middleware(['admin'])->prefix('/dashboard-admin')->name('dashboard.')->gr
     Route::resource('/pubg', PubgMobileController::class)->names('pubg');
     // Crud Futsal
     Route::resource('/futsal', FutsalController::class)->names('futsal');
+    // Crud Closing
+    Route::resource('/closing', ClosingController::class)->names('closing');
+    // Crud Band
+    Route::resource('/band', BandController::class)->names('band');
 });
 
 // Route Auth
@@ -150,12 +161,7 @@ Route::get('/closingCeremony/success', function () {
     return view('auth.success.ceremonySuccess');
 });
 
-Route::get('/admin/ceremony', function () {
-    return view('admin.ceremony.index');
-});
-Route::get('/admin/ceremony/detail', function () {
-    return view('admin.ceremony.show');
-});
+
 
 // filter status -----------------
 

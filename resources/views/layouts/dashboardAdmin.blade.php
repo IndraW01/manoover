@@ -59,10 +59,16 @@
             <span class="text">Futsal</span>
           </a>
         </li>
+        <li class="{{ request()->routeIs('dashboard.band.*') ? 'active' : '' }}">
+          <a href="{{ route('dashboard.band.index') }}">
+            <i class="bx bxs-game"></i>
+            <span class="text">Band</span>
+          </a>
+        </li>
         <div class="tittle">Management Events</div>
 
-        <li>
-         <a href="/admin/ceremony">
+        <li class="{{ request()->routeIs('dashboard.closing.*') ? 'active' : '' }}">
+         <a href="{{ route('dashboard.closing.index') }}">
            <i class="bx bxs-shopping-bag-alt"></i>
            <span class="text">Closing Ceremnoy</span>
          </a>

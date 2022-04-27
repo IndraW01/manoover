@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin', ['title' => 'Manoover Closing Ceremony'])
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Band Audition'])
 
 @section('content')
 
@@ -12,7 +12,7 @@
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
-        <a href="#">Closing Ceremony</a>
+        <a href="#">Band Audition</a>
       </li>
       <li><i class="bx bx-chevron-right"></i></li>
       <li>
@@ -23,13 +23,13 @@
 </div>
 
 
-<div class="tittle_Competition">Closing Ceremony</div>
+<div class="tittle_Competition">Band Audition</div>
 <ul class="box-info">
   <li>
     <a class="flex" href="/dashboard/closing">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>{{ $closings->count() }}</h3>
+        <h3>{{ $bands->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -39,7 +39,7 @@
   <a class="flex" href="/dashboard/ml/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>{{ $closings->where('status', 'belum')->count() }}</h3>
+     <h3>{{ $bands->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -49,7 +49,7 @@
   <a class="flex" href="/dashboard/ml/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>{{ $closings->where('status', 'sudah')->count() }}</h3>
+      <h3>{{ $bands->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -59,7 +59,7 @@
   <a class="flex" href="/dashboard/ml/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>{{ $closings->where('status', 'tolak')->count() }}</h3>
+      <h3>{{ $bands->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
@@ -79,25 +79,25 @@
      <thead>
        <tr>
          <th>User</th>
-         <th>Profesi</th>
+         <th>Nama Band</th>
          <th>Date Order</th>
          <th>Status</th>
          <th>Action</th>
        </tr>
      </thead>
      <tbody>
-        @foreach ($closings as $closing)
+        @foreach ($bands as $band)
             <tr>
                 <td>
                     <img src="{{ asset('img/profile.png') }}" />
-                    <p>{{ $closing->user->name }}</p>
+                    <p>{{ $band->user->name }}</p>
                 </td>
-                <td>{{ $closing->profesi }}</td>
-                <td>{{ $closing->created_at->isoFormat('DD-MM-YYYY') }}</td>
-                <td>{{ $closing->status == 'tolak' ? 'Ditolak' : ($closing->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
+                <td>{{ $band->nama_band }}</td>
+                <td>{{ $band->created_at->isoFormat('DD-MM-YYYY') }}</td>
+                <td>{{ $band->status == 'tolak' ? 'Ditolak' : ($band->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
                 <td class="action">
-                    <a href="{{ route('dashboard.closing.show', ['closing' => $closing]) }}"><span class="status completed">Detail</span></a>
-                    @if ((Carbon\Carbon::now() > $closing->created_at->addDay()) && ($closing->status == 'belum'))
+                    <a href="{{ route('dashboard.band.show', ['band' => $band]) }}"><span class="status completed">Detail</span></a>
+                    @if ((Carbon\Carbon::now() > $band->created_at->addDay()) && ($band->status == 'belum'))
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
                     @endif
                 </td>

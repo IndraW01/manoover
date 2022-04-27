@@ -198,7 +198,7 @@
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan proses pendaftaran. Pendaftaran anda sudah berhasil dilakukan pada ({{ $valorant->created_at->isoFormat('dddd, DD-MMMM-YYYY') }}).
     <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini atau klik buton link dibawah:
-    <br><br> Samuel :081317235433 (Valorant Competition)
+    <br><br> Illafie : 085156350804 (E-Sport Competition)
      </span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
   </div>
@@ -234,7 +234,7 @@
   <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">See you at Manoover Competition,</span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><strong><span style="line-height: 30.8px; font-family: 'Crimson Text', serif; font-size: 22px;">Thanks.</span></strong></span><br /><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Ketua Manoover</span></p>
+<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><strong><span style="line-height: 30.8px; font-family: 'Crimson Text', serif; font-size: 22px;">Thanks.</span></strong></span><br /><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">The 3rd Manoover</span></p>
   </div>
 
       </td>

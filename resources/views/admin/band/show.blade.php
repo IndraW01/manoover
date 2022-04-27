@@ -1,4 +1,4 @@
-@extends('layouts.dashboardAdmin', ['title' => 'Manoover Closing Ceremony | Detail'])
+@extends('layouts.dashboardAdmin', ['title' => 'Manoover Band Audition | Detail'])
 
 @section('content')
 
@@ -12,7 +12,7 @@
         </li>
         <li><i class="bx bx-chevron-right"></i></li>
         <li>
-          <a href="#">Closing Ceremony</a>
+          <a href="#">Band Auddition</a>
         </li>
         <li><i class="bx bx-chevron-right"></i></li>
         <li>
@@ -35,44 +35,41 @@
             Nama
           </td>
           <td>:</td>
-          <td class="answer">{{ $closing->user->name }} </td>
+          <td class="answer">{{ $band->user->name }} </td>
         </tr>
         <tr>
           <td>
             Profesi
           </td>
           <td>:</td>
-          <td class="answer">{{ $closing->profesi }} </td>
+          <td class="answer">{{ $band->nama_band }} </td>
         </tr>
         <tr>
           <td>
-            No HP
+            ID Line
           </td>
           <td>:</td>
-          <td class="answer">{{ $closing->no_hp }}</td>
+          <td class="answer">{{ $band->id_line }}</td>
+        </tr>
+        <tr>
+          <td>
+            No Whatsapp
+          </td>
+          <td>:</td>
+          <td class="answer">{{ $band->whatsapp }}</td>
         </tr>
 
-        <tr>
-         <td>
-           Foto KTP / Kartu Pelajar
-         </td>
-         <td>:</td>
-         <td>
-           <span data-bs-toggle="modal" data-bs-target="#KartuModal" class="status completed">Lihat</span>
-           <span class="status pending"><a href="{{ route('dashboard.closing.download.identitas', ['closing' => $closing ]) }}" class="text-white">Download</a></span>
-         </td>
-       </tr>
         <tr>
          <td>
            Bukti Pembayaran
          </td>
          <td>:</td>
          <td>
-            @if (!$closing->bukti_pembayaran)
+            @if (!$band->bukti_pembayaran)
             <small class="notifBukti">Bukti Pembayaran belum di upload</small>
             @else
                 <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
-                <span class="status pending"><a href="{{ route('dashboard.closing.download.bukti', ['closing' => $closing]) }}" class="text-white">Download</a></span>
+                <span class="status pending"><a href="{{ route('dashboard.band.download.bukti', ['band' => $band]) }}" class="text-white">Download</a></span>
             @endif
          </td>
        </tr>
@@ -82,16 +79,16 @@
         </td>
         <td>:</td>
         <td>
-            @if (($closing->status == 'sudah') || ($closing->status == 'tolak'))
+            @if (($band->status == 'sudah') || ($band->status == 'tolak'))
               <span class="status success transparant disabled">Verifikasi</span>
               <span class="status destroy transparant disabled">Tolak</span>
             @else
-                @if (!$closing->bukti_pembayaran)
+                @if (!$band->bukti_pembayaran)
                 <span class="status success transparant success">Verifikasi</span>
                 @else
-                    <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['closing' => $closing]) }}" ><span class="status success">Verifikasi</span></a>
+                    <a href="{{ route('dashboard.band.verifikasi.berhasil', ['band' => $band]) }}" ><span class="status success">Verifikasi</span></a>
                 @endif
-                <a href="{{ route('dashboard.closing.verifikasi.tolak', ['closing' => $closing]) }}"><span class="status destroy">Tolak</span></a>
+                <a href="{{ route('dashboard.band.verifikasi.tolak', ['band' => $band]) }}"><span class="status destroy">Tolak</span></a>
             @endif
 
         </td>
@@ -123,7 +120,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="{{asset("img/$closing->bukti_pembayaran")}}" alt="">
+          <img src="{{asset("img/$band->bukti_pembayaran")}}" alt="">
         </div>
       </div>
     </div>

@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             ValorantSeeder::class,
             PubgMobileSeeder::class,
             FutsalSeeder::class,
+            ClosingSeeder::class,
+            BandSeeder::class,
         ]);
     }
 }
