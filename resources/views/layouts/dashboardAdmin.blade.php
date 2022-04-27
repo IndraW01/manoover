@@ -13,6 +13,7 @@
     @yield('extra-header')
 
     <title>{{ $title ?? config('app.name') }}</title>
+    <link rel="shortcut icon" href="{{asset('logo.svg')}}">
 
   </head>
   <body>

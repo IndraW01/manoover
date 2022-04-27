@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="{{ asset('dist/landingPage/style.css') }}" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('logo.svg')}}">
     <title>Manoover</title>
   </head>
   <body>

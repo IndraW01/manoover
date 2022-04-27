@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="{{ asset('dist/user/style.css') }}" />
     <title>{{ $title ?? config('app.name') }}</title>
+    <link rel="shortcut icon" href="{{asset('logo.svg')}}">
   </head>
   <body>
 

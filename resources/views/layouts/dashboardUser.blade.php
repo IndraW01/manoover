@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('dist/user/styleDash.css') }}" />
+    <link rel="shortcut icon" href="{{asset('logo.svg')}}">
     <title>Dashboard</title>
   </head>
   <body>
