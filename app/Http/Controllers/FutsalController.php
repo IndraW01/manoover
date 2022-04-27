@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Futsal;
+use App\Traits\FutsalTrait;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreFutsalRequest;
 use App\Http\Requests\UpdateFutsalRequest;
-use App\Traits\FutsalTrait;
 
 class FutsalController extends Controller
 {
@@ -88,6 +89,10 @@ class FutsalController extends Controller
      */
     public function destroy(Futsal $futsal)
     {
-        //
+        $futsal->delete();
+
+        Alert::success('Berhasil', "Data {$futsal->nama_ketua_tim} Berhasil di hapus");
+
+        return redirect()->back();
     }
 }

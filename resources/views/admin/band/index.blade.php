@@ -98,7 +98,11 @@
                 <td class="action">
                     <a href="{{ route('dashboard.band.show', ['band' => $band]) }}"><span class="status completed">Detail</span></a>
                     @if ((Carbon\Carbon::now() > $band->created_at->addDay()) && ($band->status == 'belum'))
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="status destroy">Hapus</span></a>
+                        <form action="{{ route('dashboard.band.destroy', ['band' => $band]) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="status destroy border-0 btn-hapus" data-name="{{ $band->nama_ketua_tim }}">Hapus</button>
+                        </form>
                     @endif
                 </td>
             </tr>
@@ -110,7 +114,7 @@
 
 
 <!-- Modal Hapus -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-body">
@@ -125,8 +129,36 @@
       </div>
     </div>
   </div>
- </div>
+ </div> --}}
 </main>
+
+<script>
+    let semuaTombol = document.querySelectorAll('.btn-hapus');
+
+    semuaTombol.forEach(function(item) {
+        item.addEventListener('click',konfirmasi);
+    })
+
+    function konfirmasi(event){
+        let tombol = event.currentTarget;
+
+        event.preventDefault();
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: 'Hapus data '+ tombol.getAttribute('data-name'),
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#6c757d',
+            confirmButtonColor: '#dc3545',
+            confirmButtonText: 'Ya, hapus!',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.value) {
+                tombol.parentElement.submit();
+            }
+        })
+    }
+</script>
 
 @endsection
 

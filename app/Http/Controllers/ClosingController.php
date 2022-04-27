@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Closing;
+use App\Traits\ClosingTrait;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreClosingRequest;
 use App\Http\Requests\UpdateClosingRequest;
-use App\Traits\ClosingTrait;
 
 class ClosingController extends Controller
 {
@@ -88,6 +89,10 @@ class ClosingController extends Controller
      */
     public function destroy(Closing $closing)
     {
-        //
+        $closing->delete();
+
+        Alert::success('Berhasil', "Data {$closing->user->name} Berhasil di hapus");
+
+        return redirect()->back();
     }
 }

@@ -6,6 +6,7 @@ use App\Models\MobileLegend;
 use App\Http\Requests\StoreMobileLegendRequest;
 use App\Http\Requests\UpdateMobileLegendRequest;
 use App\Traits\MobileLegendTrait;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MobileLegendController extends Controller
 {
@@ -88,7 +89,11 @@ class MobileLegendController extends Controller
      */
     public function destroy(MobileLegend $mobileLegend)
     {
-        //
+        $mobileLegend->delete();
+
+        Alert::success('Berhasil', "Data {$mobileLegend->nama_ketua_tim} Berhasil di hapus");
+
+        return redirect()->back();
     }
 
 

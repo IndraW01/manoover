@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Valorant;
+use App\Traits\ValorantTrait;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreValorantRequest;
 use App\Http\Requests\UpdateValorantRequest;
-use App\Traits\ValorantTrait;
 
 class ValorantController extends Controller
 {
@@ -88,6 +89,10 @@ class ValorantController extends Controller
      */
     public function destroy(Valorant $valorant)
     {
-        //
+        $valorant->delete();
+
+        Alert::success('Berhasil', "Data {$valorant->nama_ketua_tim} Berhasil di hapus");
+
+        return redirect()->back();
     }
 }

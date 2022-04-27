@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Band;
+use App\Traits\BandTrait;
 use App\Http\Requests\StoreBandRequest;
 use App\Http\Requests\UpdateBandRequest;
-use App\Traits\BandTrait;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BandController extends Controller
 {
@@ -88,6 +89,10 @@ class BandController extends Controller
      */
     public function destroy(Band $band)
     {
-        //
+        $band->delete();
+
+        Alert::success('Berhasil', "Data {$band->nama_band} Berhasil di hapus");
+
+        return redirect()->back();
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\PubgTrait;
 use App\Models\PubgMobile;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StorePubgMobileRequest;
 use App\Http\Requests\UpdatePubgMobileRequest;
-use App\Traits\PubgTrait;
 
 class PubgMobileController extends Controller
 {
@@ -88,6 +89,10 @@ class PubgMobileController extends Controller
      */
     public function destroy(PubgMobile $pubg)
     {
-        //
+        $pubg->delete();
+
+        Alert::success('Berhasil', "Data {$pubg->nama_ketua_tim} Berhasil di hapus");
+
+        return redirect()->back();
     }
 }
