@@ -182,7 +182,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>{{ $futsal->count() }}</h3>
+        <h3>{{ $band->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -192,7 +192,7 @@
   <a class="flex" href="/dashboard/futsal/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>{{ $futsal->where('status', 'belum')->count() }}</h3>
+     <h3>{{ $band->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -202,7 +202,7 @@
   <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>{{ $futsal->where('status', 'sudah')->count() }}</h3>
+      <h3>{{ $band->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -212,7 +212,7 @@
   <a class="flex" href="/dashboard/futsal/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>{{ $futsal->where('status', 'tolak')->count() }}</h3>
+      <h3>{{ $band->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
@@ -225,7 +225,7 @@
     <a class="flex" href="/dashboard/futsal">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>{{ $futsal->count() }}</h3>
+        <h3>{{ $closing->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -235,7 +235,7 @@
   <a class="flex" href="/dashboard/futsal/belum_verifikasi">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>{{ $futsal->where('status', 'belum')->count() }}</h3>
+     <h3>{{ $closing->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -245,7 +245,7 @@
   <a class="flex" href="/dashboard/futsal/sudah_verifikasi">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>{{ $futsal->where('status', 'sudah')->count() }}</h3>
+      <h3>{{ $closing->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -255,7 +255,7 @@
   <a class="flex" href="/dashboard/futsal/tolak">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>{{ $futsal->where('status', 'tolak')->count() }}</h3>
+      <h3>{{ $closing->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>

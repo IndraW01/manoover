@@ -20,9 +20,10 @@
          name="nama_tim"
          value="{{ old('nama_tim') }}"
          placeholder="Masukkan Nama Tim anda..."
-         required         
        />
-       <div class="invalid-feedback">Nama tim tidak boleh kosong !!!</div>
+       @error('nama_tim')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -33,9 +34,10 @@
          name="email"
          value="{{ old('email') }}"
          placeholder="Masukkan Email anda..."
-         required
        />
-       <div class="invalid-feedback">Format Email Anda Salah !!!</div>
+       @error('email')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
  </div>
@@ -48,9 +50,10 @@
          name="nama_ketua_tim"
          value="{{ old('nama_ketua_tim') }}"
          placeholder="Masukkan Nama Ketua Tim anda..."
-         required
        />
-       <div class="invalid-feedback">Nama Ketua tim tidak boleh kosong !!!</div>
+       @error('nama_ketua_tim')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -61,9 +64,10 @@
          name="no_hp"
          value="{{ old('no_hp') }}"
          placeholder="Masukkan no hp anda..."
-         required
        />
-       <div class="invalid-feedback">Format no HP harus angka !!!</div>
+       @error('no_hp')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
  </div>
@@ -76,9 +80,10 @@
      name="anggota1"
      value="{{ old('anggota1') }}"
      placeholder="Masukkan nama anda..."
-     required
    />
-   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
+   @error('anggota1')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 2</div>
@@ -87,9 +92,10 @@
      name="anggota2"
      value="{{ old('anggota2') }}"
      placeholder="Masukkan nama anda..."
-     required
    />
-   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
+   @error('anggota2')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 3</div>
@@ -98,9 +104,10 @@
      name="anggota3"
      value="{{ old('anggota3') }}"
      placeholder="Masukkan nama anda..."
-     required
    />
-   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
+   @error('anggota3')
+   <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+@enderror
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota 4</div>
@@ -109,9 +116,10 @@
      name="anggota4"
      value="{{ old('anggota4') }}"
      placeholder="Masukkan nama anda..."
-     required
    />
-   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
+   @error('anggota4')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
  </div>
  <div class="input-form">
    <div class="tittle">Nama Anggota Cadangan</div>
@@ -120,9 +128,10 @@
      name="cadangan1"
      value="{{ old('cadangan1') }}"
      placeholder="Masukkan nama anda..."
-     required
    />
-   <div class="invalid-feedback">Nama anggota tim tidak boleh kosong !!!</div>
+   @error('cadangan1')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
  </div>
  <div class="input-form">
    <div class="tittle">Foto Identitas Seluruh Anggota (dalam bentuk .pdf)</div>
@@ -130,9 +139,10 @@
      type="file"
      name="kartu_identitas"
      value="{{ old('kartu_identitas') }}"
-     required
    />
-   <div class="invalid-feedback">Format anda salah !!!</div>
+   @error('kartu_identitas')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
  </div>
 
  <button type="submit">Register Now</button>

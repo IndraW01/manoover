@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Closing'])
 
 @section('content')
 <div class="wrapForm">
@@ -9,7 +9,7 @@
 
  <h4>Data Tim</h4>
 
- <form action="#" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+ <form action="{{ route('closing.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
   @csrf
   <div class="row">
    <div class="col-md-6">
@@ -17,12 +17,13 @@
        <div class="tittle">Nama</div>
        <input
          type="text"
-         name="nama_tim"
-         value="{{ old('nama_tim') }}"
+         name="nama"
+         value="{{ old('nama') }}"
          placeholder="Masukkan Nama anda..."
-         required         
        />
-       <div class="invalid-feedback">Nama tidak boleh kosong !!!</div>
+       @error('nama')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -33,9 +34,10 @@
          name="email"
          value="{{ old('email') }}"
          placeholder="Masukkan Email anda..."
-         required
        />
-       <div class="invalid-feedback">Format Email Anda Salah !!!</div>
+       @error('email')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
  </div>
@@ -45,12 +47,13 @@
        <div class="tittle">Profesi</div>
        <input
          type="text"
-         name="nama_ketua_tim"
-         value="{{ old('nama_ketua_tim') }}"
+         name="profesi"
+         value="{{ old('profesi') }}"
          placeholder="Masukkan profesi anda..."
-         required
        />
-       <div class="invalid-feedback">Profesi tidak boleh kosong !!!</div>
+       @error('profesi')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -61,9 +64,10 @@
          name="no_hp"
          value="{{ old('no_hp') }}"
          placeholder="Masukkan no hp anda..."
-         required
        />
-       <div class="invalid-feedback">Format no HP harus angka !!!</div>
+       @error('no_hp')
+            <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+        @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -73,15 +77,16 @@
         type="file"
         name="kartu_identitas"
         value="{{ old('kartu_identitas') }}"
-        required
       />
-      <div class="invalid-feedback">Format anda salah !!!</div>
+      @error('kartu_identitas')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
     </div>
    </div>
 
  </div>
 
- 
+
 
  <button type="submit">Register Now</button>
  </form>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateBandRequest extends FormRequest
@@ -13,7 +14,7 @@ class UpdateBandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,7 @@ class UpdateBandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'bukti_pembayaran' => 'required|image|max:2000|mimes:jpg,png,jpeg'
         ];
     }
 }

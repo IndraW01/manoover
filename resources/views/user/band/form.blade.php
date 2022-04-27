@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Band'])
 
 @section('content')
 <div class="wrapForm">
@@ -9,7 +9,7 @@
 
  <h4>Data Band</h4>
 
- <form action="#" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+ <form action="{{ route('competition.band.store') }}" method="POST" class="needs-validation" novalidate>
   @csrf
   <div class="row">
    <div class="col-md-6">
@@ -17,12 +17,13 @@
        <div class="tittle">Nama Band</div>
        <input
          type="text"
-         name="nama_tim"
-         value="{{ old('nama_tim') }}"
+         name="nama_band"
+         value="{{ old('nama_band') }}"
          placeholder="Masukkan Nama Band anda..."
-         required
        />
-       <div class="invalid-feedback">Nama band tidak boleh kosong !!!</div>
+       @error('nama_band')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+       @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -33,9 +34,10 @@
          name="email"
          value="{{ old('email') }}"
          placeholder="Masukkan Email anda..."
-         required
        />
-       <div class="invalid-feedback">Format Email Anda Salah !!!</div>
+       @error('email')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+       @enderror
      </div>
    </div>
  </div>
@@ -45,12 +47,13 @@
        <div class="tittle">ID Line Perwakilan</div>
        <input
          type="text"
-         name="nama_ketua_tim"
-         value="{{ old('nama_ketua_tim') }}"
+         name="id_line"
+         value="{{ old('id_line') }}"
          placeholder="Masukkan ID line anda..."
-         required
        />
-       <div class="invalid-feedback">ID line tidak boleh kosong !!!</div>
+       @error('id_line')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+       @enderror
      </div>
    </div>
    <div class="col-md-6">
@@ -58,12 +61,13 @@
        <div class="tittle">No HP (Whatsapp) Perwakilan</div>
        <input
          type="number"
-         name="no_hp"
-         value="{{ old('no_hp') }}"
+         name="whatsapp"
+         value="{{ old('whatsapp') }}"
          placeholder="Masukkan no HP (whatsapp) anda..."
-         required
        />
-       <div class="invalid-feedback">Format no HP harus angka !!!</div>
+       @error('whatsapp')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+       @enderror
      </div>
    </div>
  </div>

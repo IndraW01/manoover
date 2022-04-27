@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Competition;
 
 use Exception;
+use Carbon\Carbon;
 use App\Models\PubgMobile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePubgMobileRequest;
-use App\Http\Requests\UpdatePubgMobileRequest;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StorePubgMobileRequest;
+use App\Http\Requests\UpdatePubgMobileRequest;
 
 class PubgMobileCompetitionController extends Controller
 {
@@ -70,6 +71,12 @@ class PubgMobileCompetitionController extends Controller
 
     public function pembayaran(PubgMobile $pubg)
     {
+        if((Carbon::now() > $pubg->created_at->addDay())) {
+            Alert::error('Gagal', 'Waktu Pembayaran anda telah habis');
+
+            return redirect('/dashboard-user');
+        }
+
         return view('user.pubg.pembayaran', [
             'pubg' => $pubg
         ]);

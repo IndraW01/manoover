@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Band;
+use App\Models\Closing;
 use App\Models\Futsal;
 use App\Models\MobileLegend;
 use App\Models\PubgMobile;
@@ -17,6 +19,8 @@ class DashboardController extends Controller
             'ml' => MobileLegend::get(),
             'valorant' => Valorant::get(),
             'futsal' => Futsal::get(),
+            'band' => Band::get(),
+            'closing' => Closing::get(),
         ]);
     }
 }

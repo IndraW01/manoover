@@ -4,43 +4,43 @@ namespace App\Http\Controllers\Competition;
 
 use Exception;
 use Carbon\Carbon;
-use App\Models\Valorant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreClosingRequest;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\StoreValorantRequest;
-use App\Http\Requests\UpdateValorantRequest;
+use App\Http\Requests\UpdateClosingRequest;
+use App\Models\Closing;
 
-class ValorantCompetitionController extends Controller
+class ClosingCompetitionController extends Controller
 {
-    private Valorant $valorant;
+    private Closing $closing;
 
     public function __construct()
     {
-        $this->valorant = new Valorant();
+        $this->closing = new Closing();
     }
 
     public function detail()
     {
-        return view('user.valorant.detail');
+        return view('user.closing.detail');
     }
 
     public function create()
     {
-        return view('user.valorant.form');
+        return view('user.closing.form');
     }
 
-    public function store(StoreValorantRequest $request)
+    public function store(StoreClosingRequest $request)
     {
-        if($this->valorant->isRegistered()) {
-            Alert::error('Gagal', 'Anda telah mendaftar lomba Valorant');
+        if($this->closing->isRegistered()) {
+            Alert::error('Gagal', 'Anda telah mendaftar Closing Ceremony');
 
             return redirect('/dashboard-user');
         }
 
-        $validateData = $request->safe()->except(['kartu_identitas', 'email']);
+        $validateData = $request->safe()->except(['kartu_identitas', 'email', 'nama']);
 
         try {
             DB::beginTransaction();
@@ -52,16 +52,16 @@ class ValorantCompetitionController extends Controller
             // validateData
             $validateData['kartu_identitas'] = $namaFile;
 
-            // tambah data lomba valorant
+            // tambah data lomba closing
             $user = Auth::user();
-            $addUserValorant = $user->valorant()->create($validateData);
+            $addUserClosing = $user->closing()->create($validateData);
 
             DB::commit();
 
             // upload file ke folder
             $request->kartu_identitas->move('berkas', $namaFile);
 
-            return redirect()->route('competition.valorant.pembayaran', ['valorant' => $addUserValorant]);
+            return redirect()->route('closing.pembayaran', ['closing' => $addUserClosing]);
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -69,20 +69,20 @@ class ValorantCompetitionController extends Controller
         }
     }
 
-    public function pembayaran(Valorant $valorant)
+    public function pembayaran(Closing $closing)
     {
-        if((Carbon::now() > $valorant->created_at->addDay())) {
+        if((Carbon::now() > $closing->created_at->addDay())) {
             Alert::error('Gagal', 'Waktu Pembayaran anda telah habis');
 
             return redirect('/dashboard-user');
         }
 
-        return view('user.valorant.pembayaran', [
-            'valorant' => $valorant
+        return view('user.closing.pembayaran', [
+            'closing' => $closing
         ]);
     }
 
-    public function pembayaranProses(UpdateValorantRequest $request)
+    public function pembayaranProses(UpdateClosingRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -91,7 +91,7 @@ class ValorantCompetitionController extends Controller
             $extFile = $request->bukti_pembayaran->getClientOriginalExtension();
             $namaFile = 'bukti-pembayaran-'.time().".".$extFile;
 
-            Auth::user()->valorant()->update([
+            Auth::user()->closing()->update([
                 'bukti_pembayaran' => $namaFile
             ]);
 
@@ -100,7 +100,7 @@ class ValorantCompetitionController extends Controller
             // upload file ke folder
             $request->bukti_pembayaran->move('img', $namaFile);
 
-            return redirect()->route('competition.valorant.success');
+            return redirect()->route('closing.success');
 
         } catch (Exception $e) {
             DB::rollBack();
@@ -112,6 +112,6 @@ class ValorantCompetitionController extends Controller
 
     public function success()
     {
-        return view('auth.success.valorantSuccess');
+        return view('auth.success.ceremonySuccess');
     }
 }

@@ -12,7 +12,7 @@
       <h3>Rp 50.000/tim</h3>
     </div>
     <div class="right">
-      <a href="/closingCeremony/form"><button>Register Now</button></a>
+      <a href="{{ route('closing.create') }}"><button>Register Now</button></a>
     </div>
   </div>
   <div class="bottom">

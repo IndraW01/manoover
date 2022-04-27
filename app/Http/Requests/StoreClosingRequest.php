@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreClosingRequest extends FormRequest
@@ -13,7 +14,7 @@ class StoreClosingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,11 @@ class StoreClosingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' => 'required',
+            'email' => 'required|email',
+            'profesi' => 'required',
+            'no_hp' => 'required',
+            'kartu_identitas' => 'required|file|max:2000|mimes:pdf'
         ];
     }
 }

@@ -196,7 +196,7 @@
             <div id="demo2" class="content-wrapEvent2">
               <p class="contentEvent11  d-none">Management Closing Ceremony</p>
               <p class="contentEvent21 d-none">Is the highlight of all Manoover series with performances from Band Featuring, Guest Star, Special Performance, Band Performance and others. Management Closing Ceremony was held on July 30th, 2022. </p>
-              <a href="/closingCeremony" class="contentEvent31 d-none"><button>Register Now</button></a>
+              <a href="{{ route('closing.detail') }}" class="contentEvent31 d-none"><button>Register Now</button></a>
             </div>
           </div>
          </div>
@@ -253,7 +253,7 @@
                   <div class="start">29 Mei 2022</div>
                   <div class="middle"></div>
                   <div class="end">Pelatihan Day 1 Management Icon</div>
-                </div>                
+                </div>
               </div>
             </div>
           </div>
@@ -276,19 +276,19 @@
                   <div class="start">03 Juni 2022</div>
                   <div class="middle"></div>
                   <div class="end">PUBG Mobile, Day 1 Mobile Legend</div>
-                </div>                
+                </div>
                 <br>
                 <div class="list-descripton">
                   <div class="start">04 Juni 2022</div>
                   <div class="middle"></div>
                   <div class="end">Day 1 Management Icon, Day 2 Mobile Legend, Day 1 Valorant, Futsal</div>
-                </div>                
+                </div>
                 <br>
                 <div class="list-descripton">
                   <div class="start">05 Juni 2022</div>
                   <div class="middle"></div>
                   <div class="end">Day 2 Management Icon, Day 3 Mobile Legend, Day 2 Valorant, Pengumuman Pemenang E-Sport</div>
-                </div>                
+                </div>
               </div>
             </div>
           </div>
@@ -306,7 +306,7 @@
                   <div class="middle"></div>
                   <div class="end">Management Closing Ceremony</div>
                 </div>
-                <br>               
+                <br>
               </div>
             </div>
           </div>
@@ -318,7 +318,7 @@
                   <div class="middle"></div>
                   <div class="end">Charity</div>
                 </div>
-                <br>               
+                <br>
               </div>
             </div>
           </div>

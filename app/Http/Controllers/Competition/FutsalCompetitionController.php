@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Competition;
 
 use Exception;
+use Carbon\Carbon;
+use App\Models\Futsal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFutsalRequest;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreFutsalRequest;
 use App\Http\Requests\UpdateFutsalRequest;
-use App\Models\Futsal;
 
 class FutsalCompetitionController extends Controller
 {
@@ -70,6 +71,12 @@ class FutsalCompetitionController extends Controller
 
     public function pembayaran(Futsal $futsal)
     {
+        if((Carbon::now() > $futsal->created_at->addDay())) {
+            Alert::error('Gagal', 'Waktu Pembayaran anda telah habis');
+
+            return redirect('/dashboard-user');
+        }
+
         return view('user.futsal.pembayaran', [
             'futsal' => $futsal
         ]);

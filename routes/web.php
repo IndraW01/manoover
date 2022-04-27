@@ -11,6 +11,8 @@ use App\Http\Controllers\MobileLegendController;
 use App\Http\Controllers\Auth\User\UserController;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\ClosingController;
+use App\Http\Controllers\Competition\BandCompetitionController;
+use App\Http\Controllers\Competition\ClosingCompetitionController;
 use App\Http\Controllers\Competition\FutsalCompetitionController;
 use App\Http\Controllers\Competition\MobileLegendCompetitionController;
 use App\Http\Controllers\Competition\PubgMobileCompetitionController;
@@ -22,9 +24,9 @@ use App\Http\Controllers\DashboardUserController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route Admin
-Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware([]);
+Route::get('/dashboard-admin', [DashboardController::class, 'dashboard'])->name('admin.dashboard')->middleware(['auth', 'admin']);
 
-Route::middleware([])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
+Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboard.')->group(function() {
     // Download File
     // 1. Mobile Legend
     Route::get('/mobile-legend/download-identitas/{mobile_legend}', [MobileLegendController::class, 'downloadIdentitas'])->name('ml.download.identitas');
@@ -131,36 +133,25 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
     Route::get('/futsal/pembayaran/success', [FutsalCompetitionController::class, 'success'])->name('futsal.success');
     Route::get('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaran'])->name('futsal.pembayaran');
     Route::patch('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaranProses'])->name('futsal.pembayaranProeses');
+
+    Route::get('/band', [BandCompetitionController::class, 'detail'])->name('band.detail');
+    Route::get('/band/form', [BandCompetitionController::class, 'create'])->name('band.create');
+    Route::post('/band/form', [BandCompetitionController::class, 'store'])->name('band.store');
+    Route::get('/band/pembayaran/success', [BandCompetitionController::class, 'success'])->name('band.success');
+    Route::get('/band/pembayaran/{band}', [BandCompetitionController::class, 'pembayaran'])->name('band.pembayaran');
+    Route::patch('/band/pembayaran/{band}', [BandCompetitionController::class, 'pembayaranProses'])->name('band.pembayaranProeses');
 });
 
+Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closing.')->group(function() {
 
+    Route::get('/', [ClosingCompetitionController::class, 'detail'])->name('detail');
+    Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
+    Route::post('/form', [ClosingCompetitionController::class, 'store'])->name('store');
+    Route::get('/pembayaran/success', [ClosingCompetitionController::class, 'success'])->name('success');
+    Route::get('/pembayaran/{closing}', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
+    Route::patch('/pembayaran/{closing}', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
 
-Route::get('/band', function () {
-    return view('user.band.detail');
 });
-Route::get('/band/form', function () {
-    return view('user.band.form');
-});
-Route::get('/band/pembayaran/', function () {
-    return view('user.band.pembayaran');
-});
-Route::get('/band/success', function () {
-    return view('auth.success.bandSuccess');
-});
-
-Route::get('/closingCeremony', function () {
-    return view('user.closingCeremony.detail');
-});
-Route::get('/closingCeremony/form', function () {
-    return view('user.closingCeremony.form');
-});
-Route::get('/closingCeremony/pembayaran', function () {
-    return view('user.closingCeremony.pembayaran');
-});
-Route::get('/closingCeremony/success', function () {
-    return view('auth.success.ceremonySuccess');
-});
-
 
 
 // filter status -----------------

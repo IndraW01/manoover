@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Competition;
 
 use Exception;
+use Carbon\Carbon;
+use App\Models\MobileLegend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMobileLegendRequest;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreMobileLegendRequest;
 use App\Http\Requests\UpdateMobileLegendRequest;
-use App\Models\MobileLegend;
 
 class MobileLegendCompetitionController extends Controller
 {
@@ -70,6 +71,12 @@ class MobileLegendCompetitionController extends Controller
 
     public function pembayaran(MobileLegend $mobileLegend)
     {
+        if((Carbon::now() > $mobileLegend->created_at->addDay())) {
+            Alert::error('Gagal', 'Waktu Pembayaran anda telah habis');
+
+            return redirect('/dashboard-user');
+        }
+
         return view('user.ml.pembayaran', [
             'mobileLegend' => $mobileLegend
         ]);

@@ -13,12 +13,16 @@ class DashboardUserController extends Controller
         $mobileLegend = Auth::user()->mobileLegend;
         $valorant = Auth::user()->valorant;
         $futsal = Auth::user()->futsal;
+        $band = Auth::user()->band;
+        $closing = Auth::user()->closing;
 
         return view('layouts.dashboardUser', [
             'pubg' => $pubg,
             'mobileLegend' => $mobileLegend,
             'valorant' => $valorant,
             'futsal' => $futsal,
+            'band' => $band,
+            'closing' => $closing,
         ]);
     }
 }

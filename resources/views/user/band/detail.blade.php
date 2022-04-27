@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Detail Band'])
 
 
 @section('content')
@@ -12,7 +12,7 @@
       <h3>Rp 250.000/tim</h3>
     </div>
     <div class="right">
-      <a href="/band/form"><button>Register Now</button></a>
+      <a href="/competition/band/form"><button>Register Now</button></a>
     </div>
   </div>
   <div class="bottom">
@@ -22,7 +22,7 @@
     Tempat: TP Studio Semarang <br>
     Tanggal: Sabtu, 23 Juli 2022 <br>
     Waktu: 13.00 - 15.25 WIB
-    
+
    </p>
  </div>
   </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBandRequest extends FormRequest
@@ -13,7 +14,7 @@ class StoreBandRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,10 @@ class StoreBandRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama_band' => 'required',
+            'email' => 'required|email',
+            'id_line' => 'required',
+            'whatsapp' => 'required',
         ];
     }
 }

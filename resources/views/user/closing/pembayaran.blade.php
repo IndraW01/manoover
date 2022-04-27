@@ -45,9 +45,9 @@
  </p>
  <p>Segera selesaikan pembayaran dalam waktu <b>1x24 jam</b></p>
 
- <div class="time">Waktu Tersisa <b><span class="countdown" value=""></span></b></div>
+ <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$closing->created_at->addHours(24)}}"></span></b></div>
 
- <form action="#" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+ <form action="{{ route('closing.pembayaranProeses', ['closing' => $closing]) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
      @csrf
      @method('PATCH')
     <div class="input-form-pembayaran">
@@ -55,9 +55,10 @@
     <input
         type="file"
         name="bukti_pembayaran"
-        required
     />
-    <div class="invalid-feedback">Bukti pembayaran tidak boleh kosong !!!</div>
+    @error('bukti_pembayaran')
+        <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
+    @enderror
     </div>
     <button>Register Now</button>
 </form>
