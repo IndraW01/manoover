@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail Mobile Legend'])
+@extends('layouts.user', ['title' => 'Manover | Form Mobile Legend'])
 
 
 @section('content')

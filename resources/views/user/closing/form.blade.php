@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail Closing'])
+@extends('layouts.user', ['title' => 'Manover | Form Closing'])
 
 @section('content')
 <div class="wrapForm">

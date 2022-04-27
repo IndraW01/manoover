@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail Futsal'])
+@extends('layouts.user', ['title' => 'Manover | Pembayaran Futsal'])
 
 
 @section('content')

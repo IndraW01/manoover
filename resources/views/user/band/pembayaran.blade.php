@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail PUBG'])
+@extends('layouts.user', ['title' => 'Manover | Pembayaran Band'])
 
 @section('content')
 <div class="wrapForm">

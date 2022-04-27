@@ -1,4 +1,4 @@
-@extends('layouts.user', ['title' => 'Detail Valorant'])
+@extends('layouts.user', ['title' => 'Manover | Detail Valorant'])
 
 
 @section('content')
