@@ -264,3 +264,7 @@ input::-webkit-file-upload-button {
 .invalid-feedback {
     color: #e47782 !important;
 }
+
+.text-danger {
+    color: #e47782 !important;
+}
