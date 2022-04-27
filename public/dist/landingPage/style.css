@@ -1209,4 +1209,13 @@ section.footer .row li p {
         outline: none;
         border: 1px solid #f9943b;
     }
+
+    .timeLine span {
+        position: relative;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        color: white;
+    }
 }
