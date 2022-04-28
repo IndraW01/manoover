@@ -19,8 +19,22 @@ class ClosingController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $closing = Closing::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $closing = Closing::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $closing = Closing::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $closing = Closing::latest()->with('user');
+        }
+
         return view('admin.ceremony.index', [
-            'closings' => Closing::latest()->with('user')->get()
+            'closings' => $closing->get()
         ]);
     }
 

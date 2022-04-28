@@ -19,8 +19,22 @@ class ValorantController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $valorant = Valorant::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $valorant = Valorant::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $valorant = Valorant::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $valorant = Valorant::latest()->with('user');
+        }
+
         return view('admin.valorant.index', [
-            'valorants' => Valorant::latest()->with('user')->get()
+            'valorants' => $valorant->get()
         ]);
     }
 

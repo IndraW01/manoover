@@ -19,8 +19,22 @@ class FutsalController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $futsal = Futsal::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $futsal = Futsal::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $futsal = Futsal::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $futsal = Futsal::latest()->with('user');
+        }
+
         return view('admin.futsal.index', [
-            'futsals' => Futsal::latest()->with('user')->get()
+            'futsals' => $futsal->get()
         ]);
     }
 

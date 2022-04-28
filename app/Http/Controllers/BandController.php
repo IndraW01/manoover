@@ -19,8 +19,22 @@ class BandController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $band = Band::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $band = Band::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $band = Band::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $band = Band::latest()->with('user');
+        }
+
         return view('admin.band.index', [
-            'bands' => Band::latest()->with('user')->get()
+            'bands' => $band->get()
         ]);
     }
 

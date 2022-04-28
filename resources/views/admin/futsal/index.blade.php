@@ -26,7 +26,7 @@
 <div class="tittle_Competition">Futsal</div>
 <ul class="box-info">
   <li>
-    <a class="flex" href="/dashboard/futsal">
+    <a class="flex" href="{{ route('dashboard.futsal.index') }}">
       <i class="bx bxs-group"></i>
       <span class="text">
         <h3>{{ $futsals->count() }}</h3>
@@ -36,7 +36,7 @@
   </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/belum_verifikasi">
+  <a class="flex" href="{{ route('dashboard.futsal.index', ['status' => 'belum']) }}">
    <i class="bx bxs-group"></i>
    <span class="text">
      <h3>{{ $futsals->where('status', 'belum')->count() }}</h3>
@@ -46,7 +46,7 @@
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/sudah_verifikasi">
+  <a class="flex" href="{{ route('dashboard.futsal.index', ['status' => 'sudah']) }}">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
       <h3>{{ $futsals->where('status', 'sudah')->count() }}</h3>
@@ -56,7 +56,7 @@
  </li>
 
  <li>
-  <a class="flex" href="/dashboard/ml/tolak">
+  <a class="flex" href="{{ route('dashboard.futsal.index', ['status' => 'tolak']) }}">
     <i class="bx bxs-error"></i>
     <span class="text">
       <h3>{{ $futsals->where('status', 'tolak')->count() }}</h3>

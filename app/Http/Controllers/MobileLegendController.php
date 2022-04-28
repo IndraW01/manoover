@@ -19,8 +19,22 @@ class MobileLegendController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $mobileLegend = MobileLegend::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $mobileLegend = MobileLegend::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $mobileLegend = MobileLegend::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $mobileLegend = MobileLegend::latest()->with('user');
+        }
+
         return view('admin.mobileLegend.index', [
-            'mobileLegends' => MobileLegend::latest()->with('user')->get()
+            'mobileLegends' => $mobileLegend->get()
         ]);
     }
 

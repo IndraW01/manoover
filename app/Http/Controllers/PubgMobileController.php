@@ -19,8 +19,22 @@ class PubgMobileController extends Controller
      */
     public function index()
     {
+        if(request('status')) {
+            if(request('status') == 'belum') {
+                $pubg = PubgMobile::latest()->with('user')->whereStatus('belum');
+            }
+            if(request('status') == 'sudah') {
+                $pubg = PubgMobile::latest()->with('user')->whereStatus('sudah');
+            }
+            if(request('status') == 'tolak') {
+                $pubg = PubgMobile::latest()->with('user')->whereStatus('tolak');
+            }
+        } else {
+            $pubg = PubgMobile::latest()->with('user');
+        }
+
         return view('admin.pubg.index', [
-            'pubgMobiles' => PubgMobile::latest()->with('user')->get()
+            'pubgMobiles' => $pubg->get()
         ]);
     }
 
