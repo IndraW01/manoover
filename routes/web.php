@@ -110,36 +110,36 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
     Route::get('/pubg/form', [PubgMobileCompetitionController::class, 'create'])->name('pubg.create');
     Route::post('/pubg/form', [PubgMobileCompetitionController::class, 'store'])->name('pubg.store');
     Route::get('/pubg/pembayaran/success', [PubgMobileCompetitionController::class, 'success'])->name('pubg.success');
-    Route::get('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaran'])->name('pubg.pembayaran');
-    Route::patch('/pubg/pembayaran/{pubg}', [PubgMobileCompetitionController::class, 'pembayaranProses'])->name('pubg.pembayaranProeses');
+    Route::get('/pubg/pembayaran/{pubg:nama_tim}', [PubgMobileCompetitionController::class, 'pembayaran'])->name('pubg.pembayaran');
+    Route::patch('/pubg/pembayaran/{pubg:nama_tim}', [PubgMobileCompetitionController::class, 'pembayaranProses'])->name('pubg.pembayaranProeses');
 
     Route::get('/valorant', [ValorantCompetitionController::class, 'detail'])->name('valorant.detail');
     Route::get('/valorant/form', [ValorantCompetitionController::class, 'create'])->name('valorant.create');
     Route::post('/valorant/form', [ValorantCompetitionController::class, 'store'])->name('valorant.store');
     Route::get('/valorant/pembayaran/success', [ValorantCompetitionController::class, 'success'])->name('valorant.success');
-    Route::get('/valorant/pembayaran/{valorant}', [ValorantCompetitionController::class, 'pembayaran'])->name('valorant.pembayaran');
-    Route::patch('/valorant/pembayaran/{valorant}', [ValorantCompetitionController::class, 'pembayaranProses'])->name('valorant.pembayaranProeses');
+    Route::get('/valorant/pembayaran/{valorant:nama_tim}', [ValorantCompetitionController::class, 'pembayaran'])->name('valorant.pembayaran');
+    Route::patch('/valorant/pembayaran/{valorant:nama_tim}', [ValorantCompetitionController::class, 'pembayaranProses'])->name('valorant.pembayaranProeses');
 
     Route::get('/ml', [MobileLegendCompetitionController::class, 'detail'])->name('ml.detail');
     Route::get('/ml/form', [MobileLegendCompetitionController::class, 'create'])->name('ml.create');
     Route::post('/ml/form', [MobileLegendCompetitionController::class, 'store'])->name('ml.store');
     Route::get('/ml/pembayaran/success', [MobileLegendCompetitionController::class, 'success'])->name('ml.success');
-    Route::get('/ml/pembayaran/{mobile_legend}', [MobileLegendCompetitionController::class, 'pembayaran'])->name('ml.pembayaran');
-    Route::patch('/ml/pembayaran/{mobile_legend}', [MobileLegendCompetitionController::class, 'pembayaranProses'])->name('ml.pembayaranProeses');
+    Route::get('/ml/pembayaran/{mobile_legend:nama_tim}', [MobileLegendCompetitionController::class, 'pembayaran'])->name('ml.pembayaran');
+    Route::patch('/ml/pembayaran/{mobile_legend:nama_tim}', [MobileLegendCompetitionController::class, 'pembayaranProses'])->name('ml.pembayaranProeses');
 
     Route::get('/futsal', [FutsalCompetitionController::class, 'detail'])->name('futsal.detail');
     Route::get('/futsal/form', [FutsalCompetitionController::class, 'create'])->name('futsal.create');
     Route::post('/futsal/form', [FutsalCompetitionController::class, 'store'])->name('futsal.store');
     Route::get('/futsal/pembayaran/success', [FutsalCompetitionController::class, 'success'])->name('futsal.success');
-    Route::get('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaran'])->name('futsal.pembayaran');
-    Route::patch('/futsal/pembayaran/{futsal}', [FutsalCompetitionController::class, 'pembayaranProses'])->name('futsal.pembayaranProeses');
+    Route::get('/futsal/pembayaran/{futsal:nama_tim}', [FutsalCompetitionController::class, 'pembayaran'])->name('futsal.pembayaran');
+    Route::patch('/futsal/pembayaran/{futsal:nama_tim}', [FutsalCompetitionController::class, 'pembayaranProses'])->name('futsal.pembayaranProeses');
 
     Route::get('/band', [BandCompetitionController::class, 'detail'])->name('band.detail');
     Route::get('/band/form', [BandCompetitionController::class, 'create'])->name('band.create');
     Route::post('/band/form', [BandCompetitionController::class, 'store'])->name('band.store');
     Route::get('/band/pembayaran/success', [BandCompetitionController::class, 'success'])->name('band.success');
-    Route::get('/band/pembayaran/{band}', [BandCompetitionController::class, 'pembayaran'])->name('band.pembayaran');
-    Route::patch('/band/pembayaran/{band}', [BandCompetitionController::class, 'pembayaranProses'])->name('band.pembayaranProeses');
+    Route::get('/band/pembayaran/{band:nama_band}', [BandCompetitionController::class, 'pembayaran'])->name('band.pembayaran');
+    Route::patch('/band/pembayaran/{band:nama_band}', [BandCompetitionController::class, 'pembayaranProses'])->name('band.pembayaranProeses');
 });
 
 Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closing.')->group(function() {
@@ -148,8 +148,8 @@ Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closi
     Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
     Route::post('/form', [ClosingCompetitionController::class, 'store'])->name('store');
     Route::get('/pembayaran/success', [ClosingCompetitionController::class, 'success'])->name('success');
-    Route::get('/pembayaran/{closing}', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
-    Route::patch('/pembayaran/{closing}', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
+    Route::get('/pembayaran/{closing:no_hp}', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
+    Route::patch('/pembayaran/{closing:no_hp}', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
 
 });
 
