@@ -71,7 +71,6 @@
      </div>
    </div>
  </div>
-
  <h4>Data Anggota Tim</h4>
  <div class="input-form">
    <div class="tittle">Nama Anggota 1</div>

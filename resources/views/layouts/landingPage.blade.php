@@ -377,24 +377,12 @@
          <a href="#five">Timeline</a>
          <a href="#six">Sponsor </a>
         </div>
-        <div class="col-md-4 kolom ">
+        <div class="col-md-4 kolom">
          <div class="tittle">Contact Us</div>
-         <li>
-          <img src="{{ asset('dist/landingPage/image/instagram.svg') }}" alt="">
-          <p>@manoover.undip</p>
-         </li>
-         <li>
-          <img src="{{ asset('dist/landingPage/image/Google.svg') }}" alt="">
-          <p>manooverundip@gmail.com</p>
-         </li>
-         <li>
-          <img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" alt="">
-          <p>081297317866 : Ken Arsyi N.R.K.</p>
-         </li>
-         <li>
-          <img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" alt="">
-          <p>08112728570   : Amanda Aprilya Liza</p>
-         </li>
+         <a href="https://www.instagram.com/manoover.undip" target="_blank" class="d-flex contacts"><img src="{{ asset('dist/landingPage/image/instagram.svg') }}" style="width: 20px; margin-right:10px " alt="">@manoover.undip</a>
+         <a href="https://www.instagram.com/manoover.undip" target="_blank" class="d-flex contacts"><img src="{{ asset('dist/landingPage/image/Google.svg') }}" style="width: 20px; margin-right:10px " alt="">manooverundip@gmail.com</a>
+         <a href="https://www.instagram.com/manoover.undip" target="_blank" class="d-flex contacts"><img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" style="width: 20px; margin-right:10px " alt="">081297317866 : Ken Arsyi N.R.K.</a>
+         <a href="https://www.instagram.com/manoover.undip" target="_blank" class="d-flex contacts"><img src="{{ asset('dist/landingPage/image/WhatsApp.svg') }}" style="width: 20px; margin-right:10px " alt="">08112728570   : Amanda Aprilya Liza</a>
         </div>
         <br><br><br>
       </section>

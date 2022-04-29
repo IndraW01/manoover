@@ -23,7 +23,13 @@
         </div>
          <div class="input-form">
              <div class="tittle">Password</div>
-             <input type="password" name="password" value="" placeholder="Masukkan password anda..." required>
+            <div class="wrap-password">
+                <input id="pswLogin" type="password" name="password" value="" placeholder="Masukkan password anda..." required>
+                <span class="eye" onclick="myfungsieye()">
+                   <i class="fas fa-eye d-none" id="hide1"></i>
+                   <i class="fas fa-eye-slash" id="hide2"></i>
+               </span>
+            </div>
          </div>
 
          <button class="register">Login</button>

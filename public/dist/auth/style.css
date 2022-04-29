@@ -213,3 +213,14 @@ section .content-layer .wrap p a {
         width: 95%;
     }
 }
+
+.wrap-password {
+    position: relative;
+}
+.wrap-password .eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}

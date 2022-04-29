@@ -1142,8 +1142,13 @@ section.footer .row li p {
 }
 
 @media screen and (max-width: 500px) {
+    section.two {
+        height: auto;
+        width: 100%;
+        position: relative;
+    }
     section.tree {
-        padding: 0 25px;
+        padding: 90px 25px 0 25px;
         height: auto;
         width: 100%;
         position: relative;

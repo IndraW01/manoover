@@ -34,7 +34,10 @@ body {
 .wrap .middle {
     width: 100%;
     margin: 10px 0;
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -10px;
     background: #044c98;
     padding: 30px 180px;
     display: flex;
@@ -66,7 +69,7 @@ body {
 
 .wrap .bottom {
     width: 100%;
-    padding: 0 180px;
+    padding: 30px 180px;
     color: white;
 }
 .wrap p {
@@ -121,6 +124,7 @@ body {
     font-weight: 700;
     font-size: 20px;
     color: white;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -146,7 +150,7 @@ body {
     color: white;
 }
 input::-webkit-input-placeholder {
-    color: white;
+    color: #a09f9f;
 }
 input::-webkit-file-upload-button {
     color: grey;
@@ -226,10 +230,15 @@ input::-webkit-file-upload-button {
         padding: 0 30px;
     }
     .wrap .middle {
-        padding: 30px 30px;
+        padding: 15px 30px;
     }
     .wrap .bottom {
-        padding: 0 30px;
+        padding: 30px 30px;
+    }
+
+    .wrap .middle h3 {
+        font-weight: 600;
+        font-size: 20px;
     }
 
     /* ================== */
