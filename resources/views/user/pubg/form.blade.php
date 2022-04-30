@@ -32,7 +32,7 @@
        <input
          type="email"
          name="email"
-         value="{{ old('email') }}"
+         value="{{ old('email', auth()->user()->email) }}"
          placeholder="Masukkan Email anda..."
        />
        @error('email')
@@ -62,7 +62,7 @@
        <input
          type="number"
          name="no_hp"
-         value="{{ old('no_hp') }}"
+         value="{{ old('no_hp', auth()->user()->no_hp) }}"
          placeholder="Masukkan no hp anda..."
        />
        @error('no_hp')

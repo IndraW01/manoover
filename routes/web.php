@@ -95,8 +95,8 @@ Route::get('/verifikasi-email', [UserController::class, 'verifikasiEmail'])->nam
 Auth::routes(['verify' => true]);
 
 Route::get('/registrasi-berhasil', function () {
-    return view('auth.success.emailSuccess');
-});
+    return view('auth.verifikasiEmail');
+})->middleware('guest');
 
 
 Route::get('/dashboard-user', [DashboardUserController::class, 'dashboard'])->name('user.dashborad')->middleware('auth');

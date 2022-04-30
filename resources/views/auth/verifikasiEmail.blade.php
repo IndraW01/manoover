@@ -13,7 +13,7 @@
   verifikasi email
   <br>
   <br>
-  <a href="{{ route('home') }}">Kembali Ke Home</a>
+  <a href="{{ route('login') }}">Login</a>
  </p>
 </div>
 @endsection
