@@ -126,7 +126,7 @@
          </td>
          <td>:</td>
          <td>
-           <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+           <span data-bs-toggle="modal" data-bs-target="#kartuModal" class="status completed">Lihat</span>
            <span class="status pending"><a href="{{ route('dashboard.futsal.download.identitas', ['futsal' => $futsal]) }}" class="text-white">Download</a></span>
          </td>
        </tr>
@@ -154,7 +154,7 @@
               <span class="status success transparant disabled">Verifikasi</span>
               <span class="status destroy transparant disabled">Tolak</span>
             @else
-                @if (!$futsal->bukti_pembayaran)
+                @if (!$futsal->bukti_pembayaran || Carbon\Carbon::now() > $futsal->created_at->addDay())
                 <span class="status success transparant success">Verifikasi</span>
                 @else
                     <a href="{{ route('dashboard.futsal.verifikasi.berhasil', ['futsal' => $futsal]) }}"><span class="status success">Verifikasi</span></a>
@@ -176,7 +176,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
+            <embed type="application/pdf" src="{{ asset("berkas/$futsal->kartu_identitas") }}" width="800" height="600"></embed>
         </div>
       </div>
     </div>

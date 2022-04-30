@@ -83,7 +83,7 @@
               <span class="status success transparant disabled">Verifikasi</span>
               <span class="status destroy transparant disabled">Tolak</span>
             @else
-                @if (!$band->bukti_pembayaran)
+                @if (!$band->bukti_pembayaran || Carbon\Carbon::now() > $band->created_at->addDay())
                 <span class="status success transparant success">Verifikasi</span>
                 @else
                     <a href="{{ route('dashboard.band.verifikasi.berhasil', ['band' => $band]) }}" ><span class="status success">Verifikasi</span></a>

@@ -134,7 +134,7 @@
             <span class="status success transparant disabled">Verifikasi</span>
             <span class="status destroy transparant disabled">Tolak</span>
             @else
-                @if (!$pubgMobile->bukti_pembayaran)
+                @if ((!$pubgMobile->bukti_pembayaran) || (Carbon\Carbon::now() > $pubgMobile->created_at->addDay()))
                   <span class="status success transparant disabled">Verifikasi</span>
                 @else
                   <a href="{{ route('dashboard.pubg.verifikasi.berhasil', ['pubg' => $pubgMobile]) }}"><span class="status success">Verifikasi</span></a>
@@ -159,7 +159,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
+            <embed type="application/pdf" src="{{ asset("berkas/$pubgMobile->kartu_identitas") }}" width="800" height="600"></embed>
         </div>
       </div>
     </div>

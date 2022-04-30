@@ -138,7 +138,7 @@
             <span class="status success transparant disabled">Verifikasi</span>
             <span class="status destroy transparant disabled">Tolak</span>
             @else
-                @if (!$valorant->bukti_pembayaran)
+                @if (!$valorant->bukti_pembayaran || Carbon\Carbon::now() > $valorant->created_at->addDay())
                     <a href="#" class="btn btn-success btn-sm v-rounded disabled">Verifikasi</a>
                 @else
                     <a href="{{ route('dashboard.valorant.verifikasi.berhasil', ['valorant' => $valorant]) }}"><span class="status success">Verifikasi</span></a>
@@ -161,7 +161,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
+            <embed type="application/pdf" src="{{ asset("berkas/$valorant->kartu_identitas") }}" width="800" height="600"></embed>
         </div>
       </div>
     </div>
