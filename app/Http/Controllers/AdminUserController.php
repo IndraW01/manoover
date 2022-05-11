@@ -10,7 +10,7 @@ class AdminUserController extends Controller
     public function index()
     {
         return view('admin.user.index', [
-            'users' => User::get()
+            'users' => User::whereIsAdmin('0')->paginate(10),
         ]);
     }
 }
