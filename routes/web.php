@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -78,6 +79,9 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
     Route::resource('/closing', ClosingController::class)->names('closing');
     // Crud Band
     Route::resource('/band', BandController::class)->names('band');
+
+    // All User
+    Route::get('/user', [AdminUserController::class, 'index'])->name('user');
 });
 
 // Route Auth

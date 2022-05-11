@@ -35,6 +35,14 @@
       </ul>
 
       <ul class="side-menu top">
+       <div class="tittle">Management User</div>
+        <li class="{{ request()->routeIs('dashboard.user') ? 'active' : '' }}">
+          <a href="{{ route('dashboard.user') }}">
+            <i class="bx bxs-game"></i>
+            <span class="text">User</span>
+          </a>
+        </li>
+
        <div class="tittle">Management Competition</div>
         <li class="{{ request()->routeIs('dashboard.pubg.*') ? 'active' : '' }}">
           <a href="{{ route('dashboard.pubg.index') }}">
