@@ -194,10 +194,10 @@
 
   <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 22px; line-height: 30.8px;">Your Payment Is Now Confirmed!</span></strong></span></p>
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><span style="font-size: 22px; line-height: 30.8px;">Hello, {{ $band->nama_ketua_tim }}</span></span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><span style="font-size: 22px; line-height: 30.8px;">Hello, {{ $band->user->name }}</span></span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan proses pendaftaran. Pendaftaran anda sudah berhasil dilakukan pada ({{ $band->created_at->isoFormat('dddd, DD-MMMM-YYYY') }}).
-    <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini atau klik buton link dibawah:
+    <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini:
     <br><br> Fildzah: 087719998239  (Band Audition)
      </span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>

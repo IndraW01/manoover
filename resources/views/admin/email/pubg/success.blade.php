@@ -197,7 +197,7 @@
     <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><span style="font-size: 22px; line-height: 30.8px;">Hello, {{ $pubg->nama_ketua_tim }}</span></span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan proses pendaftaran. Pendaftaran anda sudah berhasil dilakukan pada ({{ $pubg->created_at->isoFormat('dddd, DD-MMMM-YYYY') }}).
-    <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini atau klik buton link dibawah:
+    <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini:
     <br><br> Illafie : 085156350804 (E-Sport Competition)
      </span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
