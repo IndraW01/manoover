@@ -13,6 +13,24 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('logo.svg')}}">
     <title>Manoover</title>
+    <style>
+      .dropdown-item{
+          display: flex;
+          align-items: center
+      }
+      .dropdown-item .count{
+          background: rgb(241, 2, 2);
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          color: white;
+          font-size: 14px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 10px;
+      }
+    </style>
   </head>
   <body>
     <div class="wrap">
@@ -68,9 +86,10 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
                                   @if( auth()->user()->is_admin == 1)
-                                    <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a>
+                                    {{-- <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a> --}}
+                                    <a href="/dashboard-user" class="dropdown-item">Pembayaran <div class="count">1</div></a>
                                   @else
-                                    <a href="/dashboard-user" class="dropdown-item">My Dashboard</a>
+                                    <a href="/dashboard-user" class="dropdown-item">Pembayaran <span class="count">1</span></a>
                                   @endif
                                 </li>
                                 <li>
@@ -234,7 +253,6 @@
               </div>
             </div>
           </div>
-
           <div class="timeContent2 d-none">
             <div class="bottom" data-aos="fade-up">
               <div class="wrap-description">
@@ -336,7 +354,7 @@
          <div class="list">
           <img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt="">
          </div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
+         <div class="list"><img src="{{ asset('dist/landingPage/image/top1.svg') }}" alt=""></div>
          <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
          <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
         </div>
@@ -345,7 +363,7 @@
          <div class="list">
           <img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt="">
          </div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
+         <div class="list"><img src="{{ asset('dist/landingPage/image/bottom1.svg') }}" alt=""></div>
          <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
          <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
          <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>

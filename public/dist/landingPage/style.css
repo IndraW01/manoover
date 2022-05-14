@@ -518,6 +518,7 @@ section.five .wrap-line .wrap {
     font-weight: 600;
     text-decoration: none;
     color: white;
+    cursor: pointer;
 }
 .timeLine #line {
     position: absolute;

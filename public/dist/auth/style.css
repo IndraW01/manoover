@@ -101,12 +101,12 @@ section .content-layer {
 }
 
 .form-content .input-form input::-webkit-input-placeholder {
-    color: white;
+    color: #a09f9f;
 }
 
 /*support mozilla*/
 .form-content .input-form input:-moz-input-placeholder {
-    color: white;
+    color: #a09f9f;
 }
 
 .register {
