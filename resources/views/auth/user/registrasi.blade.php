@@ -37,11 +37,12 @@
          </div>
          <div class="input-form">
              <div class="tittle">Password</div>
-             <input type="password" name="password" placeholder="Masukkan password anda...">
+             <input type="password" id="Txtpwd" name="password" placeholder="Masukkan password anda...">
          </div>
          <div class="input-form">
              <div class="tittle">Konfirmasi Password</div>
-             <input type="password" name="password_confirmation" placeholder="Masukkan password anda...">
+             <input type="password" id="TxtRepwd" name="password_confirmation" placeholder="Masukkan password anda...">
+                <div id="msg"></div>
          </div>
 
 

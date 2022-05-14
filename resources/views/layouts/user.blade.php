@@ -34,5 +34,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
+    <script src="{{asset("dist/user/script.js")}}"></script>
   </body>
 </html>

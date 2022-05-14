@@ -16,6 +16,9 @@
   <body>
     <div class="wrapForm">
       <h2 class="tittleUser">Pembayaran</h2>
+      @if($pubg == null and $valorant == null and $mobileLegend == null and $futsal == null and $band == null and $closing== null )
+        <center><p style="color: white">Belum ada pembayaran</p></center>
+      @endif
       {{-- looping --}}
       @if ($pubg)
         <div class="list-dashboardUser">
@@ -218,5 +221,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
+   
   </body>
 </html>

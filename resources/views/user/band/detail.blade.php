@@ -4,7 +4,7 @@
 @section('content')
 <div class="wrap">
   <div class="top">
-    <img src="{{ asset('dist/user/image/bennBand.svg') }}" alt="" />
+    <img src="{{ asset('dist/user/image/bandBannerNew.svg') }}" alt="" />
   </div>
   <div class="middle">
     <div class="left">

@@ -44,6 +44,7 @@ body {
     justify-content: space-between;
     align-items: center;
     color: white;
+    z-index: 1;
 }
 .wrap .middle p {
     font-weight: 400;
@@ -276,4 +277,127 @@ input::-webkit-file-upload-button {
 
 .text-danger {
     color: #e47782 !important;
+}
+
+.timeLine {
+    display: flex;
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+}
+.timeLine span {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+.timeLine #line {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: white;
+    bottom: -8px;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+.timeLine #marker {
+    position: absolute;
+    left: 0;
+    height: 5px;
+    width: 50%;
+    background: #f9943b;
+    bottom: -8px;
+    transition: 0.5s;
+    border-radius: 5px 5px 0 0;
+}
+
+.wrapTicket {
+    width: 100%;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+}
+.wrapTicket .left {
+    max-width: 90px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.wrapTicket .left img {
+    width: 90px;
+}
+.wrapTicket .line {
+    width: 100%;
+    border-bottom: 1px solid white;
+    margin-top: -10px;
+}
+.wrapTicket .right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+.wrapTicket .right div {
+    width: 100%;
+}
+.wrapTicket .right .topChild {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapTicket .right .topChild .info {
+    background: #97e1ce;
+    border-radius: 10px;
+    padding: 5px;
+    color: #1b5d4d;
+    font-size: 13px;
+}
+
+.wrapTicket .right .bottomChild {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+}
+.wrapTicket .right .bottomChild .leftChild {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    display: flex;
+}
+.wrapTicket .right .bottomChild .rightChild {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.wrapTicket .right .bottomChild .rightChild img {
+    width: 24px;
+    height: 24px;
+}
+.wrapTicket .right .bottomChild .rightChild input {
+    margin: 0 5px;
+    outline: none;
+    width: 30px;
+    border: none;
+    text-align: center;
+    color: white;
+    background: none;
+}
+
+.price {
+    outline: none;
+    border: none;
+    color: white;
+    padding-left: 10px;
+    background: none;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
 }

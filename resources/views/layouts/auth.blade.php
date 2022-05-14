@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="{{ asset('dist/auth/style.css') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+
   </head>
 
   <body>
@@ -36,5 +38,23 @@
     <script src="{{ asset('dist/auth/script.js') }}"></script>
 
     @include('sweetalert::alert')
+
+    <script>
+      $(document).ready(function(){
+        $("#TxtRepwd").keyup(validation);
+        function validation(){
+          if($("#Txtpwd").val() == $("#TxtRepwd").val()){
+            $("#msg").text("passsword is match");
+            $("#msg").css("color", "#77e47c");
+            $("#msg").css("font-size", "14px");
+          }
+          else{
+            $("#msg").text("passsword is not match");
+            $("#msg").css("color", "#e47782");
+            $("#msg").css("font-size", "14px");
+          }
+        }
+      })
+    </script>
   </body>
 </html>
