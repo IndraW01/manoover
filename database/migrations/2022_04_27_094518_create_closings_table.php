@@ -16,9 +16,14 @@ return new class extends Migration
     {
         Schema::create('closings', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->unique()->constrained('users');
-            $table->string('profesi');
+            $table->foreignIdFor(User::class)->constrained('users');
+            $table->string('nama');
+            $table->string('email');
+            $table->string('no_identitas');
             $table->string('no_hp', 20);
+            $table->string('kota');
+            $table->string('tipe');
+            $table->string('kode_unik');
             $table->string('kartu_identitas');
             $table->string('bukti_pembayaran')->nullable();
             $table->string('status')->default('belum');

@@ -13,8 +13,13 @@ class Closing extends Model
 
     protected $fillable = [
         'user_id',
-        'profesi',
+        'nama',
+        'email',
+        'no_identitas',
         'no_hp',
+        'kota',
+        'tipe',
+        'kode_unik',
         'kartu_identitas',
         'bukti_pembayaran',
         'status',

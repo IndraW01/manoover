@@ -19,11 +19,16 @@ class ClosingFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'profesi' => $this->faker->randomElement(['Mahasiswa', 'Guru', 'Pelajar', 'Dosen']),
+            'nama' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'no_identitas' => '6231526231',
             'no_hp' => '08673827237',
+            'kota' => 'Jakarta',
+            'tipe' => 'early',
+            'kode_unik' => $this->faker->unique()->bothify('MN####'),
             'kartu_identitas' => 'kartu-identitas.pdf',
             'bukti_pembayaran' => 'bukti-transaksi.png',
-            'status' => $this->faker->randomElement(['belum', 'sudah', 'tolak']),
+            'status' => $this->faker->randomElement(['belum', 'sudah']),
         ];
     }
 }
