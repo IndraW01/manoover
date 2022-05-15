@@ -66,9 +66,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Futsal::class);
     }
 
-    public function closing()
+    public function closings()
     {
-        return $this->hasOne(Closing::class);
+        return $this->hasMany(Closing::class);
     }
 
     public function band()

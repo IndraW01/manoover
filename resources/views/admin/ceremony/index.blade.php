@@ -24,12 +24,12 @@
 
 
 <div class="tittle_Competition">Closing Ceremony</div>
-<ul class="box-info">
+{{-- <ul class="box-info">
   <li>
     <a class="flex" href="{{ route('dashboard.closing.index') }}">
       <i class="bx bxs-group"></i>
       <span class="text">
-        <h3>{{ $closings->count() }}</h3>
+        <h3>{{ $userClosings->count() }}</h3>
         <p>Pendaftar</p>
       </span>
     </a>
@@ -39,7 +39,7 @@
   <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'belum']) }}">
    <i class="bx bxs-group"></i>
    <span class="text">
-     <h3>{{ $closings->where('status', 'belum')->count() }}</h3>
+     <h3>{{ $userClosings->where('status', 'belum')->count() }}</h3>
      <p> Belum Verifikasi</p>
    </span>
   </a>
@@ -49,7 +49,7 @@
   <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'sudah']) }}">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
-      <h3>{{ $closings->where('status', 'sudah')->count() }}</h3>
+      <h3>{{ $userClosings->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
     </span>
   </a>
@@ -59,12 +59,12 @@
   <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'tolak']) }}">
     <i class="bx bxs-error"></i>
     <span class="text">
-      <h3>{{ $closings->where('status', 'tolak')->count() }}</h3>
+      <h3>{{ $userClosings->where('status', 'tolak')->count() }}</h3>
       <p>Di Tolak</p>
     </span>
   </a>
  </li>
-</ul>
+</ul> --}}
 
 
 
@@ -79,31 +79,20 @@
      <thead>
        <tr>
          <th>User</th>
-         <th>Profesi</th>
-         <th>Date Order</th>
-         <th>Status</th>
-         <th>Action</th>
+         <th>Email</th>
+         <th>Detail Data Tiket</th>
        </tr>
      </thead>
      <tbody>
-        @foreach ($closings as $closing)
+        @foreach ($userClosings as $userClosing)
             <tr>
                 <td>
                     <img src="{{ asset('img/profile.png') }}" />
-                    <p>{{ $closing->user->name }}</p>
+                    <p>{{ $userClosing->name }}</p>
                 </td>
-                <td>{{ $closing->profesi }}</td>
-                <td>{{ $closing->created_at->isoFormat('DD-MM-YYYY') }}</td>
-                <td>{{ $closing->status == 'tolak' ? 'Ditolak' : ($closing->status == 'sudah' ? 'Sudah Verifikasi' : 'Belum Verifikasi') }}</td>
+                <td>{{ $userClosing->email }}</td>
                 <td class="action">
-                    <a href="{{ route('dashboard.closing.show', ['closing' => $closing]) }}"><span class="status completed">Detail</span></a>
-                    @if ((Carbon\Carbon::now() > $closing->created_at->addDay()) && ($closing->status == 'belum'))
-                        <form action="{{ route('dashboard.closing.destroy', ['closing' => $closing]) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="status destroy border-0 btn-hapus" data-name="{{ $closing->user->name }}">Hapus</button>
-                        </form>
-                    @endif
+                    <a href="{{ route('dashboard.closing.show', ['user' => $userClosing]) }}"><span class="status completed">Detail</span></a>
                 </td>
             </tr>
         @endforeach

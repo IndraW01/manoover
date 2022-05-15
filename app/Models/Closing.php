@@ -37,4 +37,5 @@ class Closing extends Model
             return true;
         }
     }
+
 }

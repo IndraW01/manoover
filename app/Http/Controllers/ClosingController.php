@@ -7,6 +7,7 @@ use App\Traits\ClosingTrait;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreClosingRequest;
 use App\Http\Requests\UpdateClosingRequest;
+use App\Models\User;
 
 class ClosingController extends Controller
 {
@@ -19,22 +20,22 @@ class ClosingController extends Controller
      */
     public function index()
     {
-        if(request('status')) {
-            if(request('status') == 'belum') {
-                $closing = Closing::latest()->with('user')->whereStatus('belum');
-            }
-            if(request('status') == 'sudah') {
-                $closing = Closing::latest()->with('user')->whereStatus('sudah');
-            }
-            if(request('status') == 'tolak') {
-                $closing = Closing::latest()->with('user')->whereStatus('tolak');
-            }
-        } else {
-            $closing = Closing::latest()->with('user');
-        }
+        // if(request('status')) {
+        //     if(request('status') == 'belum') {
+        //         $closing = Closing::latest()->with('user')->whereStatus('belum');
+        //     }
+        //     if(request('status') == 'sudah') {
+        //         $closing = Closing::latest()->with('user')->whereStatus('sudah');
+        //     }
+        //     if(request('status') == 'tolak') {
+        //         $closing = Closing::latest()->with('user')->whereStatus('tolak');
+        //     }
+        // } else {
+        //     $closing = Closing::latest()->with('user');
+        // }
 
         return view('admin.ceremony.index', [
-            'closings' => $closing->get()
+            'userClosings' => User::has('closings')->get(),
         ]);
     }
 
@@ -65,10 +66,10 @@ class ClosingController extends Controller
      * @param  \App\Models\Closing  $closing
      * @return \Illuminate\Http\Response
      */
-    public function show(Closing $closing)
+    public function show(User $user)
     {
         return view('admin.ceremony.show', [
-            'closing' => $closing
+            'userClosings' => $user->closings
         ]);
     }
 

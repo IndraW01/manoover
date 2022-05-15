@@ -86,8 +86,8 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
                                 <li>
                                   @if( auth()->user()->is_admin == 1)
-                                    {{-- <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a> --}}
-                                    <a href="/dashboard-user" class="dropdown-item">Pembayaran <div class="count">1</div></a>
+                                    <a href="/dashboard-admin" class="dropdown-item">My Dashboard</a>
+                                    {{-- <a href="/dashboard-user" class="dropdown-item">Pembayaran <div class="count">1</div></a> --}}
                                   @else
                                     <a href="/dashboard-user" class="dropdown-item">Pembayaran <span class="count">1</span></a>
                                   @endif

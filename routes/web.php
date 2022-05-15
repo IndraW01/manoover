@@ -76,9 +76,12 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
     // Crud Futsal
     Route::resource('/futsal', FutsalController::class)->names('futsal');
     // Crud Closing
-    Route::resource('/closing', ClosingController::class)->names('closing');
+    Route::resource('/closing', ClosingController::class)->names('closing')->except(['show']);
     // Crud Band
     Route::resource('/band', BandController::class)->names('band');
+
+    // Crud Show Closing
+    Route::get('closing/user/{user}', [ClosingController::class, 'show'])->name('closing.show');
 
     // All User
     Route::get('/user', [AdminUserController::class, 'index'])->name('user');
