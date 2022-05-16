@@ -53,7 +53,7 @@
      </p>
     </div>
 
-   <br><br><br>
+   
 
    <div class="wrapTicket timeContent2 d-none" >
      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
