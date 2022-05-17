@@ -2,9 +2,13 @@
 
 namespace App\Traits;
 
+use Exception;
+use App\Models\User;
+use App\Models\Closing;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\ClosingRejectVerification;
 use App\Mail\ClosingSuccessVerification;
-use App\Models\Closing;
 use RealRashid\SweetAlert\Facades\Alert;
 
 trait ClosingTrait {
@@ -31,14 +35,68 @@ trait ClosingTrait {
         return response()->download(public_path("img\\" . $closing->bukti_pembayaran));
     }
 
-    public function verifikasiBerhasil(Closing $closing)
+    public function verifikasiBerhasil(User $user)
     {
-        return $closing->sendSuccessMail(new ClosingSuccessVerification($closing));
+        try {
+
+            DB::beginTransaction();
+
+            $userClosings = $user->closings()->whereStatus('belum')->get();
+
+            foreach($userClosings as $userClosing) {
+
+                $userClosing->update([
+                    'status' => 'sudah'
+                ]);
+
+                Mail::to($userClosing->email)->send(new ClosingSuccessVerification($userClosing));
+            }
+
+            DB::commit();
+
+            Alert::success('Berhasil', 'Peserta Berhasil di Verikasi');
+
+            return redirect()->back();
+
+        }catch(Exception) {
+            DB::rollBack();
+
+            Alert::error('Gagal', 'Verifikasi Peserta Gagal');
+
+            return redirect()->back();
+        }
     }
 
-    public function verifikasiTolak(Closing $closing)
+    public function verifikasiTolak(User $user)
     {
-        return $closing->sendRejectMail(new ClosingRejectVerification($closing));
+        try {
+
+            DB::beginTransaction();
+
+            $userClosings = $user->closings()->whereStatus('belum')->get();
+
+            foreach($userClosings as $userClosing) {
+
+                $userClosing->update([
+                    'status' => 'tolak'
+                ]);
+
+                Mail::to($userClosing->email)->send(new ClosingSuccessVerification($userClosing));
+            }
+
+            DB::commit();
+
+            Alert::success('Berhasil', 'Verifikasi di Tolak');
+
+            return redirect()->back();
+
+        }catch(Exception) {
+            DB::rollBack();
+
+            Alert::error('Gagal', 'Verifikasi Gagal di Tolak');
+
+            return redirect()->back();
+        }
     }
 
 }

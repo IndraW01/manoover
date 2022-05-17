@@ -66,8 +66,8 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
     Route::get('/futsal/verifikasi-berhasil/{futsal}', [FutsalController::class, 'verifikasiBerhasil'])->name('futsal.verifikasi.berhasil');
     Route::get('/futsal/verifikasi-tolak/{futsal}', [FutsalController::class, 'verifikasiTolak'])->name('futsal.verifikasi.tolak');
     // 5. Closing
-    Route::get('/closing/verifikasi-berhasil/{closing}', [ClosingController::class, 'verifikasiBerhasil'])->name('closing.verifikasi.berhasil');
-    Route::get('/closing/verifikasi-tolak/{closing}', [ClosingController::class, 'verifikasiTolak'])->name('closing.verifikasi.tolak');
+    Route::get('/closing/verifikasi-berhasil/user/{user}', [ClosingController::class, 'verifikasiBerhasil'])->name('closing.verifikasi.berhasil');
+    Route::get('/closing/verifikasi-tolak/user/{user}', [ClosingController::class, 'verifikasiTolak'])->name('closing.verifikasi.tolak');
     // 6. Band
     Route::get('/band/verifikasi-berhasil/{band}', [BandController::class, 'verifikasiBerhasil'])->name('band.verifikasi.berhasil');
     Route::get('/band/verifikasi-tolak/{band}', [BandController::class, 'verifikasiTolak'])->name('band.verifikasi.tolak');
