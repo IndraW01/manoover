@@ -21,6 +21,11 @@ use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\DashboardUserController;
 
+// Tes Mail
+Route::get('/tes-mail', function() {
+    return view('admin.email.closing.success');
+});
+
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
