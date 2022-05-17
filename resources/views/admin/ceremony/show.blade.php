@@ -23,6 +23,52 @@
     </div>
   </div>
 
+  <div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3>Detail Data Pembeli</h3>
+        <i class="bx bx-filter"></i>
+      </div>
+      <table>
+          <tr>
+            <td>
+              Nama
+            </td>
+            <td>:</td>
+            <td class="answer">{{ $user->name }} </td>
+          </tr>
+          <tr>
+            <td>
+              Email
+            </td>
+            <td>:</td>
+            <td class="answer">{{ $user->email }} </td>
+          </tr>
+          <tr>
+            <td>
+              No HP
+            </td>
+            <td>:</td>
+            <td class="answer">{{ $user->dataPendaftaran->no_hp }}</td>
+          </tr>
+          <tr>
+            <td>
+              No Identitas
+            </td>
+            <td>:</td>
+            <td class="answer">{{ $user->dataPendaftaran->no_identitas }}</td>
+          </tr>
+          <tr>
+            <td>
+              Kota Domisili
+            </td>
+            <td>:</td>
+            <td class="answer">{{ $user->dataPendaftaran->domisili }}</td>
+          </tr>
+      </table>
+    </div>
+   </div>
+
 @if ($userClosingSuccess->count() > 0)
     <div class="table-data">
         <div class="order">

@@ -81,6 +81,7 @@
         table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } @media (max-width: 480px) { #u_content_image_1 .v-src-width { width: auto !important; } #u_content_image_1 .v-src-max-width { max-width: 55% !important; } #u_content_image_2 .v-src-width { width: auto !important; } #u_content_image_2 .v-src-max-width { max-width: 60% !important; } #u_content_text_1 .v-container-padding-padding { padding: 30px 30px 30px 20px !important; } #u_content_button_1 .v-container-padding-padding { padding: 10px 20px !important; } #u_content_button_1 .v-size-width { width: 100% !important; } #u_content_button_1 .v-text-align { text-align: left !important; } #u_content_button_1 .v-padding { padding: 15px 40px !important; } #u_content_text_3 .v-container-padding-padding { padding: 30px 30px 80px 20px !important; } #u_content_text_5 .v-text-align { text-align: center !important; } #u_content_text_4 .v-text-align { text-align: center !important; } }
     </style>
 
+    <link rel="stylesheet" href="{{ asset('dist/user/styleDash.css') }}" />
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700&display=swap" rel="stylesheet" type="text/css">
 
 </head>
@@ -197,8 +198,42 @@
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan pemesanan tiket The 3rd Manoover Closing Ceremony 2022 melalui web Manooverundip.com.
     <br><br> Berikut tiket dan detail pembelian kamu.
-     </span></p>
-<p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
+
+
+    <div class="ticketUser" style="margin-top: 50px">
+
+        {{-- STAR LOOPING --}}
+         <li>
+          <div class="wrapDetailTicket">
+           <img src="{{asset("dist/user/image/logoDetailTicket.svg")}}" alt="">
+           <div class="one">
+            <p class="tittle">NAME</p>
+            <p class="content">{{ $closing->nama }}</p>
+           </div>
+           <br>
+           <div class="two">
+            <div>
+             <p class="tittle">DATE</p>
+             <p class="content">30 JULI 2022</p>
+            </div>
+            <br>
+            <div class="right">
+             <p class="tittle">ID CODE</p>
+             <p class="content">{{ $closing->kode_unik }}</p>
+            </div>
+           </div>
+           <br>
+           <div class="one">
+            <p class="tittle">VENUE</p>
+            <p class="content">BIG MALL SAMARINDA</p>
+           </div>
+          </div>
+         </li>
+
+         {{-- END LOOPING --}}
+
+       </div>
+     </span>
   </div>
 
       </td>

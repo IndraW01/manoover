@@ -75,4 +75,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Band::class);
     }
+
+    public function dataPendaftaran()
+    {
+        return $this->hasOne(DataPendaftaran::class);
+    }
 }

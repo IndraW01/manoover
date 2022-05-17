@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DataPendaftaran;
 use Illuminate\Database\Seeder;
 use Database\Seeders\FutsalSeeder;
 use Database\Seeders\ValorantSeeder;
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             FutsalSeeder::class,
             ClosingSeeder::class,
             BandSeeder::class,
+            DataPendaftaranSeeder::class,
         ]);
     }
 }

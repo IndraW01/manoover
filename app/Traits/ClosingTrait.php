@@ -37,11 +37,13 @@ trait ClosingTrait {
 
     public function verifikasiBerhasil(User $user)
     {
+        // dd($user);
         try {
 
             DB::beginTransaction();
 
             $userClosings = $user->closings()->whereStatus('belum')->get();
+            // dd($userClosings);
 
             foreach($userClosings as $userClosing) {
 
