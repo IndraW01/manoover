@@ -30,9 +30,9 @@
       <h3>Detail Tiket Pendaftar</h3>
       <i class="bx bx-filter"></i>
     </div>
-    @foreach ($userClosings as $userClosing)
+    {{-- @foreach ($userClosings as $userClosing) --}}
     <div class="head">
-        <h5>Tiket {{ $loop->iteration }}</h5>
+        {{-- <h5>Tiket {{ $loop->iteration }}</h5> --}}
       </div>
     <table>
         <tr>
@@ -40,32 +40,91 @@
             Nama
           </td>
           <td>:</td>
-          <td class="answer">{{ $userClosing->nama }} </td>
+          <td class="answer">a</td>
         </tr>
         <tr>
           <td>
             Email
           </td>
           <td>:</td>
-          <td class="answer">{{ $userClosing->email }} </td>
+          <td class="answer">ss</td>
         </tr>
         <tr>
           <td>
-            Tipe
+            No. Identitas (KTP/SIM/ID Lainnya)
           </td>
           <td>:</td>
-          <td class="answer">{{ $userClosing->tipe == 'early' ? 'Eraly Bird' : 'Presale 1' }}</td>
+          {{-- <td class="answer">{{ $userClosing->tipe == 'early' ? 'Eraly Bird' : 'Presale 1' }}</td> --}}
         </tr>
         <tr>
           <td>
-            Kode Unik
+            No HP
           </td>
           <td>:</td>
-          <td class="answer">{{ $userClosing->kode_unik }}</td>
+          {{-- <td class="answer">{{ $userClosing->kode_unik }}</td> --}}
         </tr>
+        <tr>
+          <td>
+            Nama Data Diri
+          </td>
+          <td valign="top">:</td>
+          <td valign="top" >
+             <table class="child">
+               <tr>
+                 <td class="no">1</td>
+                 <td> a</td>
+               </tr>
+               <tr>
+                 <td class="no">2</td>
+                 <td> a </td>
+               </tr>
+               <tr>
+                 <td class="no">3</td>
+                 <td> a</td>
+               </tr>
+               <tr>
+                 <td class="no">4</td>
+                 <td>a</td>
+               </tr>
+               <tr>
+                 <td class="no">5</td>
+                 <td>a </td>
+               </tr>
+             </table>
+          </td>
+        </tr>
+<<<<<<< HEAD
+=======
+        <tr>
+         <td>
+          Foto KTP/Kartu Pelajar
+         </td>
+         <td>:</td>
+         <td>
+                <span data-bs-toggle="modal" data-bs-target="#kartuModal" class="status completed">Lihat</span>
+                <span class="status pending"><a href="#" class="text-white">Download</a></span>
+         </td>
+       </tr>
+
+       <tr>
+        <td>
+          Bukti Pembayaran
+        </td>
+        <td>:</td>
+        <td>
+           {{-- @if (!$futsal->bukti_pembayaran) --}}
+           {{-- <small class="notifBukti">Bukti Pembayaran belum di upload</small>
+           @else --}}
+               <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
+               <span class="status pending"><a href="#" class="text-white">Download</a></span>
+           {{-- @endif --}}
+        </td>
+      </tr>
+>>>>>>> 543a9ffa76761f55163d19aef0bb2e625f7eb897
     </table>
-    @endforeach
-    <table>
+    {{--   --}}
+
+    {{-- <table>
         <tr>
             <td>
               Bukti Pembayaran
@@ -100,7 +159,7 @@
                 @endif
             </td>
           </tr>
-    </table>
+    </table> --}}
   </div>
  </div>
 

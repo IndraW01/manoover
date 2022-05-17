@@ -158,8 +158,9 @@ input::-webkit-file-upload-button {
     background: white;
     outline: none;
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 3px 20px;
     border: 1px solid white;
+    font-size: 13px;
 }
 .wrapForm button {
     max-width: 270px;

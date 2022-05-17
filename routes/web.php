@@ -165,3 +165,11 @@ Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closi
 
 });
 
+
+
+Route::get('/my-ticket', function () {
+    return view('layouts.myTicket');
+});
+Route::get('/tesClosing', function () {
+    return view('admin.ceremony.show');
+});
