@@ -403,3 +403,7 @@ input::-webkit-file-upload-button {
     font-size: 20px;
     color: white;
 }
+
+.rg {
+    padding-left: 15px;
+}
