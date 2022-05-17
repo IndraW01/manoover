@@ -69,7 +69,9 @@ class ClosingController extends Controller
     public function show(User $user)
     {
         return view('admin.ceremony.show', [
-            'userClosings' => $user->closings
+            'userClosingWaitings' => $user->closings()->whereStatus('belum')->get(),
+            'userClosingSuccess' => $user->closings()->whereStatus('sudah')->get(),
+            'user' => $user
         ]);
     }
 

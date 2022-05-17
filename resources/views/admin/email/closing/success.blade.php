@@ -197,7 +197,6 @@
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan pemesanan tiket The 3rd Manoover Closing Ceremony 2022 melalui web Manooverundip.com.
     <br><br> Berikut tiket dan detail pembelian kamu.
-    <br><br> Samuel :081317235433 (Closing Ceremony)
      </span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
   </div>
