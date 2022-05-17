@@ -31,12 +31,19 @@
 
     <div class="timeContent1">
       <p>
-        Is the highlight of all Manoover series with performances from Band Featuring, Guest Star, Special Performance, Band Performance and others. Management Closing Ceremony was held on July 30th, 2022.
+        <b>Deskirpsi Acara</b> <br />
+        Merupakan salah satu rangkaian dalam The 3rd Manoover sebagai puncak segala    rangkaian The 3rd Manoover dengan penampilan dari Band Featuring,Guest Star,Special Performance,Penampilan Band dan lainnya. Management Closing Ceremony akan dilaksanakan di UTC Conventional Hall pada tanggal 30 Juli 2022
       </p>
   
-     <p>
       <b>Terms & Condition</b> <br />
-      Tiket secara resmi hanya dibeli melalui www.manoover.com . Jika Anda membeli tiket diluar itu, maka kami tidak bertanggung jawab jika tiket tidak valid. <br>
+      <table>
+        <tr>
+          <td valign="top">1</td>
+          <td valign="top">Tiket secara resmi hanya dibeli melalui www.manoover.com . Jika Anda membeli tiket diluar itu, maka kami tidak bertanggung jawab jika tiket tidak valid. <br></td>
+          
+        </tr>
+      </table>
+      
       Panitia 3rd Manoover tidak bertanggung jawab atas kelalaian pembeli tiket yang mengakibatkan E-ticket hilang ataupun jatuh ke tangan orang lain (dalam penguasaan orang lain) untuk digunakan sebagai tanda masuk ke tempat pertunjukkan/penukaran E-ticket <br>
       Jika terjadi pembatalan pertunjukan dikarenakan alasan tertentu dikemudian hari maka uang tiket akan dikembalikan sesuai dengan ketentuan promotor. <br>
       Dalam keadaan Force Majeure seperti bencana alam, kerusuhan, perang, wabah, dan semua keadaan darurat yang diumumkan secara resmi oleh Pemerintah. Panitia/penyelenggara/promotor berhak untuk membatalkan dan/atau merubah waktu acara dan tata letak tempat tanpa pemberitahuan sebelumnya. <br>
@@ -50,7 +57,7 @@
       Penyelenggara berhak untuk: <br>
       a. Melarang Penonton masuk jika wristband telah digunakan oleh orang lain/rusak. <br>
       b. Memproses atau mengajukan hukuman, baik perdata maupun pidana, terhadap pengunjung yang mendapatkan Entry Pass secara tidak sah, termasuk memalsukan dan menggandakan Entry Pass yang sah atau memperoleh Entry Pass dengan cara yang tidak sesuai dengan prosedur. <br>
-     </p>
+     
     </div>
 
    

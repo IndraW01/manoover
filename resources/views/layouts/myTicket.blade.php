@@ -43,22 +43,24 @@
 
    <h2 class="tittleDashUser">Data Pembeli Tiket</h2>
 
-   <table>
-    <tr>
-     <th>Nama</th>
-     <th>Email</th>
-     <th>No HP</th>
-     <th>No. Identitas</th>
-     <th>Domisili</th>
-    </tr>
-    <tr>
-     <td>John Doe</td>
-     <td>johndoe@gmail.com</td>
-     <td>0821212121213</td>
-     <td>12312314112431432</td>
-     <td>Samarinda</td>
-    </tr>
-   </table>
+   <div style="overflow-x:auto;">
+    <table>
+      <tr>
+       <th>Nama</th>
+       <th>Email</th>
+       <th>No HP</th>
+       <th>No. Identitas</th>
+       <th>Domisili</th>
+      </tr>
+      <tr>
+       <td>John Doe</td>
+       <td>johndoe@gmail.com</td>
+       <td>0821212121213</td>
+       <td>12312314112431432</td>
+       <td>Samarinda</td>
+      </tr>
+     </table>
+   </div>
 
    
 
