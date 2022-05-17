@@ -193,11 +193,10 @@
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 30px 30px 40px;font-family:arial,helvetica,sans-serif;" align="left">
 
   <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 22px; line-height: 30.8px;">Your Payment Is Now Confirmed!</span></strong></span></p>
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><span style="font-size: 22px; line-height: 30.8px;">Hello, {{ $closing->user->name }}</span></span></p>
+    <p style="font-size: 14px; line-height: 140%;"><span style="font-family: 'Crimson Text', serif; font-size: 14px; line-height: 19.6px;"><strong><span style="font-size: 22px; line-height: 30.8px;">Pembelian Tiket untuk The 3rd Manoover Closing Ceremony 2022 Telah Berhasil!</span></strong></span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
-<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan proses pendaftaran. Pendaftaran anda sudah berhasil dilakukan pada ({{ $closing->created_at->isoFormat('dddd, DD-MMMM-YYYY') }}).
-    <br><br> Untuk step selanjutnya, wajib menghubungi Contact Person Manoover Competition melalui nomor dibawah ini:
+<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">Terima kasih telah melakukan pemesanan tiket The 3rd Manoover Closing Ceremony 2022 melalui web Manooverundip.com.
+    <br><br> Berikut tiket dan detail pembelian kamu.
     <br><br> Samuel :081317235433 (Closing Ceremony)
      </span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
@@ -232,7 +231,6 @@
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 30px 80px 40px;font-family:arial,helvetica,sans-serif;" align="left">
 
   <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">See you at Manoover Competition,</span></p>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><strong><span style="line-height: 30.8px; font-family: 'Crimson Text', serif; font-size: 22px;">Thanks.</span></strong></span><br /><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">The 3rd Manoover</span></p>
   </div>
