@@ -80,7 +80,7 @@
        <div class="two">
         <div>
          <p class="tittle">DATE</p>
-         <p class="content">30 JULI 2022</p>
+         <p class="content">30 July 2022</p>
         </div>
         <div class="right">
          <p class="tittle">ID CODE</p>
@@ -90,7 +90,7 @@
        <br>
        <div class="one">
         <p class="tittle">VENUE</p>
-        <p class="content">BIG MALL SAMARINDA</p>
+        <p class="content">UTC CONVETION HALL SEMARANG</p>
        </div>
       </div>
      </li>
