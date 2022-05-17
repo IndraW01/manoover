@@ -373,6 +373,7 @@ input::-webkit-file-upload-button {
     color: white;
     display: flex;
 }
+
 .wrapTicket .right .bottomChild .rightChild {
     display: flex;
     justify-content: end;
