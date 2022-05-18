@@ -216,8 +216,8 @@
       </div>
 
       <br><br>
-      @if ($closing->count() > 0)
-        <div class="wrapTicket timeContent2 d-none" >
+      <div class="wrapTicket timeContent2 d-none" >
+            @if ($closing->count() > 0)
             <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
             <div class="right">
             <div>
@@ -235,11 +235,11 @@
             </div>
             </div>
             </div>
+            @else
+              <p>Tiket Kosong</p>
+              @endif
         </div>
 
-      @else
-        <p>Tiket Kosong</p>
-      @endif
 
     </div>
 
