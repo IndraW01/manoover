@@ -14,7 +14,7 @@
       </h3>
     </div>
     <div class="right">
-      <a href="#" id="buyNow"><button>Register Now</button></a>
+      <a href="#" id="buyNow"><button>Buy Now</button></a>
     </div>
   </div>
 

@@ -210,16 +210,6 @@ body {
     left: 0;
     z-index: 1000;
 }
-#content nav::before {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    bottom: -40px;
-    left: 0;
-    border-radius: 50%;
-    box-shadow: -20px -20px 0 var(--light);
-}
 #content nav a {
     color: var(--dark);
 }
@@ -841,4 +831,13 @@ body {
     .notifBukti {
         color: red;
     }
+}
+
+.searchInput {
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 20px;
+    color: black;
+    background: none;
 }

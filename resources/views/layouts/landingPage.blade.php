@@ -348,34 +348,42 @@
 
 
       <section class="six" id="six">
-       <div class="wrap">
-        <p>Sponsored by :</p>
-        <div class="support">
-         <div class="list">
-          <img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt="">
+        <div class="wrap">
+         
+         <p>Media Partner :</p>
+         <div class="support">
+             <div class="list"><img src="{{ asset('dist/landingPage/image2/one1.svg') }}" alt=""></div>
+             <div class="list"><img src="{{ asset('dist/landingPage/image/top1.svg') }}" alt=""></div>
+             <div class="list"><img src="{{ asset('dist/landingPage/image2/one3.svg') }}" alt=""></div>
          </div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/top1.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-        </div>
-        <p>Media Partner :</p>
-        <div class="media">
-         <div class="list">
-          <img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt="">
+         <br>
+         <div class="support">
+             <div class="list"><img src="{{ asset('dist/landingPage/image2/two1.svg') }}" alt=""></div>
          </div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/bottom1.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
-         <div class="list"><img src="{{ asset('dist/landingPage/image/logo.svg') }}" alt=""></div>
+         
+         <br/><br/>
+         
+         <div class="media">
+          <div class="list"><img src="{{ asset('dist/landingPage/image/bottom1.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image/bottom2.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image/bottom3.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/four4.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image/bottom4.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/four6.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/four7.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/four8.svg') }}" alt=""></div>
+         </div>
+         <br>
+         <div class="media">
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/five1.svg') }}" alt=""></div>
+          <div class="list"><img src="{{ asset('dist/landingPage/image2/five2.svg') }}" alt=""></div>
+         </div>
         </div>
+        <br><br>
+        <div class="wrapAnimasi">
+         <img class="ikan" src="{{ asset('dist/landingPage/image/Ikan1.svg') }}" alt="">
        </div>
-       <br><br>
-       <div class="wrapAnimasi">
-        <img class="ikan" src="{{ asset('dist/landingPage/image/ikan1.svg') }}" alt="">
-      </div>
-      </section>
+       </section>
 
 
       <section class="footer">

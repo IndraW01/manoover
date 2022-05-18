@@ -26,8 +26,8 @@
      <h6><b>DANA</b> : 089506133714 (a.n. Grace Agatha Panjaitan)</h6>
    </div>
    <div class="item">
-    <img src="{{ asset('dist/user/image/ovo.svg') }}" alt="" />
-     <h6><b>OVO</b> : 089506133714 (a.n. Grace Panjaitan)</h6>
+    <img src="{{ asset('dist/user/image/mandiri.svg') }}" alt="" />
+    <h6><b>Mandiri</b> : 107-00-1786013-3 (a.n. Grace Agatha Panjaitan)</h6>
    </div>
  </div>
 
