@@ -60,7 +60,7 @@
         <h6 class="text-danger mt-1 ms-2">{{ $message }}</h6>
     @enderror
     </div>
-    <button>Register Now</button>
+    <button>Finish Payment</button>
 </form>
 </div>
 @endsection
