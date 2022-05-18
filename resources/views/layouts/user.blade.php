@@ -35,5 +35,6 @@
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
     <script src="{{asset("dist/user/script.js")}}"></script>
+
   </body>
 </html>
