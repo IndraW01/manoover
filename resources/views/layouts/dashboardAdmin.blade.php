@@ -82,6 +82,12 @@
            <span class="text">Closing Ceremnoy</span>
          </a>
        </li>
+        <li class="{{ request()->routeIs('dashboard.ticketAll.*') ? 'active' : '' }}">
+         <a href="/admin/ticket-all">
+           <i class="bx bxs-shopping-bag-alt"></i>
+           <span class="text">Ticket All</span>
+         </a>
+       </li>
     </section>
 
 

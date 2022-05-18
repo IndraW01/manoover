@@ -238,7 +238,7 @@
         </div>
 
       @else
-        <p>Tiket Kosong</p>
+        <center><p style="color: white">Tiket Kosong</p></center>
       @endif
 
     </div>

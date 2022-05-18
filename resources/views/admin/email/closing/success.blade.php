@@ -79,6 +79,178 @@
         }
 
         table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } @media (max-width: 480px) { #u_content_image_1 .v-src-width { width: auto !important; } #u_content_image_1 .v-src-max-width { max-width: 55% !important; } #u_content_image_2 .v-src-width { width: auto !important; } #u_content_image_2 .v-src-max-width { max-width: 60% !important; } #u_content_text_1 .v-container-padding-padding { padding: 30px 30px 30px 20px !important; } #u_content_button_1 .v-container-padding-padding { padding: 10px 20px !important; } #u_content_button_1 .v-size-width { width: 100% !important; } #u_content_button_1 .v-text-align { text-align: left !important; } #u_content_button_1 .v-padding { padding: 15px 40px !important; } #u_content_text_3 .v-container-padding-padding { padding: 30px 30px 80px 20px !important; } #u_content_text_5 .v-text-align { text-align: center !important; } #u_content_text_4 .v-text-align { text-align: center !important; } }
+
+
+        
+.wrapTicket {
+    width: 100%;
+    border: 1px solid white;
+    padding: 30px 20px 20px 20px;
+    border-radius: 24px;
+    display: flex;
+}
+.wrapTicket .left {
+    max-width: 90px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapTicket .left img {
+    width: 90px;
+}
+.wrapTicket .line {
+    width: 100%;
+    border-bottom: 1px solid white;
+    margin-top: -10px;
+}
+.wrapTicket .right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+.wrapTicket .right div {
+    width: 100%;
+}
+.wrapTicket .right .topChild {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapTicket .right .topChild .name {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+}
+
+.wrapTicket .right .bottomChild {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+}
+.wrapTicket .right .bottomChild .leftChild {
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    display: flex;
+}
+.wrapTicket .right .bottomChild .leftChild input {
+    margin: 0 5px;
+    outline: none;
+    width: 130px;
+    border: none;
+    color: white;
+    background: none;
+}
+.wrapTicket .right .bottomChild .rightChild {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.wrapTicket .right .bottomChild .rightChild button {
+    max-width: 270px;
+    width: 100%;
+    background: #f9943b;
+    border-radius: 45px;
+    outline: none;
+    border: 1px solid #f9943b;
+    color: white;
+    padding: 5px 70px;
+    font-weight: 600;
+}
+
+.price {
+    outline: none;
+    border: none;
+    color: white;
+    padding-left: 10px;
+    background: none;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+
+.tittleDashUser {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 30px;
+}
+
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+table tr td,
+table tr th {
+    color: white;
+    min-width: 180px;
+    padding: 10px 0;
+}
+
+.ticketUser {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 24px;
+}
+.ticketUser li {
+    max-width: 330px;
+    width: 100%;
+    list-style: none;
+    grid-gap: 10px;
+}
+
+@font-face {
+    src: url("../../../../public/dist/user/font/Alyssum-Sans.ttf");
+    font-family: "Alyssum-Sans";
+    font-weight: 300;
+}
+
+.wrapDetailTicket {
+    color: #fff;
+    background-image: url("../../../../public/dist/user/image/detailTicket.svg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0 0 30px 0;
+}
+.wrapDetailTicket img {
+    width: 100%;
+    padding: 20px 10px 0 10px;
+}
+.wrapDetailTicket .two {
+    display: flex;
+    padding: 0 30px 0 30px;
+}
+.wrapDetailTicket .one {
+    padding: 0 30px 0 30px;
+}
+
+.wrapDetailTicket .two .right {
+    margin-left: 60px;
+}
+.wrapDetailTicket .content,
+.wrapDetailTicket .tittle {
+    font-family: "Alyssum-Sans";
+    font-weight: 17;
+    margin: 0;
+    padding: 0;
+}
+.wrapDetailTicket .content {
+    color: white;
+    font-size: 14px;
+}
+
+.wrapDetailTicket .tittle {
+    color: #ff914d;
+    font-size: 16px;
+}
     </style>
 
     <link rel="stylesheet" href="{{ asset('dist/user/styleDash.css') }}" />
