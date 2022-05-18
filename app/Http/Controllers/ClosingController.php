@@ -35,7 +35,7 @@ class ClosingController extends Controller
         // }
 
         return view('admin.ceremony.index', [
-            'userClosings' => User::has('closings')->get(),
+            'userClosings' => User::latest()->has('closings')->get(),
         ]);
     }
 

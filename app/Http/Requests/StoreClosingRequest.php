@@ -24,12 +24,18 @@ class StoreClosingRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'nama' => 'required',
-            'email' => 'required|email',
-            'profesi' => 'required',
-            'no_hp' => 'required',
-            'kartu_identitas' => 'required|file|max:2000|mimes:pdf'
-        ];
+        // dd($this->all());
+        $data = [];
+        for($i = 1; $i <= $this->input('counter'); $i++) {
+            $data['nama-' . $i] = 'required';
+            $data['email-' . $i] = 'required|email|unique:closings,email';
+        };
+
+        $data['no_identitas'] = 'required';
+        $data['no_hp'] = 'required';
+        $data['domisili'] = 'required';
+        $data['kartu_identitas'] = 'required|file|max:2000|mimes:pdf';
+
+        return $data;
     }
 }

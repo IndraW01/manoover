@@ -1,3 +1,4 @@
+{{-- @dd($bayarClosing[$bayarClosing->count() - 1]) --}}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +28,7 @@
       @if($pubg == null and $valorant == null and $mobileLegend == null and $futsal == null and $band == null and $closing== null )
         <center><p style="color: white">Belum ada pembayaran</p></center>
       @endif
-      
+
       <div class="timeContent1">
         @if ($pubg)
             <div class="list-dashboardUser">
@@ -184,14 +185,14 @@
         {{-- endlooping --}}
 
         {{-- looping --}}
-        @if ($closing)
+        @if ($bayarClosing->count() > 0)
             <div class="list-dashboardUser">
                 <div class="left">
                     <img src="{{ asset('dist/landingPage/image/band2.svg') }}" alt="">
                     <div class="info">
                         <div class="name">Closing Ceremony</div>
-                        <div class="price">Total Pembayaran : Rp 50.000</div>
-                        @if ($closing->bukti_pembayaran)
+                        <div class="price">Total Pembayaran : Rp {{ 70 * $bayarClosing->count() }}.000</div>
+                        @if ($bayarClosing[$bayarClosing->count() - 1]->bukti_pembayaran)
                             <div class="status sudah">Pembayaran selesai</div>
                         @else
                             <div class="status belum">Belum menyelesaikan Pembayaran</div>
@@ -199,14 +200,14 @@
                     </div>
                 </div>
                 <div class="right">
-                    @if ($closing->bukti_pembayaran)
+                    @if ($bayarClosing[$bayarClosing->count() - 1]->bukti_pembayaran)
                         <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                     @else
-                        <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$closing->created_at->addHours(24)}}"></span></div>
-                        @if ((Carbon\Carbon::now() > $closing->created_at->addDay()))
+                        <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$bayarClosing[$bayarClosing->count() - 1]->created_at->addHours(24)}}"></span></div>
+                        @if ((Carbon\Carbon::now() > $bayarClosing[$bayarClosing->count() - 1]->created_at->addDay()))
                             <a  href="#"><button class="buyNowCancel">Waktu Habis</button></a>
                         @else
-                            <a  href="{{ route('closing.pembayaran', ['closing' => $closing]) }}"><button class="buyNow">Bayar Sekarang</button></a>
+                            <a  href="{{ route('closing.pembayaran') }}"><button class="buyNow">Bayar Sekarang</button></a>
                         @endif
                     @endif
                 </div>
@@ -215,26 +216,30 @@
       </div>
 
       <br><br>
-      <div class="wrapTicket timeContent2 d-none" >
-        <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
-        <div class="right">
-          <div>
-           <div class="topChild">
-             <p class="name">Early Bird</p>
-           </div>
-           <div class="line"></div>
-           <div class="bottomChild">
-             <div class="leftChild" >
-               Rp.
-               <input type="text" class="price" id="price" value="700000">
-             </div>
-             <div class="rightChild">
-                <a  href="#"><button class="buyNow">Lihat Tiket</button></a>
-             </div>
-           </div>
-          </div>
+      @if ($closing->count() > 0)
+        <div class="wrapTicket timeContent2 d-none" >
+            <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+            <div class="right">
+            <div>
+            <div class="topChild">
+                <p class="name">Early Bird</p>
+            </div>
+            <div class="line"></div>
+            <div class="bottomChild">
+                <div class="leftChild" >
+                {{ $closing->count() }} Tiket
+                </div>
+                <div class="rightChild">
+                    <a  href="{{ route('user.dashboard.tikcet') }}"><button class="buyNow">Lihat Tiket</button></a>
+                </div>
+            </div>
+            </div>
+            </div>
         </div>
-      </div>
+
+      @else
+        <p>Tiket Kosong</p>
+      @endif
 
     </div>
 
@@ -253,7 +258,7 @@
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
     <script src="{{asset("dist/user/script.js")}}"></script>
-    
-   
+
+
   </body>
 </html>

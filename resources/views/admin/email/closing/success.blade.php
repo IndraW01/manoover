@@ -208,7 +208,8 @@
            <img src="{{asset("dist/user/image/logoDetailTicket.svg")}}" alt="">
            <div class="one">
             <p class="tittle">NAME</p>
-            <p class="content">{{ $closing->nama }}</p>
+            <p class="content">Ndraa</p>
+            {{-- <p class="content">{{ $closing->nama }}</p> --}}
            </div>
            <br>
            <div class="two">
@@ -219,13 +220,14 @@
             <br>
             <div class="right">
              <p class="tittle">ID CODE</p>
-             <p class="content">{{ $closing->kode_unik }}</p>
+             <p class="content">MN123</p>
+             {{-- <p class="content">{{ $closing->kode_unik }}</p> --}}
             </div>
            </div>
            <br>
            <div class="one">
             <p class="tittle">VENUE</p>
-            <p class="content">BIG MALL SAMARINDA</p>
+            <p class="content">UTC CONVETION HALL SEMARANG</p>
            </div>
           </div>
          </li>
@@ -248,9 +250,7 @@
 
 <div class="v-text-align" align="left">
   <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com" style="height:47px; v-text-anchor:middle; width:456px;" arcsize="6.5%" strokecolor="#ced4d9" strokeweight="3px" fillcolor="#91a5e2"><w:anchorlock/><center style="color:#000000;font-family:arial,helvetica,sans-serif;"><![endif]-->
-    <a href="https://unlayer.com" target="_blank" class="v-size-width" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #000000; background-color: #91a5e2; border-radius: 3px;-webkit-border-radius: 3px; -moz-border-radius: 3px; width:100%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;border-top-color: #ced4d9; border-top-style: solid; border-top-width: 3px; border-left-color: #ced4d9; border-left-style: solid; border-left-width: 3px; border-right-color: #ced4d9; border-right-style: solid; border-right-width: 3px; border-bottom-color: #ced4d9; border-bottom-style: solid; border-bottom-width: 3px;">
-      <span class="v-padding" style="display:block;padding:15px 40px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">C L I C K&nbsp; &nbsp;H E R E</span></span>
-    </a>
+    <P>NOTE: TIKET BERSIFAT RAHASIA !!! Jangan berikan tiket kepada siapapun karena Panitia 3rd Manoover tidak bertanggung jawab atas kelalaian pembeli tiket yang mengakibatkan E-ticket hilang ataupun jatuh ke tangan orang lain (dalam penguasaan orang lain) untuk digunakan sebagai tanda masuk ke tempat pertunjukkan/penukaran E-ticket.</P>
   <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
 </div>
 
@@ -262,9 +262,10 @@
 <table id="u_content_text_3" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 30px 80px 40px;font-family:arial,helvetica,sans-serif;" align="left">
+      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding: 0px 30px 80px 40px;font-family:arial,helvetica,sans-serif;" align="left">
 
   <div class="v-text-align" style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
+    <P style="font-size: 14px">NOTE: <span style="font-weight: bold; color: red">TIKET BERSIFAT RAHASIA</span> !!! Jangan berikan tiket kepada siapapun karena Panitia 3rd Manoover tidak bertanggung jawab atas kelalaian pembeli tiket yang mengakibatkan E-ticket hilang ataupun jatuh ke tangan orang lain (dalam penguasaan orang lain) untuk digunakan sebagai tanda masuk ke tempat pertunjukkan/penukaran E-ticket.</P>
 <p style="font-size: 14px; line-height: 140%;">&nbsp;</p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 22px; line-height: 30.8px;"><strong><span style="line-height: 30.8px; font-family: 'Crimson Text', serif; font-size: 22px;">Thanks.</span></strong></span><br /><span style="font-size: 18px; line-height: 25.2px; font-family: 'Crimson Text', serif;">The 3rd Manoover</span></p>
   </div>

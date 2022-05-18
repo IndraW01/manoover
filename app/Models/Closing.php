@@ -15,12 +15,8 @@ class Closing extends Model
         'user_id',
         'nama',
         'email',
-        'no_identitas',
-        'no_hp',
-        'kota',
         'tipe',
         'kode_unik',
-        'kartu_identitas',
         'bukti_pembayaran',
         'status',
     ];
@@ -28,14 +24,6 @@ class Closing extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function isRegistered()
-    {
-        $registerClosing = $this->whereUserId(Auth::id())->exists();
-        if($registerClosing) {
-            return true;
-        }
     }
 
 }

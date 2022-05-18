@@ -112,6 +112,7 @@ Route::get('/registrasi-berhasil', function () {
 
 
 Route::get('/dashboard-user', [DashboardUserController::class, 'dashboard'])->name('user.dashborad')->middleware('auth');
+Route::get('/my-ticket', [DashboardUserController::class, 'myTickets'])->name('user.dashboard.tikcet')->middleware('auth');
 
 // Route Competition
 Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competition.')->group(function() {
@@ -157,20 +158,12 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
 Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closing.')->group(function() {
 
     Route::get('/', [ClosingCompetitionController::class, 'detail'])->name('detail');
-    // Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[0-6]');
-    Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
-    Route::post('/form', [ClosingCompetitionController::class, 'store'])->name('store');
+    Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[0-6]');
+    // Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
+    Route::post('/form/{stok}', [ClosingCompetitionController::class, 'store'])->name('store');
     Route::get('/pembayaran/success', [ClosingCompetitionController::class, 'success'])->name('success');
-    Route::get('/pembayaran/{closing:no_hp}', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
-    Route::patch('/pembayaran/{closing:no_hp}', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
+    Route::get('/pembayaran', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
+    Route::patch('/pembayaran', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
 
 });
 
-
-
-Route::get('/my-ticket', function () {
-    return view('layouts.myTicket');
-});
-Route::get('/tesClosing', function () {
-    return view('admin.ceremony.show');
-});

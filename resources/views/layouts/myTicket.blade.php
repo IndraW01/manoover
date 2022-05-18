@@ -16,9 +16,9 @@
   <body>
    <div class="wrapForm">
     <h2 class="tittleUser">Tiket Saya</h2>
-    
+
     <br><br>
-    
+
     <div class="wrapTicket" >
      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
      <div class="right">
@@ -26,15 +26,12 @@
       <div class="topChild">
        <p class="name">Early Bird</p>
       </div>
-      
+
       <div class="line"></div>
 
       <div class="bottomChild">
        <div class="leftChild" >
-        Rp.<input type="text" class="price" id="price" value="700000">
-       </div>
-       <div class="rightChild">
-        <a  href="#"><button class="buyNow">Lihat Tiket</button></a>
+        {{ $myTickets->count() }} Tiket
        </div>
       </div>
      </div>
@@ -53,59 +50,61 @@
        <th>Domisili</th>
       </tr>
       <tr>
-       <td>John Doe</td>
-       <td>johndoe@gmail.com</td>
-       <td>0821212121213</td>
-       <td>12312314112431432</td>
-       <td>Samarinda</td>
+       <td>{{ auth()->user()->name }}</td>
+       <td>{{ auth()->user()->email }}</td>
+       <td>{{ $myData->no_hp }}</td>
+       <td>{{ $myData->no_identitas }}</td>
+       <td>{{ $myData->domisili }}</td>
       </tr>
      </table>
    </div>
 
-   
+
 
    <h2 class="tittleDashUser">Tiket</h2>
 
    <div class="ticketUser">
 
-    {{-- STAR LOOPING --}}
-     <li>
-      <div class="wrapDetailTicket">
-       <img src="{{asset("dist/user/image/logoDetailTicket.svg")}}" alt="">
-       <div class="one">
-        <p class="tittle">NAME</p>
-        <p class="content">ROIII</p>
-       </div>
-       <br>
-       <div class="two">
-        <div>
-         <p class="tittle">DATE</p>
-         <p class="content">30 July 2022</p>
+       @foreach ($myTickets as $myTicket)
+        {{-- STAR LOOPING --}}
+        <li>
+        <div class="wrapDetailTicket">
+        <img src="{{asset("dist/user/image/logoDetailTicket.svg")}}" alt="">
+        <div class="one">
+            <p class="tittle">NAME</p>
+            <p class="content">{{ $myTicket->nama }}</p>
         </div>
-        <div class="right">
-         <p class="tittle">ID CODE</p>
-         <p class="content">MN0003VR</p>
+        <br>
+        <div class="two">
+            <div>
+            <p class="tittle">DATE</p>
+            <p class="content">30 July 2022</p>
+            </div>
+            <div class="right">
+            <p class="tittle">ID CODE</p>
+            <p class="content">{{ $myTicket->kode_unik }}</p>
+            </div>
         </div>
-       </div>
-       <br>
-       <div class="one">
-        <p class="tittle">VENUE</p>
-        <p class="content">UTC CONVETION HALL SEMARANG</p>
-       </div>
-      </div>
-     </li>
+        <br>
+        <div class="one">
+            <p class="tittle">VENUE</p>
+            <p class="content">UTC CONVETION HALL SEMARANG</p>
+        </div>
+        </div>
+        </li>
 
-     {{-- END LOOPING --}}
+        {{-- END LOOPING --}}
 
-   </div>
+        @endforeach
+    </div>
   </div>
-   
+
 
 
     <div class="wrapAnimasi">
       <img class="ikan" src="ikan.svg" alt="" />
     </div>
-    
+
 
 
     <script
@@ -117,7 +116,7 @@
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
     <script src="{{asset("dist/user/script.js")}}"></script>
-    
-   
+
+
   </body>
 </html>

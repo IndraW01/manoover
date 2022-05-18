@@ -176,13 +176,11 @@
             <div class="leftChild" >
             Coming Soon
             </div>
-            <form action="{{ route('closing.create') }}" method="GET">
-                <div class="rightChild">
-                    <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
-                    <input type="text" name="counter" id="counter" value="0">
-                    <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
-                </div>
-            </form>
+            <div class="rightChild">
+              <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+              <input type="text" id="counter" value="0">
+              <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -225,7 +223,7 @@
     }
     else{
 
-      location.href = `{{ route('closing.create'}}`;
+      location.href = "closing-ceremony/form/" + valueAll;
     }
   });
 
@@ -241,10 +239,9 @@
 
       $("#priceDinamis").val(getComa);
       textPrice.innerHTML = "Harga tiket (" + valueAll + " tiket)";
-    //   counter.innerHTML = valueAll;
     }
 
-    if(valueAll == 4){
+    if(valueAll == 5){
       toastr.error("Maksimal pembelian tiket untuk satu akun adalah 5 tiket");
     }
 

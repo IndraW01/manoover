@@ -11,9 +11,8 @@ class DataPendaftaran extends Model
 
     protected $fillable = [
         'user_id',
-        'nama',
-        'email',
         'no_identitas',
+        'no_hp',
         'domisili',
         'kartu_identitas',
     ];

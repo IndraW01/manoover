@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateClosingRequest;
 use App\Models\Closing;
+use App\Models\User;
 
 class ClosingCompetitionController extends Controller
 {
@@ -29,40 +30,83 @@ class ClosingCompetitionController extends Controller
 
     public function create(int $stok)
     {
-        dd($stok);
-        return view('user.closing.form');
-    }
-
-    public function store(StoreClosingRequest $request)
-    {
-        if($this->closing->isRegistered()) {
-            Alert::error('Gagal', 'Anda telah mendaftar Closing Ceremony');
+        // dd($stok);
+        if(Auth::user()->closings->count() + $stok > 5) {
+            Alert::error('Gagal', 'Tiket yang bisa anda beli sisa ' . 5 - Auth::user()->closings->count());
 
             return redirect('/dashboard-user');
         }
 
-        $validateData = $request->safe()->except(['kartu_identitas', 'email', 'nama']);
+        if(Auth::user()->closings()->whereStatus('belum')->get()->count() > 0) {
+
+            // if(Auth::user()->closings()->whereStatus('belum')->first()->bukti_pembayaran) {
+            //     Alert::error('Gagal', 'Tunggu Tiket Di Verifikasi');
+
+            //     return redirect('/dashboard-user');
+            // }
+
+            Alert::error('Gagal', 'Selesaikan Pembayaran Sebelumnya / Tunggu Tiket Di Verifikasi');
+
+            return redirect('/dashboard-user');
+        }
+
+        return view('user.closing.form', [
+            'counter' => $stok
+        ]);
+    }
+
+    public function store(StoreClosingRequest $request, int $stok)
+    {
+        // dd($request->safe()->except(['no_identitas', 'no_hp', 'domisili', 'kartu_identitas']));
+
+        if(Auth::user()->closings()->whereStatus('belum')->get()->count() > 0) {
+            // if(Auth::user()->closings()->whereStatus('belum')->first()->bukti_pembayaran ?? false) {
+            //     Alert::error('Gagal', 'Tunggu Tiket Di Verifikasi');
+
+            //     return redirect('/dashboard-user');
+            // }
+
+            Alert::error('Gagal', 'Selesaikan Pembayaran Sebelumnya / Tunggu Tiket Di Verifikasi');
+
+            return redirect('/dashboard-user');
+        }
 
         try {
             DB::beginTransaction();
 
-            // Ambil data yang dibutuhkan untuk upload file
-            $extFile = $request->kartu_identitas->getClientOriginalExtension();
-            $namaFile = 'katu-identitas-'.time().".".$extFile;
+            if(!Auth::user()->dataPendaftaran) {
+                // Ambil Data Pendaftaran
+                $validateDataPendaftaran = $request->safe()->only(['no_identitas', 'no_hp', 'domisili']);
 
-            // validateData
-            $validateData['kartu_identitas'] = $namaFile;
+                // Ambil data yang dibutuhkan untuk upload file
+                $extFile = $request->file('kartu_identitas')->getClientOriginalExtension();
+                $namaFile = 'katu-identitas-'.time().".".$extFile;
+
+                // validateData
+                $validateDataPendaftaran['kartu_identitas'] = $namaFile;
+
+                // Tambah Data Pendaftaran
+                Auth::user()->dataPendaftaran()->create($validateDataPendaftaran);
+
+                // upload file ke folder
+                $request->kartu_identitas->move('berkas', $namaFile);
+            }
 
             // tambah data lomba closing
             $user = Auth::user();
-            $addUserClosing = $user->closings()->create($validateData);
+
+            for($i = 1; $i <= $request->input('counter'); $i++) {
+                $user->closings()->create([
+                    'nama' => $request->input('nama-'. $i),
+                    'email' => $request->input('email-'. $i),
+                    'tipe' => 'erly',
+                    'kode_unik' => 'MNE-' . Closing::all()->count() + 1,
+                ]);
+            }
 
             DB::commit();
 
-            // upload file ke folder
-            $request->kartu_identitas->move('berkas', $namaFile);
-
-            return redirect()->route('closing.pembayaran', ['closing' => $addUserClosing]);
+            return redirect()->route('closing.pembayaran');
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -70,16 +114,32 @@ class ClosingCompetitionController extends Controller
         }
     }
 
-    public function pembayaran(Closing $closing)
+    public function pembayaran()
     {
-        if((Carbon::now() > $closing->created_at->addDay())) {
+        $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->get();
+
+        if($userClosingsBelum->count() == 0) {
+            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+
+            return redirect('/dashboard-user');
+        }
+
+        if($userClosingsBelum->count() > 0 && $userClosingsBelum[$userClosingsBelum->count() - 1]) {
+            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+
+            return redirect('/dashboard-user');
+        }
+
+        // dd($userClosingsBelum);
+        if((Carbon::now() > $userClosingsBelum[$userClosingsBelum->count() - 1]->created_at->addDay())) {
             Alert::error('Gagal', 'Waktu Pembayaran anda telah habis');
 
             return redirect('/dashboard-user');
         }
 
         return view('user.closing.pembayaran', [
-            'closing' => $closing
+            'userClosing' => $userClosingsBelum[$userClosingsBelum->count() - 1],
+            'counter' => $userClosingsBelum->count()
         ]);
     }
 
@@ -92,7 +152,7 @@ class ClosingCompetitionController extends Controller
             $extFile = $request->bukti_pembayaran->getClientOriginalExtension();
             $namaFile = 'bukti-pembayaran-'.time().".".$extFile;
 
-            Auth::user()->closing()->update([
+            Auth::user()->closings()->whereStatus('belum')->update([
                 'bukti_pembayaran' => $namaFile
             ]);
 
