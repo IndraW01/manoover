@@ -19,7 +19,7 @@
   </div>
 
   <div class="bottom">
-    
+
     <div class="timeLine">
       <div id="line"></div>
       <div id="marker"></div>
@@ -34,7 +34,7 @@
         <b>Deskirpsi Acara</b> <br />
         Merupakan salah satu rangkaian dalam The 3rd Manoover sebagai puncak segala    rangkaian The 3rd Manoover dengan penampilan dari Band Featuring,Guest Star,Special Performance,Penampilan Band dan lainnya. Management Closing Ceremony akan dilaksanakan di UTC Conventional Hall pada tanggal 30 Juli 2022
       </p>
-  
+
       <b>Terms & Condition</b> <br />
       <table>
         <tr>
@@ -116,7 +116,7 @@
       </table>
 
       <br><br>
-      
+
       <p>
         <b>Contact Person</b> <br />
         Whatsapp : <br>
@@ -130,9 +130,22 @@
           <li>Layla Wijaya: laylaawp</li>
         </ul>
       </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
-   
+
 
    <div class=" timeContent2 d-none" >
      <div class="wrapTicket">
@@ -181,7 +194,7 @@
         </div>
       </div>
      </div>
-     
+
    </div>
 
    <br><br><br>
@@ -194,9 +207,12 @@
 <script>
 
 
+<<<<<<< HEAD
+=======
 
-  
+
   const buyNow = document.getElementById("buyNow");
+>>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
   const counter = document.getElementById("counter");
   const Plus = document.getElementById("handleCounterPlus");
   const Minus = document.getElementById("handleCounterMin");
@@ -209,12 +225,20 @@
   let counterValue = counter.value;
   let valueAll = 0 ;
 
+<<<<<<< HEAD
+
+=======
   var marker = document.querySelector("#marker");
   var timeContent1 = document.querySelector(".timeContent1");
   var timeContent2 = document.querySelector(".timeContent2");
 
+<<<<<<< HEAD
   
   
+=======
+
+>>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
+>>>>>>> 75732a5bb57f69ab077586b86b63013f2a891cbf
 
   buyNow.addEventListener("click", ()=> {
     if(valueAll <= 0){
@@ -225,7 +249,7 @@
       timeContent1.classList.add("d-none");
     }
     else{
-      
+
       location.href = "{{ route('closing.create') }}";
     }
   });
@@ -253,7 +277,7 @@
   Minus.addEventListener("click", ()=> {
     if(valueAll > 0){
       counter.value = --counterValue;
- 
+
       valueAll--;
 
       let hasil = price * valueAll;
@@ -269,12 +293,15 @@
     }
   });
 
+<<<<<<< HEAD
+=======
 
 
 
 
-  
-  
+
+
+>>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
 
 
 
