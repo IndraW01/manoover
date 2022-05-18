@@ -10,11 +10,11 @@
     <div class="left">
       <p id="textPrice">Harga mulai dari</p>
       <h3>
-        Rp<input type="text" class="price" readonly id="priceDinamis" value="{{number_format(70000)}}">
+        Rp.<input type="text" class="price" id="priceDinamis" value="700000">
       </h3>
     </div>
     <div class="right">
-      <a href="#" id="buyNow"><button>Register Now</button></a>
+      <a href="{{ route('closing.create') }}"><button>Register Now</button></a>
     </div>
   </div>
 
@@ -147,55 +147,28 @@
 
 
 
-   <div class=" timeContent2 d-none" >
-     <div class="wrapTicket">
-      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
-      <div class="right">
-        <div>
-         <div class="topChild">
-           <p class="name">Early Bird</p>
-           <p class="info">Available 330 Pax</p>
-         </div>
-         <div class="line"></div>
-         <div class="bottomChild">
-           <div class="leftChild" >
-             Rp
-             <input type="text" class="price" id="price" readonly value="{{number_format(70000)}}">
-           </div>
-           <div class="rightChild">
-             <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
-             <input type="text" id="counter" value="0">
-             <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
-           </div>
-         </div>
+   <div class="wrapTicket timeContent2 d-none" >
+     <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+     <div class="right">
+       <div>
+        <div class="topChild">
+          <p class="name">Early Bird</p>
+          <p class="info">Available 330 Pax</p>
         </div>
-      </div>
-     </div>
-
-
-     <div class="wrapTicket">
-      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
-      <div class="right">
-        <div>
-         <div class="topChild">
-           <p class="name">Early Bird</p>
-           <p class="info2">Coming Soon</p>
-         </div>
-         <div class="line"></div>
-         <div class="bottomChild">
-           <div class="leftChild" >
-            Coming Soon
-           </div>
-           <div class="rightChild">
-             <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
-             <input type="text" id="counter" value="0">
-             <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
-           </div>
-         </div>
+        <div class="line"></div>
+        <div class="bottomChild">
+          <div class="leftChild" >
+            Rp.
+            <input type="text" class="price" id="price" value="700000">
+          </div>
+          <div class="rightChild">
+            <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+            <input type="text" id="counter" value="0">
+            <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+          </div>
         </div>
-      </div>
+       </div>
      </div>
-
    </div>
 
    <br><br><br>
@@ -208,12 +181,6 @@
 <script>
 
 
-<<<<<<< HEAD
-=======
-
-
-  const buyNow = document.getElementById("buyNow");
->>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
   const counter = document.getElementById("counter");
   const Plus = document.getElementById("handleCounterPlus");
   const Minus = document.getElementById("handleCounterMin");
@@ -226,33 +193,10 @@
   let counterValue = counter.value;
   let valueAll = 0 ;
 
-<<<<<<< HEAD
-
-=======
-  var marker = document.querySelector("#marker");
-  var timeContent1 = document.querySelector(".timeContent1");
-  var timeContent2 = document.querySelector(".timeContent2");
-
-
->>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
-
-  buyNow.addEventListener("click", ()=> {
-    if(valueAll <= 0){
-      marker.style.left = "50%";
-      marker.style.width = "50%";
-
-      timeContent2.classList.remove("d-none");
-      timeContent1.classList.add("d-none");
-    }
-    else{
-
-      location.href = "{{ route('closing.create') }}";
-    }
-  });
 
 
   Plus.addEventListener("click", ()=> {
-    if(valueAll < 5){
+    if(valueAll < 6){
       counter.value = ++counterValue;
       valueAll++;
 
@@ -277,15 +221,6 @@
     }
   });
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
->>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
 
 
 
