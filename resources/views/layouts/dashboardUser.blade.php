@@ -240,6 +240,12 @@
               @endif
         </div>
 
+<<<<<<< HEAD
+      @else
+        <center><p style="color: white">Tiket Kosong</p></center>
+      @endif
+=======
+>>>>>>> b30b04ff50ccc331fc2b6ffb7c391a5e061f3216
 
     </div>
 

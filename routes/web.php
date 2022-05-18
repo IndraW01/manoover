@@ -162,3 +162,9 @@ Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closi
 
 });
 
+
+
+
+Route::get("/admin/ticket-all", function () {
+    return view('admin.ticketAll.index');
+});
