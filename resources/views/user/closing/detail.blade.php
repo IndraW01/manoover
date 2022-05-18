@@ -10,7 +10,11 @@
     <div class="left">
       <p id="textPrice">Harga mulai dari</p>
       <h3>
+<<<<<<< HEAD
         Rp.<input type="text" class="price" id="priceDinamis" value="700000">
+=======
+        Rp<input type="text" class="price" readonly id="priceDinamis" value="0">
+>>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
       </h3>
     </div>
     <div class="right">
@@ -147,6 +151,7 @@
 
 
 
+<<<<<<< HEAD
    <div class="wrapTicket timeContent2 d-none" >
      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
      <div class="right">
@@ -154,6 +159,28 @@
         <div class="topChild">
           <p class="name">Early Bird</p>
           <p class="info">Available 330 Pax</p>
+=======
+   <div class=" timeContent2 d-none" >
+     <div class="wrapTicket">
+      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+      <div class="right">
+        <div>
+         <div class="topChild">
+           <p class="name">Early Bird</p>
+         </div>
+         <div class="line"></div>
+         <div class="bottomChild">
+           <div class="leftChild" >
+             Rp 70,000
+             <input type="text" class="price d-none" id="price" readonly value="70000">
+           </div>
+           <div class="rightChild">
+             <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+             <input type="text" id="counter" value="0">
+             <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+           </div>
+         </div>
+>>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
         </div>
         <div class="line"></div>
         <div class="bottomChild">
@@ -193,6 +220,37 @@
   let counterValue = counter.value;
   let valueAll = 0 ;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+  var marker = document.querySelector("#marker");
+  var timeContent1 = document.querySelector(".timeContent1");
+  var timeContent2 = document.querySelector(".timeContent2");
+
+<<<<<<< HEAD
+  
+  
+=======
+
+>>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
+>>>>>>> 75732a5bb57f69ab077586b86b63013f2a891cbf
+
+  buyNow.addEventListener("click", ()=> {
+    if(valueAll <= 0){
+      marker.style.left = "50%";
+      marker.style.width = "50%";
+
+      timeContent2.classList.remove("d-none");
+      timeContent1.classList.add("d-none");
+    }
+    else{
+
+      location.href = "{{ route('closing.create') }}";
+    }
+  });
+>>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
 
 
   Plus.addEventListener("click", ()=> {
@@ -201,9 +259,17 @@
       valueAll++;
 
       let hasil = price * valueAll;
-      $("#priceDinamis").val(hasil);
+      var formatter = new Intl.NumberFormat('en-US');
+      let getComa = formatter.format(hasil);
+
+      $("#priceDinamis").val(getComa);
       textPrice.innerHTML = "Harga tiket (" + valueAll + " tiket)";
     }
+
+    if(valueAll == 4){
+      toastr.error("Maksimal pembelian tiket untuk satu akun adalah 5 tiket");
+    }
+
 
   });
   Minus.addEventListener("click", ()=> {
@@ -218,6 +284,10 @@
     }
     else{
       textPrice.innerHTML = "Harga mulai dari";
+    }
+
+    if(valueAll == 0){
+      toastr.error("Minimal pembelian tiket untuk satu akun adalah 1 tiket");
     }
   });
 

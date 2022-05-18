@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('dist/user/style.css') }}" />
     <title>{{ $title ?? config('app.name') }}</title>
     <link rel="shortcut icon" href="{{asset('logo.svg')}}">
+    <link rel="stylesheet" href="{{ asset('toastr/toastr.min.css') }}">
   </head>
   <body>
 
@@ -35,6 +36,7 @@
     <script src="{{asset("js/time/jquery.countdown.js")}}"></script>
     <script src="{{asset("js/time/script.js")}}"></script>
     <script src="{{asset("dist/user/script.js")}}"></script>
+    <script src="{{ asset('toastr/toastr.min.js') }}"></script> 
 
   </body>
 </html>
