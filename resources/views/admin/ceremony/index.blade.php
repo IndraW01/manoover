@@ -74,7 +74,7 @@
      <h3>Pendaftar</h3>
      <form action="http://google.com">
       <input id="myInputSearch" type="text" class="searchInput">
-      
+
       <button type="submit" style="outline: none; border: none"><i class="bx bx-search"></i></button>
      </form>
      <i class="bx bx-filter"></i>
@@ -82,19 +82,23 @@
    <table>
      <thead>
        <tr>
+         <th>No</th>
          <th>User</th>
          <th>Email</th>
-         <th>Detail Data Tiket</th>
+         <th style="padding: 0 10px;">Detail Data Tiket</th>
+         <th>Jumlah Tiket (Dibeli)</th>
        </tr>
      </thead>
      <tbody>
         @foreach ($userClosings as $userClosing)
             <tr>
+                <td style="padding-right: 10px">{{ $loop->iteration }}</td>
                 <td>
                     <img src="{{ asset('img/profile.png') }}" />
                     <p>{{ $userClosing->name }}</p>
                 </td>
-                <td>{{ $userClosing->email }}</td>
+                <td style="padding: 0 10px;">{{ $userClosing->email }}</td>
+                <td>{{ $userClosing->closings->count() }}</td>
                 <td class="action">
                     <a href="{{ route('dashboard.closing.show', ['user' => $userClosing]) }}"><span class="status completed">Detail</span></a>
                 </td>

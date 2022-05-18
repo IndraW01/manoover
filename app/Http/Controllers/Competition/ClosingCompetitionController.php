@@ -25,11 +25,37 @@ class ClosingCompetitionController extends Controller
 
     public function detail()
     {
-        return view('user.closing.detail');
+        $closingSudah = Closing::whereStatus('sudah')->count();
+        $closingBelum = Closing::whereStatus('belum')->count();
+        $closingtolak = Closing::whereStatus('tolak')->count();
+
+        return view('user.closing.detail', [
+            'closingSudah' => $closingSudah,
+            'closingBelum' => $closingBelum,
+            'closingTolak' => $closingtolak,
+        ]);
     }
 
     public function create(int $stok)
     {
+        // dd($stok);
+        $allTikectCount = Closing::count();
+        $closingSudah = Closing::whereStatus('sudah')->count();
+        $closingBelum = Closing::whereStatus('belum')->count();
+        $closingtolak = Closing::whereStatus('tolak')->count();
+
+        if($closingSudah + $stok > 400) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 400 - $closingSudah);
+
+            return redirect('/dashboard-user');
+        }
+
+        if($closingSudah + $closingBelum + $stok > 400) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 400 - ($closingSudah + $closingBelum));
+
+            return redirect('/dashboard-user');
+        }
+
         // dd($stok);
         if(Auth::user()->closings->count() + $stok > 5) {
             Alert::error('Gagal', 'Tiket yang bisa anda beli sisa ' . 5 - Auth::user()->closings->count());

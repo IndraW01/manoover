@@ -141,6 +141,11 @@
           <div>
             <div class="topChild">
               <p class="name">Early Bird</p>
+              @if ($closingSudah >= 400)
+                <p class="info2">Slot Full</p>
+                @elseif ($closingSudah + $closingBelum >= 400)
+                <p class="info2">Full Booking</p>
+              @endif
             </div>
 
             <div class="line"></div>
@@ -196,6 +201,10 @@
 
 <script>
 
+    let closingSudah = parseInt("{{ $closingSudah }}");
+    let closingBelum = parseInt("{{ $closingBelum }}");
+    let closingTolak = parseInt("{{ $closingTolak }}");
+
 
   const counter = document.getElementById("counter");
   const Plus = document.getElementById("handleCounterPlus");
@@ -223,11 +232,24 @@
     }
     else{
 
-      location.href = "closing-ceremony/form/" + valueAll;
+        if(closingSudah >= 400) {
+            location.href = "#";
+        } else if(closingSudah + closingBelum >= 400) {
+            location.href = "#";
+        } else {
+            location.href = "closing-ceremony/form/" + valueAll;
+        }
     }
   });
 
 
+//   if(closingSudah >= 400) {
+
+//   } else if(closingSudah + closingBelum >= 400) {
+
+//   } else {
+
+//   }
   Plus.addEventListener("click", ()=> {
     if(valueAll < 5){
       counter.value = ++counterValue;

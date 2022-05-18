@@ -24,7 +24,7 @@ class ClosingFactory extends Factory
             'tipe' => 'early',
             'kode_unik' => $this->faker->unique()->bothify('MN####'),
             'bukti_pembayaran' => 'bukti-transaksi.png',
-            'status' => $this->faker->randomElement(['belum', 'sudah', 'tolak']),
+            'status' => $this->faker->randomElement(['belum', 'sudah']),
         ];
     }
 }

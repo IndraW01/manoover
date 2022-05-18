@@ -21,11 +21,6 @@ use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\DashboardUserController;
 
-// Tes Mail
-Route::get('/tes-mail', function() {
-    return view('admin.email.closing.success');
-});
-
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -158,8 +153,8 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
 Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closing.')->group(function() {
 
     Route::get('/', [ClosingCompetitionController::class, 'detail'])->name('detail');
-    Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[0-6]');
     // Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
+    Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[1-5]');
     Route::post('/form/{stok}', [ClosingCompetitionController::class, 'store'])->name('store');
     Route::get('/pembayaran/success', [ClosingCompetitionController::class, 'success'])->name('success');
     Route::get('/pembayaran', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
