@@ -72,7 +72,11 @@
  <div class="order">
    <div class="head">
      <h3>Pendaftar</h3>
-     <i class="bx bx-search"></i>
+     <form action="http://google.com">
+      <input id="myInputSearch" type="text" class="searchInput">
+      
+      <button type="submit" style="outline: none; border: none"><i class="bx bx-search"></i></button>
+     </form>
      <i class="bx bx-filter"></i>
    </div>
    <table>

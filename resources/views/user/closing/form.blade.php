@@ -108,7 +108,7 @@
     </div>
     @endfor
 
-    <button type="submit">Register Now</button>
+    <button type="submit">Buy Now</button>
   </form>
 </div>
 
