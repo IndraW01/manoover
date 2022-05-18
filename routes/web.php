@@ -157,7 +157,8 @@ Route::middleware(['auth', 'verified'])->prefix('/competition')->name('competiti
 Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closing.')->group(function() {
 
     Route::get('/', [ClosingCompetitionController::class, 'detail'])->name('detail');
-    Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[0-6]');
+    // Route::get('/form/{stok}', [ClosingCompetitionController::class, 'create'])->name('create')->where('stok', '[0-6]');
+    Route::get('/form', [ClosingCompetitionController::class, 'create'])->name('create');
     Route::post('/form', [ClosingCompetitionController::class, 'store'])->name('store');
     Route::get('/pembayaran/success', [ClosingCompetitionController::class, 'success'])->name('success');
     Route::get('/pembayaran/{closing:no_hp}', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');

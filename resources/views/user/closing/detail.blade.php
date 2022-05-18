@@ -10,15 +10,11 @@
     <div class="left">
       <p id="textPrice">Harga mulai dari</p>
       <h3>
-<<<<<<< HEAD
-        Rp.<input type="text" class="price" id="priceDinamis" value="700000">
-=======
         Rp<input type="text" class="price" readonly id="priceDinamis" value="0">
->>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
       </h3>
     </div>
     <div class="right">
-      <a href="{{ route('closing.create') }}"><button>Register Now</button></a>
+      <a href="#" id="buyNow"><button>Register Now</button></a>
     </div>
   </div>
 
@@ -134,69 +130,64 @@
           <li>Layla Wijaya: laylaawp</li>
         </ul>
       </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
 
 
-<<<<<<< HEAD
-   <div class="wrapTicket timeContent2 d-none" >
-     <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
-     <div class="right">
-       <div>
-        <div class="topChild">
-          <p class="name">Early Bird</p>
-          <p class="info">Available 330 Pax</p>
-=======
-   <div class=" timeContent2 d-none" >
-     <div class="wrapTicket">
+    <div class=" timeContent2 d-none" >
+      <div class="wrapTicket">
+        <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+        <div class="right">
+          <div>
+            <div class="topChild">
+              <p class="name">Early Bird</p>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="bottomChild">
+              <div class="leftChild" >
+                Rp 70,000
+                <input type="text" class="price d-none" id="price" readonly value="70000">
+              </div>
+              <div class="rightChild">
+                <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+                <input type="text" id="counter" value="0">
+                <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="wrapTicket">
       <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
       <div class="right">
         <div>
-         <div class="topChild">
-           <p class="name">Early Bird</p>
-         </div>
-         <div class="line"></div>
-         <div class="bottomChild">
-           <div class="leftChild" >
-             Rp 70,000
-             <input type="text" class="price d-none" id="price" readonly value="70000">
-           </div>
-           <div class="rightChild">
-             <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
-             <input type="text" id="counter" value="0">
-             <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
-           </div>
-         </div>
->>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
-        </div>
-        <div class="line"></div>
-        <div class="bottomChild">
-          <div class="leftChild" >
-            Rp.
-            <input type="text" class="price" id="price" value="700000">
+          <div class="topChild">
+            <p class="name">Early Bird</p>
+            <p class="info2">Coming Soon</p>
           </div>
-          <div class="rightChild">
-            <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
-            <input type="text" id="counter" value="0">
-            <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+
+          <div class="line"></div>
+
+          <div class="bottomChild">
+            <div class="leftChild" >
+            Coming Soon
+            </div>
+            <form action="{{ route('closing.create') }}" method="GET">
+                <div class="rightChild">
+                    <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+                    <input type="text" name="counter" id="counter" value="0">
+                    <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+                </div>
+            </form>
           </div>
         </div>
-       </div>
-     </div>
-   </div>
+      </div>
+    </div>
+  </div>
 
    <br><br><br>
 
@@ -220,22 +211,9 @@
   let counterValue = counter.value;
   let valueAll = 0 ;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
   var marker = document.querySelector("#marker");
   var timeContent1 = document.querySelector(".timeContent1");
   var timeContent2 = document.querySelector(".timeContent2");
-
-<<<<<<< HEAD
-  
-  
-=======
-
->>>>>>> 613e2ee21bd408e30b9d99617669c0cfe1fc1032
->>>>>>> 75732a5bb57f69ab077586b86b63013f2a891cbf
 
   buyNow.addEventListener("click", ()=> {
     if(valueAll <= 0){
@@ -247,14 +225,13 @@
     }
     else{
 
-      location.href = "{{ route('closing.create') }}";
+      location.href = `{{ route('closing.create'}}`;
     }
   });
->>>>>>> 94115e3a761c3d3d0180797791c12c00e7e69ab8
 
 
   Plus.addEventListener("click", ()=> {
-    if(valueAll < 6){
+    if(valueAll < 5){
       counter.value = ++counterValue;
       valueAll++;
 
@@ -264,6 +241,7 @@
 
       $("#priceDinamis").val(getComa);
       textPrice.innerHTML = "Harga tiket (" + valueAll + " tiket)";
+    //   counter.innerHTML = valueAll;
     }
 
     if(valueAll == 4){
@@ -290,7 +268,6 @@
       toastr.error("Minimal pembelian tiket untuk satu akun adalah 1 tiket");
     }
   });
-
 
 
 
