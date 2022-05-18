@@ -27,8 +27,9 @@ class ClosingCompetitionController extends Controller
         return view('user.closing.detail');
     }
 
-    public function create()
+    public function create(int $stok)
     {
+        dd($stok);
         return view('user.closing.form');
     }
 
@@ -54,7 +55,7 @@ class ClosingCompetitionController extends Controller
 
             // tambah data lomba closing
             $user = Auth::user();
-            $addUserClosing = $user->closing()->create($validateData);
+            $addUserClosing = $user->closings()->create($validateData);
 
             DB::commit();
 

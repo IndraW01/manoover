@@ -19,7 +19,7 @@
   </div>
 
   <div class="bottom">
-    
+
     <div class="timeLine">
       <div id="line"></div>
       <div id="marker"></div>
@@ -34,7 +34,7 @@
         <b>Deskirpsi Acara</b> <br />
         Merupakan salah satu rangkaian dalam The 3rd Manoover sebagai puncak segala    rangkaian The 3rd Manoover dengan penampilan dari Band Featuring,Guest Star,Special Performance,Penampilan Band dan lainnya. Management Closing Ceremony akan dilaksanakan di UTC Conventional Hall pada tanggal 30 Juli 2022
       </p>
-  
+
       <b>Terms & Condition</b> <br />
       <table>
         <tr>
@@ -116,7 +116,7 @@
       </table>
 
       <br><br>
-      
+
       <p>
         <b>Contact Person</b> <br />
         Whatsapp : <br>
@@ -130,22 +130,22 @@
           <li>Layla Wijaya: laylaawp</li>
         </ul>
       </p>
-      
-      
-      
-      
-      
-     
-      
-      
-      
-      
-      
-      
-     
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
-   
+
 
    <div class="wrapTicket timeContent2 d-none" >
      <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
@@ -180,7 +180,7 @@
 
 <script>
 
-  
+
   const counter = document.getElementById("counter");
   const Plus = document.getElementById("handleCounterPlus");
   const Minus = document.getElementById("handleCounterMin");
@@ -193,7 +193,7 @@
   let counterValue = counter.value;
   let valueAll = 0 ;
 
-  
+
 
   Plus.addEventListener("click", ()=> {
     if(valueAll < 6){
@@ -209,7 +209,7 @@
   Minus.addEventListener("click", ()=> {
     if(valueAll > 0){
       counter.value = --counterValue;
- 
+
       valueAll--;
 
       let hasil = price * valueAll;
@@ -220,7 +220,7 @@
       textPrice.innerHTML = "Harga mulai dari";
     }
   });
-  
+
 
 
 
