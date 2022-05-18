@@ -10,7 +10,7 @@
     <div class="left">
       <p id="textPrice">Harga mulai dari</p>
       <h3>
-        Rp<input type="text" class="price" readonly id="priceDinamis" value="{{number_format(70000)}}">
+        Rp<input type="text" class="price" readonly id="priceDinamis" value="0">
       </h3>
     </div>
     <div class="right">
@@ -141,13 +141,12 @@
         <div>
          <div class="topChild">
            <p class="name">Early Bird</p>
-           <p class="info">Available 330 Pax</p>
          </div>
          <div class="line"></div>
          <div class="bottomChild">
            <div class="leftChild" >
-             Rp
-             <input type="text" class="price" id="price" readonly value="{{number_format(70000)}}">
+             Rp 70,000
+             <input type="text" class="price d-none" id="price" readonly value="70000">
            </div>
            <div class="rightChild">
              <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
@@ -215,6 +214,7 @@
   var timeContent2 = document.querySelector(".timeContent2");
 
   
+  
 
   buyNow.addEventListener("click", ()=> {
     if(valueAll <= 0){
@@ -237,9 +237,17 @@
       valueAll++;
 
       let hasil = price * valueAll;
-      $("#priceDinamis").val(hasil);
+      var formatter = new Intl.NumberFormat('en-US');
+      let getComa = formatter.format(hasil);
+
+      $("#priceDinamis").val(getComa);
       textPrice.innerHTML = "Harga tiket (" + valueAll + " tiket)";
     }
+
+    if(valueAll == 4){
+      toastr.error("Maksimal pembelian tiket untuk satu akun adalah 5 tiket");
+    }
+
 
   });
   Minus.addEventListener("click", ()=> {
@@ -254,6 +262,10 @@
     }
     else{
       textPrice.innerHTML = "Harga mulai dari";
+    }
+
+    if(valueAll == 0){
+      toastr.error("Minimal pembelian tiket untuk satu akun adalah 1 tiket");
     }
   });
 
