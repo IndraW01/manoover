@@ -118,17 +118,17 @@ class ClosingCompetitionController extends Controller
     {
         $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->get();
 
-        if($userClosingsBelum->count() == 0) {
-            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+        // if($userClosingsBelum->count() == 0) {
+        //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
 
-            return redirect('/dashboard-user');
-        }
+        //     return redirect('/dashboard-user');
+        // }
 
-        if($userClosingsBelum->count() > 0 && $userClosingsBelum[$userClosingsBelum->count() - 1]) {
-            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+        // if($userClosingsBelum->count() > 0) {
+        //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
 
-            return redirect('/dashboard-user');
-        }
+        //     return redirect('/dashboard-user');
+        // }
 
         // dd($userClosingsBelum);
         if((Carbon::now() > $userClosingsBelum[$userClosingsBelum->count() - 1]->created_at->addDay())) {
