@@ -256,7 +256,7 @@
 <div class="tittle_Competition">Closing Ceremony</div>
 <ul class="box-info">
   <li>
-    <a class="flex" href="{{ route('dashboard.closing.index') }}">
+    <a class="flex" href="{{ route('dashboard.ticket') }}">
       <i class="bx bxs-group"></i>
       <span class="text">
         <h3>{{ $closing->count() }}</h3>
@@ -266,7 +266,7 @@
   </li>
 
  <li>
-  <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'belum']) }}">
+  <a class="flex" href="{{ route('dashboard.ticket', ['status' => 'belum']) }}">
    <i class="bx bxs-group"></i>
    <span class="text">
      <h3>{{ $closing->where('status', 'belum')->count() }}</h3>
@@ -276,21 +276,11 @@
  </li>
 
  <li>
-  <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'sudah']) }}">
+  <a class="flex" href="{{ route('dashboard.ticket', ['status' => 'sudah']) }}">
     <i class="bx  bxs-calendar-check"></i>
     <span class="text">
       <h3>{{ $closing->where('status', 'sudah')->count() }}</h3>
       <p>Telah Verifikasi</p>
-    </span>
-  </a>
- </li>
-
- <li>
-  <a class="flex" href="{{ route('dashboard.closing.index', ['status' => 'tolak']) }}">
-    <i class="bx bxs-error"></i>
-    <span class="text">
-      <h3>{{ $closing->where('status', 'tolak')->count() }}</h3>
-      <p>Di Tolak</p>
     </span>
   </a>
  </li>

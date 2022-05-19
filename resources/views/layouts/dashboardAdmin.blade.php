@@ -82,7 +82,7 @@
            <span class="text">Closing Ceremnoy</span>
          </a>
        </li>
-        <li class="{{ request()->routeIs('dashboard.ticket.*') ? 'active' : '' }}">
+        <li class="{{ request()->routeIs('dashboard.ticket') ? 'active' : '' }}">
          <a href="{{ route('dashboard.ticket') }}">
            <i class="bx bxs-shopping-bag-alt"></i>
            <span class="text">Ticket All</span>
