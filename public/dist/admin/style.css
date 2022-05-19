@@ -841,3 +841,69 @@ body {
     color: black;
     background: none;
 }
+
+/* -------------------------------- */
+
+.wrapTableAdmin {
+    overflow-x: auto;
+    padding: 0 8px;
+}
+.wrapTableAdmin .table {
+    width: 100%;
+}
+.wrapTableAdmin .table h2 {
+    color: #3c91e6;
+    padding-top: 20px;
+    font-size: 23px;
+    border: none;
+}
+.wrapTableAdmin .table .item {
+    display: flex;
+    padding: 15px 0;
+    border-top: 1px solid rgb(248, 246, 246);
+}
+.wrapTableAdmin .table .one {
+    width: 500px;
+}
+.wrapTableAdmin .table .two {
+    width: 10px;
+    padding-right: 10px;
+}
+.wrapTableAdmin .table .tree {
+    width: 500px;
+}
+
+.wrapTableAdmin .table .item .status {
+    font-size: 13px;
+    padding: 7px 16px;
+    color: var(--light);
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.wrapTableAdmin .table .item .status.destroy {
+    background: rgb(238, 27, 27);
+}
+.wrapTableAdmin .table .item .status.destroy.transparant {
+    background: rgb(247, 179, 179);
+    pointer-events: none;
+}
+.wrapTableAdmin .table .item .status.success {
+    background: rgb(21, 194, 44);
+}
+.wrapTableAdmin .table .item .status.success.transparant {
+    background: rgb(179, 247, 194);
+    pointer-events: none;
+}
+.wrapTableAdmin .table .item .status.pending {
+    background: var(--orange);
+}
+.wrapTableAdmin .table .item .status.completed {
+    background: var(--blue);
+}
+
+@media screen and (max-width: 615px) {
+    .wrapTableAdmin .table {
+        width: 500px;
+    }
+}

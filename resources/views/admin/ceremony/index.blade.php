@@ -80,28 +80,32 @@
      <i class="bx bx-filter"></i>
    </div>
    <table>
-     <thead>
-       <tr>
-         <th>User</th>
-         <th>Email</th>
-         <th>Detail Data Tiket</th>
-       </tr>
-     </thead>
-     <tbody>
-        @foreach ($userClosings as $userClosing)
-            <tr>
-                <td>
-                    <img src="{{ asset('img/profile.png') }}" />
-                    <p>{{ $userClosing->name }}</p>
-                </td>
-                <td>{{ $userClosing->email }}</td>
-                <td class="action">
-                    <a href="{{ route('dashboard.closing.show', ['user' => $userClosing]) }}"><span class="status completed">Detail</span></a>
-                </td>
-            </tr>
-        @endforeach
-     </tbody>
-   </table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>User</th>
+        <th>Email</th>
+        <th>Jumlah Tiket (Dibeli)</th>
+        <th style="padding: 0 10px;">Detail Data Tiket</th>
+      </tr>
+    </thead>
+    <tbody>
+       @foreach ($userClosings as $userClosing)
+           <tr>
+               <td style="padding-right: 10px">{{ $loop->iteration }}</td>
+               <td>
+                   <img src="{{ asset('img/profile.png') }}" />
+                   <p>{{ $userClosing->name }}</p>
+               </td>
+               <td style="padding: 0 10px;">{{ $userClosing->email }}</td>
+               <td>{{ $userClosing->closings->count() }}</td>
+               <td class="action">
+                   <a href="{{ route('dashboard.closing.show', ['user' => $userClosing]) }}"><span class="status completed">Detail</span></a>
+               </td>
+           </tr>
+       @endforeach
+    </tbody>
+  </table>
  </div>
 </div>
 

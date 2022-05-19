@@ -368,6 +368,13 @@ input::-webkit-file-upload-button {
     color: #55595c;
     font-size: 13px;
 }
+.wrapTicket .right .topChild .info3 {
+    background: #feead8;
+    border-radius: 10px;
+    padding: 5px;
+    color: #7c4a1d;
+    font-size: 13px;
+}
 
 .wrapTicket .right .bottomChild {
     display: flex;

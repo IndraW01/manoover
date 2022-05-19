@@ -1,4 +1,3 @@
-{{-- @dd($userClosingWaitings) --}}
 @extends('layouts.dashboardAdmin', ['title' => 'Manoover Closing Ceremony Audition | Detail'])
 
 @section('content')
@@ -29,43 +28,47 @@
         <h3>Detail Data Pembeli</h3>
         <i class="bx bx-filter"></i>
       </div>
-      <table>
-          <tr>
-            <td>
-              Nama
-            </td>
-            <td>:</td>
-            <td class="answer">{{ $user->name }} </td>
-          </tr>
-          <tr>
-            <td>
-              Email
-            </td>
-            <td>:</td>
-            <td class="answer">{{ $user->email }} </td>
-          </tr>
-          <tr>
-            <td>
-              No HP
-            </td>
-            <td>:</td>
-            <td class="answer">{{ $user->dataPendaftaran->no_hp }}</td>
-          </tr>
-          <tr>
-            <td>
-              No Identitas
-            </td>
-            <td>:</td>
-            <td class="answer">{{ $user->dataPendaftaran->no_identitas }}</td>
-          </tr>
-          <tr>
-            <td>
-              Kota Domisili
-            </td>
-            <td>:</td>
-            <td class="answer">{{ $user->dataPendaftaran->domisili }}</td>
-          </tr>
-      </table>
+
+      <div class="wrapTableAdmin">
+        <div class="table">
+          <div class="item">
+            <div class="one">Nama</div>
+            <div class="two"> : </div>
+            <div class="tree">{{ $user->name }} </div>
+          </div>
+          <div class="item">
+            <div class="one">Email</div>
+            <div class="two"> : </div>
+            <div class="tree">{{ $user->email }} </div>
+          </div>
+          <div class="item">
+            <div class="one">No HP</div>
+            <div class="two"> : </div>
+            <div class="tree">{{ $user->dataPendaftaran->no_hp }} </div>
+          </div>
+          <div class="item">
+            <div class="one">No Identitas</div>
+            <div class="two"> : </div>
+            <div class="tree">{{ $user->dataPendaftaran->no_identitas }} </div>
+          </div>
+          <div class="item">
+            <div class="one">Kota Domisili</div>
+            <div class="two"> : </div>
+            <div class="tree">{{ $user->dataPendaftaran->domisili }} </div>
+          </div>
+          {{-- <div class="item">
+            <div class="one">Identitas KTP/Kartu Pelajar</div>
+            <div class="two"> : </div>
+            <div class="tree">
+              <div>
+                <span data-bs-toggle="modal" data-bs-target="#kartuModal" class="status completed">Lihat</span>
+              <span class="status pending"><a href="#" class="text-white">Download</a></span>
+              </div>
+            </div>
+          </div> --}}
+        </div>
+      </div>
+
     </div>
    </div>
 
@@ -77,32 +80,22 @@
             <i class="bx bx-filter"></i>
           </div>
           @foreach ($userClosingSuccess as $userClosingSucces)
-          <div class="head">
-              <h5>Tiket</h5>
-          </div>
-          <table>
-              <tr>
-                <td>
-                  Nama
-                </td>
-                <td>:</td>
-                <td class="answer">{{ $userClosingSucces->nama }} </td>
-              </tr>
-              <tr>
-                <td>
-                  Email
-                </td>
-                <td>:</td>
-                <td class="answer">{{ $userClosingSucces->email }} </td>
-              </tr>
-              <tr>
-                <td>
-                  ID Invoice
-                </td>
-                <td>:</td>
-                <td class="answer">{{ $userClosingSucces->kode_unik }}</td>
-              </tr>
-          </table>
+            <h2>Tiket</h2>
+            <div class="item">
+              <div class="one">Nama</div>
+              <div class="two"> : </div>
+              <div class="tree">{{ $userClosingWaiting->nama }} </div>
+            </div>
+            <div class="item">
+              <div class="one">Email</div>
+              <div class="two"> : </div>
+              <div class="tree">{{ $userClosingWaiting->email }} </div>
+            </div>
+            <div class="item">
+              <div class="one">ID Invoice</div>
+              <div class="two"> : </div>
+              <div class="tree">{{ $userClosingWaiting->kode_unik }} </div>
+            </div>
           @endforeach
         </div>
        </div>
@@ -115,84 +108,89 @@
      <h3>Detail Pendaftar Waiting</h3>
      <i class="bx bx-filter"></i>
    </div>
-   @foreach ($userClosingWaitings as $userClosingWaiting)
-   <div class="head">
-       <h5>Tiket</h5>
-   </div>
-   <table>
-       <tr>
-         <td>
-           Nama
-         </td>
-         <td>:</td>
-         <td class="answer">{{ $userClosingWaiting->nama }} </td>
-       </tr>
-       <tr>
-         <td>
-           Email
-         </td>
-         <td>:</td>
-         <td class="answer">{{ $userClosingWaiting->email }} </td>
-       </tr>
-       <tr>
-         <td>
-           ID Invoice
-         </td>
-         <td>:</td>
-         <td class="answer">{{ $userClosingWaiting->kode_unik }}</td>
-       </tr>
-   </table>
-   @endforeach
+  
+   
+   <div class="wrapTableAdmin">
+    <div class="table">
+      @foreach ($userClosingWaitings as $userClosingWaiting)
+        <h2>Tiket</h2>
+        <div class="item">
+          <div class="one">Nama</div>
+          <div class="two"> : </div>
+          <div class="tree">{{ $userClosingWaiting->nama }} </div>
+        </div>
+        <div class="item">
+          <div class="one">Email</div>
+          <div class="two"> : </div>
+          <div class="tree">{{ $userClosingWaiting->email }} </div>
+        </div>
+        <div class="item">
+          <div class="one">ID Invoice</div>
+          <div class="two"> : </div>
+          <div class="tree">{{ $userClosingWaiting->kode_unik }} </div>
+        </div>
+      @endforeach
+    </div>
+  </div>
 
-   <table>
-       <tr>
-           <td>
-             Bukti Pembayaran
-           </td>
-           <td>:</td>
-           <td>
-              @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
+   
+
+   <br><br>
+   <div class="wrapTableAdmin">
+    <div class="table">
+      <div class="item">
+        <div class="one">Waktu Pembayaran</div>
+        <div class="two"> : </div>
+        <div class="tree">Waktu Tersisa <b><span class="countdown" value="{{$userClosingWaiting->created_at->addHours(24)}}"></span></b></div>
+      </div>
+      <div class="item">
+        <div class="one">Bukti Pembayaran</div>
+        <div class="two"> : </div>
+        <div class="tree">
+          @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
               <small class="notifBukti">Bukti Pembayaran belum di upload</small>
               @else
                   <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
                   <span class="status pending"><a href="{{ route('dashboard.closing.download.bukti', ['closing' => $userClosingWaitings[$userClosingWaitings->count() - 1]]) }}" class="text-white">Download</a></span>
-              @endif
-           </td>
-         </tr>
-         <tr>
-          <td>
-            Verifikasi
-          </td>
-          <td>:</td>
-          <td>
-              @if (($userClosingWaitings[$userClosingWaitings->count() - 1]->status == 'sudah') || ($userClosingWaitings[$userClosingWaitings->count() - 1]->status == 'tolak'))
-                <span class="status success transparant disabled">Verifikasi</span>
-                <span class="status destroy transparant disabled">Tolak</span>
+            @endif
+        </div>
+      </div>
+      <div class="item">
+        <div class="one">Verifikasi</div>
+        <div class="two"> : </div>
+        <div class="tree">
+          @if (($userClosingWaitings[$userClosingWaitings->count() - 1]->status == 'sudah') || ($userClosingWaitings[$userClosingWaitings->count() - 1]->status == 'tolak'))
+            <span class="status success transparant disabled">Verifikasi</span>
+            <span class="status destroy transparant disabled">Tolak</span>
+          @else
+              {{-- @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay()) --}}
+              @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
+              <span class="status success transparant">Verifikasi</span>
               @else
-                  {{-- @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay()) --}}
-                  @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
-                  <span class="status success transparant success">Verifikasi</span>
-                  @else
-                      <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>
-                  @endif
-                  <a href="{{ route('dashboard.closing.verifikasi.tolak', ['user' => $user]) }}"><span class="status destroy">Tolak</span></a>
+                  <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>
               @endif
+          <a href="{{ route('dashboard.closing.verifikasi.tolak', ['user' => $user]) }}"><span class="status destroy">Tolak</span></a>
+          @endif
+        </div>
+      </div>
+    </div>
+  </div>
 
-          </td>
-        </tr>
-   </table>
+
+   
  </div>
 </div>
 
+
   <!-- Modal -->
   {{-- <div class="modal fade" id="kartuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog xl">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
+          <embed type="application/pdf" src="{{ asset("berkas/". $user->dataPendaftaran->kartu_identitas) }}" width="800" height="600"></embed>
         </div>
       </div>
     </div>
