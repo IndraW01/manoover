@@ -151,12 +151,14 @@ class ClosingCompetitionController extends Controller
     public function pembayaran()
     {
         $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->get();
+        // dd($userClosingsBelum[0]->bukti_pembayaran);
+        $userClosingsBelumExists = Auth::user()->closings()->whereStatus('belum')->exists();
 
-        // if($userClosingsBelum->count() == 0) {
-        //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+        if(!$userClosingsBelumExists || $userClosingsBelum[0]->bukti_pembayaran != null) {
+            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
 
-        //     return redirect('/dashboard-user');
-        // }
+            return redirect('/dashboard-user');
+        }
 
         // if($userClosingsBelum->count() > 0) {
         //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
