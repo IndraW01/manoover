@@ -20,6 +20,7 @@ use App\Http\Controllers\Competition\PubgMobileCompetitionController;
 use App\Http\Controllers\Competition\ValorantCompetitionController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\TicketController;
 
 // Landing Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -82,6 +83,9 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
 
     // Crud Show Closing
     Route::get('closing/user/{user}', [ClosingController::class, 'show'])->name('closing.show');
+
+    // All Ticket
+    Route::get("/ticket-all", [TicketController::class, 'index'])->name('ticket');
 
     // All User
     Route::get('/user', [AdminUserController::class, 'index'])->name('user');
@@ -160,11 +164,4 @@ Route::middleware(['auth', 'verified'])->prefix('closing-ceremony')->name('closi
     Route::get('/pembayaran', [ClosingCompetitionController::class, 'pembayaran'])->name('pembayaran');
     Route::patch('/pembayaran', [ClosingCompetitionController::class, 'pembayaranProses'])->name('pembayaranProeses');
 
-});
-
-
-
-
-Route::get("/admin/ticket-all", function () {
-    return view('admin.ticketAll.index');
 });

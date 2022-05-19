@@ -34,20 +34,22 @@
         <th>User</th>
         <th>Email</th>
         <th>ID Invoice</th>
+        <th>Nama Pembeli</th>
        </tr>
      </thead>
      <tbody>
-        {{-- @foreach ($userClosings as $userClosing) --}}
+        @foreach ($tickets as $ticket)
             <tr>
-              <td style="padding-right: 10px">1</td>
+              <td style="padding-right: 10px">{{ $loop->iteration }}</td>
               <td>
                   <img src="{{ asset('img/profile.png') }}" />
-                  <p>jsjsj</p>
+                  <p>{{ $ticket->nama }}</p>
               </td>
-              <td style="padding: 0 10px;">jdjdjdjdjdjdjj@sjsjs.s</td>
-              <td>ksksksksk</td>
+              <td style="padding: 0 10px;">{{ $ticket->email }}</td>
+              <td style="padding: 0 10px;">{{ $ticket->kode_unik }}</td>
+              <td>{{ $ticket->user->name }}</td>
             </tr>
-        {{-- @endforeach --}}
+        @endforeach
      </tbody>
    </table>
  </div>
