@@ -77,18 +77,24 @@ trait ClosingTrait {
 
             $userClosings = $user->closings()->whereStatus('belum')->get();
 
-            foreach($userClosings as $userClosing) {
+            // kirim email tolak ke user
+            Mail::to($user->email)->send(new ClosingRejectVerification($userClosings[$userClosings->count() - 1]));
 
-                $userClosing->update([
-                    'status' => 'tolak'
-                ]);
+            // Hapus Data pendaftaran tiket
+            $user->closings()->whereStatus('belum')->delete();
 
-                Mail::to($userClosing->email)->send(new ClosingSuccessVerification($userClosing));
-            }
+            // foreach($userClosings as $userClosing) {
+
+            //     $userClosing->update([
+            //         'status' => 'tolak'
+            //     ]);
+
+            //     Mail::to($userClosing->email)->send(new ClosingSuccessVerification($userClosing));
+            // }
 
             DB::commit();
 
-            Alert::success('Berhasil', 'Verifikasi di Tolak');
+            Alert::success('Berhasil', 'Verifikasi di Tolak dan data dihapus');
 
             return redirect()->back();
 

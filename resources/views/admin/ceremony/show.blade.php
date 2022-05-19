@@ -108,6 +108,7 @@
      <h3>Detail Pendaftar Waiting</h3>
      <i class="bx bx-filter"></i>
    </div>
+<<<<<<< HEAD
   
    
    <div class="wrapTableAdmin">
@@ -148,6 +149,46 @@
         <div class="two"> : </div>
         <div class="tree">
           @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
+=======
+   @foreach ($userClosingWaitings as $userClosingWaiting)
+   <div class="head">
+       <h5>Tiket</h5>
+   </div>
+   <table>
+       <tr>
+         <td>
+           Nama
+         </td>
+         <td>:</td>
+         <td class="answer">{{ $userClosingWaiting->nama }} </td>
+       </tr>
+       <tr>
+         <td>
+           Email
+         </td>
+         <td>:</td>
+         <td class="answer">{{ $userClosingWaiting->email }} </td>
+       </tr>
+       <tr>
+         <td>
+           ID Invoice
+         </td>
+         <td>:</td>
+         <td class="answer">{{ $userClosingWaiting->kode_unik }}</td>
+       </tr>
+   </table>
+   @endforeach
+
+   {{-- @dd($userClosingWaiting) --}}
+   <table>
+       <tr>
+           <td>
+             Bukti Pembayaran
+           </td>
+           <td>:</td>
+           <td>
+              @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
+>>>>>>> 3007410f27f977f15339948329bebc86c761ef0c
               <small class="notifBukti">Bukti Pembayaran belum di upload</small>
               @else
                   <span data-bs-toggle="modal" data-bs-target="#exampleModal" class="status completed">Lihat</span>
@@ -167,7 +208,17 @@
               @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
               <span class="status success transparant">Verifikasi</span>
               @else
+<<<<<<< HEAD
                   <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>
+=======
+                  {{-- @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay()) --}}
+                  @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay())
+                  <span class="status success transparant success">Verifikasi</span>
+                  @else
+                      <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>
+                  @endif
+                  <a href="{{ route('dashboard.closing.verifikasi.tolak', ['user' => $user]) }}"><span class="status destroy">Tolak</span></a>
+>>>>>>> 3007410f27f977f15339948329bebc86c761ef0c
               @endif
           <a href="{{ route('dashboard.closing.verifikasi.tolak', ['user' => $user]) }}"><span class="status destroy">Tolak</span></a>
           @endif

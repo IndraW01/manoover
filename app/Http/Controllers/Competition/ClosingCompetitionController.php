@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Competition;
 
 use Exception;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Closing;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClosingRequest;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreClosingRequest;
 use App\Http\Requests\UpdateClosingRequest;
-use App\Models\Closing;
-use App\Models\User;
 
 class ClosingCompetitionController extends Controller
 {
@@ -25,11 +26,37 @@ class ClosingCompetitionController extends Controller
 
     public function detail()
     {
-        return view('user.closing.detail');
+        $closingSudah = Closing::whereStatus('sudah')->count();
+        $closingBelum = Closing::whereStatus('belum')->count();
+        $closingtolak = Closing::whereStatus('tolak')->count();
+
+        return view('user.closing.detail', [
+            'closingSudah' => $closingSudah,
+            'closingBelum' => $closingBelum,
+            'closingTolak' => $closingtolak,
+        ]);
     }
 
     public function create(int $stok)
     {
+        // dd($stok);
+        $allTikectCount = Closing::count();
+        $closingSudah = Closing::whereStatus('sudah')->count();
+        $closingBelum = Closing::whereStatus('belum')->count();
+        $closingtolak = Closing::whereStatus('tolak')->count();
+
+        if($closingSudah + $stok > 400) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 400 - $closingSudah);
+
+            return redirect('/dashboard-user');
+        }
+
+        if($closingSudah + $closingBelum + $stok > 400) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 400 - ($closingSudah + $closingBelum));
+
+            return redirect('/dashboard-user');
+        }
+
         // dd($stok);
         if(Auth::user()->closings->count() + $stok > 5) {
             Alert::error('Gagal', 'Tiket yang bisa anda beli sisa ' . 5 - Auth::user()->closings->count());
@@ -95,12 +122,19 @@ class ClosingCompetitionController extends Controller
             // tambah data lomba closing
             $user = Auth::user();
 
+            // Data Tiket urut
+            $tiketTerbaru = Closing::latest()->first()->kode_unik;
+            // dd($tiketTerbaru);
+            $kode = Str::after($tiketTerbaru, 'MNE-');
+
+            // dd($kode + 1);
+
             for($i = 1; $i <= $request->input('counter'); $i++) {
                 $user->closings()->create([
                     'nama' => $request->input('nama-'. $i),
                     'email' => $request->input('email-'. $i),
                     'tipe' => 'erly',
-                    'kode_unik' => 'MNE-' . Closing::all()->count() + 1,
+                    'kode_unik' => 'MNE-' . $kode + 1,
                 ]);
             }
 
@@ -117,12 +151,14 @@ class ClosingCompetitionController extends Controller
     public function pembayaran()
     {
         $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->get();
+        // dd($userClosingsBelum[0]->bukti_pembayaran);
+        $userClosingsBelumExists = Auth::user()->closings()->whereStatus('belum')->exists();
 
-        // if($userClosingsBelum->count() == 0) {
-        //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
+        if(!$userClosingsBelumExists || $userClosingsBelum[0]->bukti_pembayaran != null) {
+            Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
 
-        //     return redirect('/dashboard-user');
-        // }
+            return redirect('/dashboard-user');
+        }
 
         // if($userClosingsBelum->count() > 0) {
         //     Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');

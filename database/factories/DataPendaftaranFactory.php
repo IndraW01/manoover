@@ -18,7 +18,7 @@ class DataPendaftaranFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->randomElement(User::has('closings')->pluck('id')->toArray()),
+            'user_id' => User::factory(),
             'no_identitas' => $this->faker->slug,
             'no_hp' => $this->faker->phoneNumber(),
             'domisili' => $this->faker->streetName(),

@@ -15,6 +15,6 @@ class ClosingSeeder extends Seeder
      */
     public function run()
     {
-        return User::factory()->count(5)->hasClosings(3)->create();
+        return User::factory()->count(200)->hasClosings(2)->create();
     }
 }
