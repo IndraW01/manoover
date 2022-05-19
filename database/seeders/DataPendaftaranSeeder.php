@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\DataPendaftaran;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,6 @@ class DataPendaftaranSeeder extends Seeder
      */
     public function run()
     {
-        return DataPendaftaran::factory()->count(5)->create();
+        return User::factory()->count(10)->hasDataPendaftaran()->hasClosings(3)->create();
     }
 }

@@ -144,6 +144,7 @@
    </table>
    @endforeach
 
+   {{-- @dd($userClosingWaiting) --}}
    <table>
        <tr>
            <td>
@@ -170,7 +171,7 @@
                 <span class="status destroy transparant disabled">Tolak</span>
               @else
                   {{-- @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay()) --}}
-                  @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran)
+                  @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay())
                   <span class="status success transparant success">Verifikasi</span>
                   @else
                       <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>
