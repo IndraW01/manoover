@@ -15,7 +15,7 @@ class DashboardUserController extends Controller
         $futsal = Auth::user()->futsal;
         $band = Auth::user()->band;
         $closing = Auth::user()->closings()->whereStatus('sudah')->get();
-        $bayarClosing = Auth::user()->closings()->whereStatus('belum')->get();
+        $bayarClosing = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->get();
 
         // dd($bayarClosing)
         // $myTickets = Auth::user()-
@@ -33,7 +33,7 @@ class DashboardUserController extends Controller
 
     public function myTickets()
     {
-        $myTickets = Auth::user()->closings;
+        $myTickets = Auth::user()->closings()->whereStatus('sudah')->get();
         $myData = Auth::user()->dataPendaftaran;
 
         return view('layouts.myTicket', [

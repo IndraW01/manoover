@@ -75,13 +75,13 @@ trait ClosingTrait {
 
             DB::beginTransaction();
 
-            $userClosings = $user->closings()->whereStatus('belum')->get();
+            $userClosings = $user->closings()->whereStatus('belum')->whereTipe('ps1')->get();
 
             // kirim email tolak ke user
             Mail::to($user->email)->send(new ClosingRejectVerification($userClosings[$userClosings->count() - 1]));
 
             // Hapus Data pendaftaran tiket
-            $user->closings()->whereStatus('belum')->delete();
+            $user->closings()->whereStatus('belum')->whereTipe('ps1')->delete();
 
             // foreach($userClosings as $userClosing) {
 
@@ -98,7 +98,8 @@ trait ClosingTrait {
 
             return redirect()->back();
 
-        }catch(Exception) {
+        }catch(Exception $e) {
+            dd($e->getMessage());
             DB::rollBack();
 
             Alert::error('Gagal', 'Verifikasi Gagal di Tolak');

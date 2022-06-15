@@ -79,7 +79,13 @@
         <li class="{{ request()->routeIs('dashboard.closing.*') ? 'active' : '' }}">
          <a href="{{ route('dashboard.closing.index') }}">
            <i class="bx bxs-shopping-bag-alt"></i>
-           <span class="text">Closing Ceremnoy</span>
+           <span class="text">Closing Ceremnoy Early Bird</span>
+         </a>
+       </li>
+        <li class="{{ request()->routeIs('dashboard.closing.presale1') ? 'active' : '' }}">
+         <a href="{{ route('dashboard.closing.presale1') }}">
+           <i class="bx bxs-shopping-bag-alt"></i>
+           <span class="text">Closing Ceremnoy Presale 1</span>
          </a>
        </li>
         <li class="{{ request()->routeIs('dashboard.ticket') ? 'active' : '' }}">

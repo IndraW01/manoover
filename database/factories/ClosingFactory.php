@@ -20,8 +20,8 @@ class ClosingFactory extends Factory
         return [
             'user_id' => User::factory(),
             'nama' => $this->faker->name(),
-            'email' => $this->faker->email(),
-            'tipe' => 'early',
+            'email' => $this->faker->unique()->email(),
+            'tipe' => 'ps1',
             'kode_unik' => $this->faker->unique()->bothify('MN####'),
             'bukti_pembayaran' => 'bukti-transaksi.png',
             'status' => $this->faker->randomElement(['belum', 'sudah']),

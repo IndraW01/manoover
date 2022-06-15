@@ -32,7 +32,7 @@
  </div>
 
  <p>
-   Bayar biaya pendaftaran dengan total pembayaran <b>Rp {{ 70 * $counter }}.000</b> ke salah satu
+   Bayar biaya pendaftaran dengan total pembayaran <b>Rp {{ 125 * $counter }}.000</b> ke salah satu
    pilihan pembayaran di atas.
  </p>
 
@@ -45,7 +45,7 @@
  </p>
  <p>Segera selesaikan pembayaran dalam waktu <b>1x24 jam</b></p>
 
- <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$userClosing->created_at->addHours(24)}}"></span></b></div>
+ <div class="time">Waktu Tersisa <b><span class="countdown" value="{{$userClosing->created_at->addHours(5)}}"></span></b></div>
 
  <form action="{{ route('closing.pembayaranProeses') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
      @csrf

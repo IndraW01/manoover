@@ -1,3 +1,4 @@
+{{-- @dd($userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addHours(5)) --}}
 @extends('layouts.dashboardAdmin', ['title' => 'Manoover Closing Ceremony Audition | Detail'])
 
 @section('content')
@@ -56,21 +57,35 @@
             <div class="two"> : </div>
             <div class="tree">{{ $user->dataPendaftaran->domisili }} </div>
           </div>
-          {{-- <div class="item">
+          <div class="item">
             <div class="one">Identitas KTP/Kartu Pelajar</div>
             <div class="two"> : </div>
             <div class="tree">
               <div>
                 <span data-bs-toggle="modal" data-bs-target="#kartuModal" class="status completed">Lihat</span>
-              <span class="status pending"><a href="#" class="text-white">Download</a></span>
+                {{-- <span class="status pending"><a href="{{ route('dashboard.closing.download.identitas', ['closing' => $user]) }}" class="text-white">Download</a></span> --}}
               </div>
             </div>
-          </div> --}}
+          </div>
         </div>
       </div>
 
     </div>
    </div>
+   <!-- Modal -->
+  <div class="modal fade" id="kartuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <embed type="application/pdf" src="{{ asset("berkas/". $user->dataPendaftaran->kartu_identitas) }}" width="800" height="600"></embed>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 @if ($userClosingSuccess->count() > 0)
     <div class="table-data">
@@ -97,8 +112,36 @@
               <div class="tree">{{ $userClosingSucces->kode_unik }} </div>
             </div>
           @endforeach
+          <br><br>
+      <div class="wrapTableAdmin">
+       <div class="table">
+         <div class="item">
+           <div class="one">Bukti Pembayaran</div>
+           <div class="two"> : </div>
+           <div class="tree">
+               <span data-bs-toggle="modal" data-bs-target="#exampleModalSuccess" class="status completed">Lihat</span>
+               <span class="status pending"><a href="{{ route('dashboard.closing.download.bukti', ['closing' => $userClosingSuccess[$userClosingSuccess->count() - 1]]) }}" class="text-white">Download</a></span>
+           </div>
+         </div>
+       </div>
+     </div>
         </div>
        </div>
+
+       <!-- Modal -->
+  <div class="modal fade" id="exampleModalSuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="{{asset("img/" . $userClosingSuccess[$userClosingSuccess->count() - 1]->bukti_pembayaran)}}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endif
 
 @if ($userClosingWaitings->count() > 0)
@@ -141,7 +184,7 @@
       <div class="item">
         <div class="one">Waktu Pembayaran</div>
         <div class="two"> : </div>
-        <div class="tree">Waktu Tersisa <b><span class="countdown" value="{{$userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addHours(24)}}"></span></b></div>
+        <div class="tree">Waktu Tersisa <b><span class="countdown" value="{{$userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addHours(5)}}"></span></b></div>
       </div>
       <div class="item">
         <div class="one">Bukti Pembayaran</div>
@@ -164,7 +207,7 @@
             <span class="status destroy transparant disabled">Tolak</span>
           @else
               {{-- @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay()) --}}
-              @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addDay())
+              @if (!$userClosingWaitings[$userClosingWaitings->count() - 1]->bukti_pembayaran || Carbon\Carbon::now() > $userClosingWaitings[$userClosingWaitings->count() - 1]->created_at->addHours(5))
               <span class="status success transparant">Verifikasi</span>
               @else
                   <a href="{{ route('dashboard.closing.verifikasi.berhasil', ['user' => $user]) }}" ><span class="status success">Verifikasi</span></a>

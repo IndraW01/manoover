@@ -25,7 +25,7 @@
             <span onclick="DetailTiket()">Tiket</span>
         </div>
 
-      @if($pubg == null and $valorant == null and $mobileLegend == null and $futsal == null and $band == null and $closing== null )
+      @if($pubg == null and $valorant == null and $mobileLegend == null and $futsal == null and $band == null and auth()->closings == null )
         <center><p style="color: white">Belum ada pembayaran</p></center>
       @endif
 
@@ -191,7 +191,7 @@
                     <img src="{{ asset('dist/landingPage/image/band2.svg') }}" alt="">
                     <div class="info">
                         <div class="name">Closing Ceremony</div>
-                        <div class="price">Total Pembayaran : Rp {{ 70 * $bayarClosing->count() }}.000</div>
+                        <div class="price">Total Pembayaran : Rp {{ 125 * $bayarClosing->count() }}.000</div>
                         @if ($bayarClosing[$bayarClosing->count() - 1]->bukti_pembayaran)
                             <div class="status sudah">Pembayaran selesai</div>
                         @else
@@ -203,8 +203,9 @@
                     @if ($bayarClosing[$bayarClosing->count() - 1]->bukti_pembayaran)
                         <div class="timeNow">Tanggal bayar : 10 Mei 2022</div>
                     @else
-                        <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$bayarClosing[$bayarClosing->count() - 1]->created_at->addHours(24)}}"></span></div>
-                        @if ((Carbon\Carbon::now() > $bayarClosing[$bayarClosing->count() - 1]->created_at->addDay()))
+                        <div class="timeNow">Pembayaran akan hangus dalam <span class="countdown" value="{{$bayarClosing[$bayarClosing->count() - 1]->created_at->addHours(5)}}"></span></div>
+                        {{-- @dump($bayarClosing[$bayarClosing->count() - 1]->created_at->addHours(5)); --}}
+                        @if ((Carbon\Carbon::now() > $bayarClosing[$bayarClosing->count() - 1]->created_at->addHours(5)))
                             <a  href="#"><button class="buyNowCancel">Waktu Habis</button></a>
                         @else
                             <a  href="{{ route('closing.pembayaran') }}"><button class="buyNow">Bayar Sekarang</button></a>
@@ -222,7 +223,7 @@
             <div class="right">
             <div>
             <div class="topChild">
-                <p class="name">Early Bird</p>
+                <p class="name">Presale 1</p>
             </div>
             <div class="line"></div>
             <div class="bottomChild">

@@ -39,6 +39,23 @@ class ClosingController extends Controller
         ]);
     }
 
+    public function presale1()
+    {
+        // dd(User::whereHas('closings', function($query) {
+        //     $query->whereTipe('ps1');
+        // })->orderBy(
+        //     Closing::select('created_at')->whereColumn('user_id', 'users.id')->orderBy('created_at')->limit(1)
+        // )->get());
+
+        return view('admin.ceremony.presale1', [
+            'userClosings' => User::whereHas('closings', function($query) {
+                $query->whereTipe('ps1');
+            })->orderBy(
+                Closing::select('created_at')->whereColumn('user_id', 'users.id')->orderBy('created_at')->limit(1)
+            )->get(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -69,7 +86,7 @@ class ClosingController extends Controller
     public function show(User $user)
     {
         return view('admin.ceremony.show', [
-            'userClosingWaitings' => $user->closings()->whereStatus('belum')->get(),
+            'userClosingWaitings' => $user->closings()->whereStatus('belum')->whereTipe('ps1')->get(),
             'userClosingSuccess' => $user->closings()->whereStatus('sudah')->get(),
             'user' => $user
         ]);

@@ -24,7 +24,7 @@
      <div class="right">
      <div>
       <div class="topChild">
-       <p class="name">Early Bird</p>
+       <p class="name">Presale 1</p>
       </div>
 
       <div class="line"></div>

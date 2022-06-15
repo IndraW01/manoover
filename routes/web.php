@@ -76,6 +76,10 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
     Route::resource('/pubg', PubgMobileController::class)->names('pubg');
     // Crud Futsal
     Route::resource('/futsal', FutsalController::class)->names('futsal');
+
+    // Crud index presale 1
+    Route::get('closing/presale1', [ClosingController::class, 'presale1'])->name('closing.presale1');
+
     // Crud Closing
     Route::resource('/closing', ClosingController::class)->names('closing')->except(['show']);
     // Crud Band

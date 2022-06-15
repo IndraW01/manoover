@@ -217,6 +217,7 @@
               <p class="contentEvent11  d-none">Management Closing Ceremony</p>
               <p class="contentEvent21 d-none">Is the highlight of all Manoover series with performances from Band Featuring, Guest Star, Special Performance, Band Performance and others. Management Closing Ceremony was held on July 30th, 2022. </p>
               <a href="{{ route('closing.detail') }}" class="contentEvent31 d-none"><button>Register Now</button></a>
+              {{-- <a href="#" class="contentEvent31 d-none"><button>Register Now</button></a> --}}
             </div>
           </div>
          </div>
@@ -349,7 +350,7 @@
 
       <section class="six" id="six">
         <div class="wrap">
-         
+
          <p>Media Partner :</p>
          <div class="support">
              <div class="list"><img src="{{ asset('dist/landingPage/image2/one1.svg') }}" alt=""></div>
@@ -360,9 +361,9 @@
          <div class="support">
              <div class="list"><img src="{{ asset('dist/landingPage/image2/two1.svg') }}" alt=""></div>
          </div>
-         
+
          <br/><br/>
-         
+
          <div class="media">
           <div class="list"><img src="{{ asset('dist/landingPage/image/bottom1.svg') }}" alt=""></div>
           <div class="list"><img src="{{ asset('dist/landingPage/image/bottom2.svg') }}" alt=""></div>
