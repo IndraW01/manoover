@@ -79,9 +79,11 @@ Route::middleware(['auth', 'admin'])->prefix('/dashboard-admin')->name('dashboar
 
     // Crud index presale 1
     Route::get('closing/presale1', [ClosingController::class, 'presale1'])->name('closing.presale1');
-
+    // Crud index presale 2
+    Route::get('closing/presale2', [ClosingController::class, 'presale2'])->name('closing.presale2');
     // Crud Closing
     Route::resource('/closing', ClosingController::class)->names('closing')->except(['show']);
+
     // Crud Band
     Route::resource('/band', BandController::class)->names('band');
 

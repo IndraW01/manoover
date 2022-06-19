@@ -24,7 +24,7 @@
      <div class="right">
      <div>
       <div class="topChild">
-       <p class="name">Presale 1</p>
+       <p class="name">All Ticket</p>
       </div>
 
       <div class="line"></div>

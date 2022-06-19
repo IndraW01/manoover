@@ -26,9 +26,9 @@ class ClosingCompetitionController extends Controller
 
     public function detail()
     {
-        $closingSudah = Closing::whereStatus('sudah')->whereTipe('ps1')->count();
-        $closingBelum = Closing::whereStatus('belum')->whereTipe('ps1')->count();
-        $closingtolak = Closing::whereStatus('tolak')->whereTipe('ps1')  ->count();
+        $closingSudah = Closing::whereStatus('sudah')->whereTipe('ps2')->count();
+        $closingBelum = Closing::whereStatus('belum')->whereTipe('ps2')->count();
+        $closingtolak = Closing::whereStatus('tolak')->whereTipe('ps2')->count();
 
         return view('user.closing.detail', [
             'closingSudah' => $closingSudah,
@@ -40,19 +40,19 @@ class ClosingCompetitionController extends Controller
     public function create(int $stok)
     {
         // dd($stok);
-        $allTikectCount = Closing::whereTipe('ps1')->count();
-        $closingSudah = Closing::whereStatus('sudah')->whereTipe('ps1')->count();
-        $closingBelum = Closing::whereStatus('belum')->whereTipe('ps1')->count();
-        $closingtolak = Closing::whereStatus('tolak')->whereTipe('ps1')->count();
+        $allTikectCount = Closing::whereTipe('ps2')->count();
+        $closingSudah = Closing::whereStatus('sudah')->whereTipe('ps2')->count();
+        $closingBelum = Closing::whereStatus('belum')->whereTipe('ps2')->count();
+        $closingtolak = Closing::whereStatus('tolak')->whereTipe('ps2')->count();
 
-        if($closingSudah + $stok > 1250) {
-            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 1250 - $closingSudah);
+        if($closingSudah + $stok > 500) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 500 - $closingSudah);
 
             return redirect('/dashboard-user');
         }
 
-        if($closingSudah + $closingBelum + $stok > 1250) {
-            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 1250 - ($closingSudah + $closingBelum));
+        if($closingSudah + $closingBelum + $stok > 500) {
+            Alert::error('Gagal', 'Stok Tiket Habis, sisa stok tinggal ' . 500 - ($closingSudah + $closingBelum));
 
             return redirect('/dashboard-user');
         }
@@ -64,7 +64,7 @@ class ClosingCompetitionController extends Controller
             return redirect('/dashboard-user');
         }
 
-        if(Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->get()->count() > 0) {
+        if(Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->get()->count() > 0) {
 
             // if(Auth::user()->closings()->whereStatus('belum')->first()->bukti_pembayaran) {
             //     Alert::error('Gagal', 'Tunggu Tiket Di Verifikasi');
@@ -86,7 +86,7 @@ class ClosingCompetitionController extends Controller
     {
         // dd($request->safe()->except(['no_identitas', 'no_hp', 'domisili', 'kartu_identitas']));
 
-        if(Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->get()->count() > 0) {
+        if(Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->get()->count() > 0) {
             // if(Auth::user()->closings()->whereStatus('belum')->first()->bukti_pembayaran ?? false) {
             //     Alert::error('Gagal', 'Tunggu Tiket Di Verifikasi');
 
@@ -125,7 +125,7 @@ class ClosingCompetitionController extends Controller
             // Data Tiket urut
             $tiketTerbaru = Closing::latest()->first()->kode_unik;
             // dd($tiketTerbaru);
-            $kode = Str::after($tiketTerbaru, 'MNPS1-');
+            $kode = Str::after($tiketTerbaru, 'MNPS2-');
 
             // dd($kode + 1);
 
@@ -135,8 +135,8 @@ class ClosingCompetitionController extends Controller
                 $user->closings()->create([
                     'nama' => $request->input('nama-'. $i),
                     'email' => $request->input('email-'. $i),
-                    'tipe' => 'ps1',
-                    'kode_unik' => 'MNPS1-' . (int) $kode + (int) $counter,
+                    'tipe' => 'ps2',
+                    'kode_unik' => 'MNPS2-' . (int) $kode + (int) $counter,
                 ]);
 
                 $counter--;
@@ -154,9 +154,9 @@ class ClosingCompetitionController extends Controller
 
     public function pembayaran()
     {
-        $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->get();
+        $userClosingsBelum = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->get();
         // dd($userClosingsBelum[0]->bukti_pembayaran);
-        $userClosingsBelumExists = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->exists();
+        $userClosingsBelumExists = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->exists();
 
         if(!$userClosingsBelumExists || $userClosingsBelum[0]->bukti_pembayaran != null) {
             Alert::error('Gagal', 'Pembayaran Tiket Tidak Ada');
@@ -192,7 +192,7 @@ class ClosingCompetitionController extends Controller
             $extFile = $request->bukti_pembayaran->getClientOriginalExtension();
             $namaFile = 'bukti-pembayaran-'.time().".".$extFile;
 
-            Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->update([
+            Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->update([
                 'bukti_pembayaran' => $namaFile
             ]);
 

@@ -34,7 +34,7 @@ class StoreClosingRequest extends FormRequest
         $data['no_identitas'] = 'required';
         $data['no_hp'] = 'required';
         $data['domisili'] = 'required';
-        $data['kartu_identitas'] = 'required|file|max:2000|mimes:pdf';
+        $data['kartu_identitas'] = 'required|file|max:2000|mimes:pdf,jpg,png,jpeg';
 
         return $data;
     }

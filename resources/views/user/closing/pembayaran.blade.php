@@ -32,7 +32,7 @@
  </div>
 
  <p>
-   Bayar biaya pendaftaran dengan total pembayaran <b>Rp {{ 125 * $counter }}.000</b> ke salah satu
+   Bayar biaya pendaftaran dengan total pembayaran <b>Rp {{ 165 * $counter }}.000</b> ke salah satu
    pilihan pembayaran di atas.
  </p>
 

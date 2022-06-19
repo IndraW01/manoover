@@ -76,7 +76,7 @@
         </li>
         <div class="tittle">Management Events</div>
 
-        <li class="{{ request()->routeIs('dashboard.closing.*') ? 'active' : '' }}">
+        <li class="{{ request()->routeIs('dashboard.closing.index') ? 'active' : '' }}">
          <a href="{{ route('dashboard.closing.index') }}">
            <i class="bx bxs-shopping-bag-alt"></i>
            <span class="text">Closing Ceremnoy Early Bird</span>
@@ -86,6 +86,12 @@
          <a href="{{ route('dashboard.closing.presale1') }}">
            <i class="bx bxs-shopping-bag-alt"></i>
            <span class="text">Closing Ceremnoy Presale 1</span>
+         </a>
+       </li>
+        <li class="{{ request()->routeIs('dashboard.closing.presale2') ? 'active' : '' }}">
+         <a href="{{ route('dashboard.closing.presale2') }}">
+           <i class="bx bxs-shopping-bag-alt"></i>
+           <span class="text">Closing Ceremnoy Presale 2</span>
          </a>
        </li>
         <li class="{{ request()->routeIs('dashboard.ticket') ? 'active' : '' }}">

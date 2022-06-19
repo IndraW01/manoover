@@ -15,7 +15,7 @@ class DashboardUserController extends Controller
         $futsal = Auth::user()->futsal;
         $band = Auth::user()->band;
         $closing = Auth::user()->closings()->whereStatus('sudah')->get();
-        $bayarClosing = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps1')->get();
+        $bayarClosing = Auth::user()->closings()->whereStatus('belum')->whereTipe('ps2')->get();
 
         // dd($bayarClosing)
         // $myTickets = Auth::user()-

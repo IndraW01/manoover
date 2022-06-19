@@ -140,10 +140,10 @@
         <div class="right">
           <div>
             <div class="topChild">
-              <p class="name">Presale 1</p>
-              @if ($closingSudah >= 1250)
+              <p class="name">Presale 2</p>
+              @if ($closingSudah >= 500)
                 <p class="info2">Slot Full</p>
-                @elseif ($closingSudah + $closingBelum >= 1250)
+                @elseif ($closingSudah + $closingBelum >= 500)
                 <p class="info2">Full Booking</p>
               @endif
             </div>
@@ -152,8 +152,8 @@
 
             <div class="bottomChild">
               <div class="leftChild" >
-                Rp 125,000
-                <input type="text" class="price d-none" id="price" readonly value="125000">
+                Rp 165,000
+                <input type="text" class="price d-none" id="price" readonly value="165000">
               </div>
               <div class="rightChild">
                 <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
@@ -165,6 +165,53 @@
         </div>
       </div>
 
+      <div class="wrapTicket">
+        <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+        <div class="right">
+          <div>
+            <div class="topChild">
+              <p class="name">Presale 1</p>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="bottomChild">
+              <div class="leftChild" >
+              Slot Full
+              </div>
+              <div class="rightChild">
+                <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+                <input type="text" id="counter" value="0">
+                <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapTicket">
+        <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
+        <div class="right">
+          <div>
+            <div class="topChild">
+              <p class="name">Presale 2</p>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="bottomChild">
+              <div class="leftChild" >
+              Slot Full
+              </div>
+              <div class="rightChild">
+                <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
+                <input type="text" id="counter" value="0">
+                <img src="dist/user/image/TombolTambah.svg" id="handleCounterPlus" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div class="wrapTicket">
       <div class="left"><img src="dist/user/image/ticket.svg" alt=""></div>
@@ -189,6 +236,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
    <br><br><br>
@@ -231,9 +279,9 @@
     }
     else{
 
-        if(closingSudah >= 1250) {
+        if(closingSudah >= 500) {
             location.href = "#";
-        } else if(closingSudah + closingBelum >= 1250) {
+        } else if(closingSudah + closingBelum >= 500) {
             location.href = "#";
         } else {
             location.href = "closing-ceremony/form/" + valueAll;
