@@ -94,6 +94,12 @@
            <span class="text">Closing Ceremnoy Presale 2</span>
          </a>
        </li>
+        <li class="{{ request()->routeIs('dashboard.closing.normal') ? 'active' : '' }}">
+         <a href="{{ route('dashboard.closing.normal') }}">
+           <i class="bx bxs-shopping-bag-alt"></i>
+           <span class="text">Closing Ceremnoy Normal</span>
+         </a>
+       </li>
         <li class="{{ request()->routeIs('dashboard.ticket') ? 'active' : '' }}">
          <a href="{{ route('dashboard.ticket') }}">
            <i class="bx bxs-shopping-bag-alt"></i>

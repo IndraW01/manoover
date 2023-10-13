@@ -75,13 +75,13 @@ trait ClosingTrait {
 
             DB::beginTransaction();
 
-            $userClosings = $user->closings()->whereStatus('belum')->whereTipe('ps2')->get();
+            $userClosings = $user->closings()->whereStatus('belum')->whereTipe('normal')->get();
 
             // kirim email tolak ke user
             Mail::to($user->email)->send(new ClosingRejectVerification($userClosings[$userClosings->count() - 1]));
 
             // Hapus Data pendaftaran tiket
-            $user->closings()->whereStatus('belum')->whereTipe('ps2')->delete();
+            $user->closings()->whereStatus('belum')->whereTipe('normal')->delete();
 
             // foreach($userClosings as $userClosing) {
 

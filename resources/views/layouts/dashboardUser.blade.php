@@ -191,7 +191,7 @@
                     <img src="{{ asset('dist/landingPage/image/band2.svg') }}" alt="">
                     <div class="info">
                         <div class="name">Closing Ceremony</div>
-                        <div class="price">Total Pembayaran : Rp {{ 165 * $bayarClosing->count() }}.000</div>
+                        <div class="price">Total Pembayaran : Rp {{ 200 * $bayarClosing->count() }}.000</div>
                         @if ($bayarClosing[$bayarClosing->count() - 1]->bukti_pembayaran)
                             <div class="status sudah">Pembayaran selesai</div>
                         @else

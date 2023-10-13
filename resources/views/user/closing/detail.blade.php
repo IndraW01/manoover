@@ -140,10 +140,10 @@
         <div class="right">
           <div>
             <div class="topChild">
-              <p class="name">Presale 2</p>
-              @if ($closingSudah >= 500)
+              <p class="name">Normal</p>
+              @if ($closingSudah >= 1586)
                 <p class="info2">Slot Full</p>
-                @elseif ($closingSudah + $closingBelum >= 500)
+                @elseif ($closingSudah + $closingBelum >= 1586)
                 <p class="info2">Full Booking</p>
               @endif
             </div>
@@ -152,8 +152,8 @@
 
             <div class="bottomChild">
               <div class="leftChild" >
-                Rp 165,000
-                <input type="text" class="price d-none" id="price" readonly value="165000">
+                Rp 200,000
+                <input type="text" class="price d-none" id="price" readonly value="200000">
               </div>
               <div class="rightChild">
                 <img src="dist/user/image/TombolKurang.svg" id="handleCounterMin" alt="">
@@ -279,9 +279,9 @@
     }
     else{
 
-        if(closingSudah >= 500) {
+        if(closingSudah >= 1586) {
             location.href = "#";
-        } else if(closingSudah + closingBelum >= 500) {
+        } else if(closingSudah + closingBelum >= 1586) {
             location.href = "#";
         } else {
             location.href = "closing-ceremony/form/" + valueAll;
